@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import re
 from dataclasses import dataclass, field
 from urllib.parse import quote
 
@@ -61,6 +62,33 @@ def _entry_to_article(e, source: str, country: str, lang: str) -> Article | None
                    source=src, country=country, lang=lang, _tokens=token_set(title))
 
 
+# A few names need an explicit exclusion so a longer name doesn't trigger them.
+_ATTR_EXCLUSIONS = {"Sudan": ["South Sudan"]}
+
+
+def _match_countries(title: str, names: list, aliases: dict) -> list:
+    """Attribute a pan-regional headline to tracked countries by WHOLE-WORD match.
+
+    A bare substring match over-attributes — "woman"/"Romania" both contain
+    "oman", "South Sudan" contains "Sudan" (METHODOLOGY_REVIEW F2). Word
+    boundaries plus a small exclusion map fix that without losing real mentions.
+    """
+    low = (title or "").lower()
+    matched = []
+    for name in names:
+        probe = low
+        for ex in _ATTR_EXCLUSIONS.get(name, []):
+            probe = probe.replace(ex.lower(), " ")
+        if re.search(r"\b" + re.escape(name.lower()) + r"\b", probe):
+            matched.append(name)
+    for al, target in aliases.items():
+        if target in matched:
+            continue
+        if re.search(r"\b" + re.escape(al.lower()) + r"\b", low):
+            matched.append(target)
+    return matched
+
+
 def fetch_all(cfg: Config, log) -> tuple[list, dict]:
     """Return (articles, stats). Articles are de-duplicated globally per country."""
     s = cfg.settings.get("ingest", {})
@@ -111,11 +139,7 @@ def fetch_all(cfg: Config, log) -> tuple[list, dict]:
             a = _entry_to_article(e, f.get("source", "feed"), "", f.get("lang", "en"))
             if not a:
                 continue
-            hay = a.raw_title
-            matched = [name for name in name_tokens if name in hay]
-            for al, target in aliases.items():
-                if al in hay and target not in matched:
-                    matched.append(target)
+            matched = _match_countries(a.raw_title, list(name_tokens), aliases)
             for name in matched:
                 raw_articles.append(Article(
                     title=a.title, raw_title=a.raw_title, link=a.link,

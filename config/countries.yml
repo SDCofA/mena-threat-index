@@ -164,8 +164,11 @@ countries:
     feeds:
       - { url: "https://timesofoman.com/feed", source: "Times of Oman", lang: en }
     gnews:
-      - { q: '"Oman"', hl: en-US, gl: US, ceid: "US:en" }
-      - { q: 'عمان', hl: ar, gl: OM, ceid: "OM:ar" }
+      # 'عمان' alone is ambiguous between Oman and Amman (Jordan's capital), which
+      # badly over-attributed Oman. Anchor on "Sultanate of Oman" / Muscat and
+      # exclude Amman + Jordan. (METHODOLOGY_REVIEW F2 / PATCH_PLAN P4)
+      - { q: '"Oman" -Amman', hl: en-US, gl: US, ceid: "US:en" }
+      - { q: 'سلطنة عمان OR (عمان مسقط) -عمّان -الأردن', hl: ar, gl: OM, ceid: "OM:ar" }
 
   - name: Palestine
     map_name: Palestine
