@@ -29,6 +29,7 @@ score:
   conf_diversity_target: 4  # target number of distinct sources for full diversity
   confidence_model: v_d_c   # v_d_c (volume x diversity x corroboration, default) |
                             # v_d (volume x diversity) | v_d_a (legacy homogeneity term)
+  weight_set: default       # default | goldstein (literature-anchored alt set, see categories.yml)
   freshness_half_life_h: 12 # composite freshness = 0.5 ** (staleness_h / half_life)
   baseline_index: 1.0       # floor index for a country with no qualifying events
 

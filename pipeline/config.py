@@ -67,17 +67,27 @@ class Config:
         return [c.key for c in self.categories]
 
 
+def _build_categories(cats_raw, weight_set="default"):
+    """Build Category objects, selecting the active weight column. 'goldstein'
+    uses the literature-anchored alternative weights defined in categories.yml;
+    'default' uses the standard weights (METHODOLOGY_REVIEW F5 / PATCH_PLAN P11)."""
+    wkey = "weight_goldstein" if weight_set == "goldstein" else "weight"
+    return [
+        Category(key=c["key"], label=c["label"],
+                 weight=float(c.get(wkey, c["weight"])),
+                 keywords=c.get("keywords", "") or "")
+        for c in cats_raw["categories"]
+    ]
+
+
 def load() -> Config:
     settings = _load("settings.yml")
     cats_raw = _load("categories.yml")
     countries_raw = _load("countries.yml")
     markets_raw = _load("markets.yml")
 
-    categories = [
-        Category(key=c["key"], label=c["label"], weight=float(c["weight"]),
-                 keywords=c.get("keywords", "") or "")
-        for c in cats_raw["categories"]
-    ]
+    weight_set = str(settings.get("score", {}).get("weight_set", "default")).lower()
+    categories = _build_categories(cats_raw, weight_set)
     cat_weight = {c.key: c.weight for c in categories}
     cat_label = {c.key: c.label for c in categories}
     source_credibility = {str(k).lower(): float(v)

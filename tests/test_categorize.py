@@ -1,6 +1,24 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import yaml
 from pipeline import config, categorize
+
+
+# ---- P11: optional literature-anchored weight set (default-off) ----
+
+def test_weight_set_selection_preserves_severity_ordering():
+    cats_raw = yaml.safe_load(
+        open(os.path.join(config.CONFIG_DIR, "categories.yml"), encoding="utf-8"))
+    default = {c.key: c.weight for c in config._build_categories(cats_raw, "default")}
+    gold = {c.key: c.weight for c in config._build_categories(cats_raw, "goldstein")}
+    assert default["military_conflict"] == 8.0          # default = YAML weight column
+    assert gold != default                              # goldstein is a distinct set
+    order = ["military_conflict", "terrorism", "border_security",
+             "political_instability", "humanitarian_crisis", "diplomatic_tensions"]
+    vals = [gold[k] for k in order]
+    assert vals == sorted(vals, reverse=True)           # strictly descending severity
+    assert gold["trade_agreement"] < 0                  # de-escalation stays negative
+    assert gold["neutral"] == 0.0
 
 def test_keyword_labels():
     cfg = config.load(); comp = categorize._compile(cfg)
