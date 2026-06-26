@@ -33,6 +33,12 @@ thresholds:
   elevated: 4.0
   critical: 7.0
 
+# ---- Briefing / headline ----
+briefing:
+  headline_conf_gate: 0.35  # a country is named in the headline only if its index
+                            # is >= thresholds.elevated AND its confidence >= this
+
+
 # ---- Forecast ----
 forecast:
   horizon_hours: 24
