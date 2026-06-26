@@ -59,6 +59,18 @@ def _accept_polished_headline(headline, composite):
     return f"{composite:.2f}" in (headline or "")
 
 
+def _dedupe_bullets(bullets):
+    """Drop repeated bullets (by normalised text) so the same event doesn't
+    appear twice in the briefing (METHODOLOGY_REVIEW F13)."""
+    seen, out = set(), []
+    for b in bullets:
+        key = " ".join(str(b.get("text", "")).lower().split())
+        if key and key not in seen:
+            seen.add(key)
+            out.append(b)
+    return out
+
+
 def build(result, cfg: Config, log=None, prev_composite=None):
     now = utcnow()
     step = int(cfg.settings.get("forecast", {}).get("step_hours", 2))
@@ -132,4 +144,7 @@ def build(result, cfg: Config, log=None, prev_composite=None):
             if log:
                 log.info("briefing: used LLM polish (headline kept=%s)",
                          bool(cand and _accept_polished_headline(cand, result["composite"])))
+
+    briefing["regional_summary_6h"]["bullets"] = _dedupe_bullets(
+        briefing["regional_summary_6h"]["bullets"])
     return briefing

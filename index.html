@@ -124,6 +124,10 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#ece6d8">24</div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">Countries</div>
           </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#ece6d8">{{ confidence }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">Confidence</div>
+          </div>
         </div>
       </div>
       <!-- briefing -->
@@ -310,6 +314,7 @@
         <div style="display:flex;gap:28px;margin-top:26px">
           <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_eventCount }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Signals</div></div>
           <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_raw }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Mean weight</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_confidence }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Confidence</div></div>
         </div>
       </div>
       <!-- breakdown -->
@@ -1068,6 +1073,7 @@ class Component extends DCLogic {
       statusColor:this.color(mainIndex), statusLabel:this.label(mainIndex),
       deltaLabel:(delta>=0?'+':'')+delta.toFixed(2), deltaColor: delta>0?'#cf5b4e': delta<0?'#6fae7e':'#9a9284',
       totalSignals:total,
+      confidence:(D.meta&&D.meta.confidence!=null)?Math.round(D.meta.confidence*100)+'%':'—',
       briefWindow:D.brief.window, briefSources:D.brief.sources, briefRefresh:D.brief.refresh,
       briefHeadline:D.brief.headline, briefBullets,
       countriesList, feed:feedV, hasFeed:feedV.length>0, noFeed:feedV.length===0, feedCount,
@@ -1091,6 +1097,7 @@ class Component extends DCLogic {
       marketRows,
       // detail
       d_name:cn, d_code:co.code, d_index:co.index.toFixed(2), d_raw:co.raw.toFixed(2),
+      d_confidence:(co.confidence!=null?Math.round(co.confidence*100)+'%':'—'),
       d_color:this.color(co.index), d_status:this.label(co.index), d_pct:((co.index-1)/9*100).toFixed(1),
       d_eventCount:counts[cn]||0, d_breakdown, d_hasBreakdown:d_breakdown.length>0, d_noBreakdown:d_breakdown.length===0,
       d_events, d_hasEvents:d_events.length>0, d_noEvents:d_events.length===0,

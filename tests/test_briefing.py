@@ -90,3 +90,15 @@ def test_headline_reports_rising_trend():
 def test_polished_headline_rejected_without_composite_anchor():
     assert briefing._accept_polished_headline("MENA composite 2.58 holds steady", 2.58) is True
     assert briefing._accept_polished_headline("Iran leads regional risk on conflict", 2.58) is False
+
+
+# ---- P9: briefing bullets are de-duplicated (METHODOLOGY_REVIEW F13) ----
+
+def test_bullets_are_deduplicated():
+    bl = [{"text": "IAEA demands verification", "cat": "diplomatic_tensions"},
+          {"text": "IAEA demands verification ", "cat": "diplomatic_tensions"},   # trailing space
+          {"text": "Strikes reported in the south", "cat": "military_conflict"}]
+    out = briefing._dedupe_bullets(bl)
+    assert len(out) == 2
+    assert out[0]["text"] == "IAEA demands verification"
+    assert out[1]["text"] == "Strikes reported in the south"
