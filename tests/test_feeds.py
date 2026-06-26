@@ -53,3 +53,25 @@ def test_corroboration_is_one_for_singleton():
     kept, dropped = _dedupe([_art("Lone Iran story", "Reuters")], 0.9)
     assert kept[0].corroboration == 1
     assert dropped == 0
+
+
+# ---- P13 follow-up: verify Google-News results actually name the country ----
+
+def test_gnews_attribution_requires_country_term():
+    from pipeline.feeds import _passes_attribution
+    match = ["Oman", "سلطنة عمان", "مسقط", "عُمان"]
+    excl = ["Amman", "عمّان"]
+    assert _passes_attribution("Oman warns ships in the Strait of Hormuz", match, excl) is True
+    assert _passes_attribution("مسقط تبلغ أوروبا باحتمالية فرض رسوم", match, excl) is True   # Muscat (ar)
+    assert _passes_attribution("Amman protests grow across Jordan", match, excl) is False    # excluded
+    assert _passes_attribution("Oman and Amman both mentioned", match, excl) is False         # ambiguous -> precision
+    assert _passes_attribution("Unrelated technology headline", match, excl) is False         # no country term
+    assert _passes_attribution("anything at all", [], []) is True                             # unconfigured -> no filter
+
+
+def test_config_loads_attribution_terms():
+    from pipeline import config
+    cfg = config.load()
+    oman = next(c for c in cfg.countries if c.name == "Oman")
+    assert "Amman" in oman.exclude
+    assert "Oman" in oman.match

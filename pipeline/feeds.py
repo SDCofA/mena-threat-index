@@ -109,6 +109,32 @@ def _dedupe(windowed, sim):
 _ATTR_EXCLUSIONS = {"Sudan": ["South Sudan"]}
 
 
+def _term_in(title, term):
+    """Whole-word match for Latin terms; substring for native scripts (Arabic,
+    Hebrew, ... have no simple \\b)."""
+    low = (title or "").lower()
+    t = str(term).lower()
+    if not t:
+        return False
+    if t.isascii():
+        return re.search(r"\b" + re.escape(t) + r"\b", low) is not None
+    return t in low
+
+
+def _passes_attribution(title, match_terms, exclude_terms):
+    """Keep a broad Google-News result for a country only if the title actually
+    names it (English OR native script) and contains no excluded ambiguous term.
+    Empty match_terms -> no filtering, so unconfigured countries don't regress
+    (METHODOLOGY_REVIEW F2 / PATCH_PLAN P13 follow-up)."""
+    if not match_terms:
+        return True
+    if not any(_term_in(title, m) for m in match_terms):
+        return False
+    if any(_term_in(title, x) for x in (exclude_terms or [])):
+        return False
+    return True
+
+
 def _match_countries(title: str, names: list, aliases: dict) -> list:
     """Attribute a pan-regional headline to tracked countries by WHOLE-WORD match.
 
@@ -168,7 +194,10 @@ def fetch_all(cfg: Config, log) -> tuple[list, dict]:
                              g.get("ceid", "US:en"), when_days)
             entries = _parse_feed(sess, url, log)
             stats["feeds_ok" if entries else "feeds_fail"] += 1
-            collect(entries, "Google News", c.name, g.get("hl", "en")[:2])
+            # Broad query layer: keep only results whose title actually names the country.
+            kept = [e for e in entries
+                    if _passes_attribution(getattr(e, "title", "") or "", c.match, c.exclude)]
+            collect(kept, "Google News", c.name, g.get("hl", "en")[:2])
 
     # --- shared pan-regional feeds: attribute by country mention ---
     name_tokens = {c.name: c for c in cfg.countries}

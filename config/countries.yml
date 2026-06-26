@@ -18,6 +18,36 @@ shared_feeds:
   - { url: "https://www.newarab.com/rss", source: "The New Arab", lang: en }
   - { url: "https://www.al-monitor.com/rss", source: "Al-Monitor", lang: en }
 
+# Attribution terms for the broad Google-News layer: a result is attributed to a
+# country only if its title names the country (English or native script) and
+# contains no excluded ambiguous term. Empty/absent -> no filtering (no regression).
+# (METHODOLOGY_REVIEW F2 / PATCH_PLAN P13 follow-up)
+attribution:
+  Egypt:                { match: ["Egypt", "مصر"] }
+  Iran:                 { match: ["Iran", "ایران", "Tehran"] }
+  Iraq:                 { match: ["Iraq", "العراق"] }
+  Israel:               { match: ["Israel", "ישראל"] }
+  Syria:                { match: ["Syria", "سوريا"] }
+  Lebanon:              { match: ["Lebanon", "لبنان"] }
+  Jordan:               { match: ["Jordan", "الأردن"] }
+  Saudi Arabia:         { match: ["Saudi Arabia", "Saudi", "السعودية"] }
+  Yemen:                { match: ["Yemen", "اليمن"] }
+  United Arab Emirates: { match: ["United Arab Emirates", "UAE", "Emirates", "الإمارات"] }
+  Qatar:                { match: ["Qatar", "قطر"] }
+  Kuwait:               { match: ["Kuwait", "الكويت"] }
+  Bahrain:              { match: ["Bahrain", "البحرين"] }
+  Oman:                 { match: ["Oman", "سلطنة عمان", "مسقط", "عُمان"], exclude: ["Amman", "عمّان"] }
+  Palestine:            { match: ["Palestine", "Gaza", "West Bank", "فلسطين"] }
+  Libya:                { match: ["Libya", "ليبيا"] }
+  Tunisia:              { match: ["Tunisia", "تونس"] }
+  Algeria:              { match: ["Algeria", "الجزائر"] }
+  Morocco:              { match: ["Morocco", "المغرب"] }
+  Turkey:               { match: ["Turkey", "Türkiye"] }
+  Sudan:                { match: ["Sudan", "السودان"], exclude: ["South Sudan"] }
+  Mauritania:           { match: ["Mauritania", "موريتانيا"] }
+  Djibouti:             { match: ["Djibouti"] }
+  Somalia:              { match: ["Somalia", "الصومال"] }
+
 countries:
   - name: Egypt
     map_name: Egypt

@@ -37,6 +37,8 @@ class Country:
     weight: float
     feeds: list = field(default_factory=list)        # list[{url, source, lang}]
     gnews: list = field(default_factory=list)         # list[{q, hl, gl, ceid}]
+    match: list = field(default_factory=list)         # attribution terms (en + native)
+    exclude: list = field(default_factory=list)       # ambiguous terms to reject
 
 
 @dataclass
@@ -93,12 +95,15 @@ def load() -> Config:
     source_credibility = {str(k).lower(): float(v)
                           for k, v in (cats_raw.get("source_credibility") or {}).items()}
 
+    attribution = countries_raw.get("attribution") or {}
     countries = []
     for c in countries_raw["countries"]:
+        attr = attribution.get(c["name"], {})
         countries.append(Country(
             name=c["name"], map_name=c["map_name"], iso2=c["iso2"],
             lang=c.get("lang", "en"), weight=float(c.get("weight", 1.0)),
             feeds=c.get("feeds") or [], gnews=c.get("gnews") or [],
+            match=attr.get("match") or [], exclude=attr.get("exclude") or [],
         ))
     shared_feeds = countries_raw.get("shared_feeds") or []
 
