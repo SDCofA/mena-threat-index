@@ -1,2 +1,3 @@
 {"run_id": "2026-06-26T10Z", "ts": "2026-06-26T10:00:00Z", "name": "Iran", "index": 4.5, "raw": 2.054, "confidence": 0.05, "n_events": 221}
 {"run_id": "2026-06-26T14Z", "ts": "2026-06-26T14:00:00Z", "name": "Iran", "index": 4.54, "raw": 2.086, "confidence": 0.05, "n_events": 233}
+{"run_id": "2026-06-26T16Z", "ts": "2026-06-26T16:00:00Z", "name": "Iran", "index": 4.92, "raw": 2.379, "confidence": 0.05, "n_events": 242}
