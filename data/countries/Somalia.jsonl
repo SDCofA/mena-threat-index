@@ -50,3 +50,4 @@
 {"run_id": "2026-07-02T18Z", "ts": "2026-07-02T18:00:00Z", "name": "Somalia", "index": 1.42, "raw": 0.197, "confidence": 0.806, "n_events": 114}
 {"run_id": "2026-07-02T20Z", "ts": "2026-07-02T20:00:00Z", "name": "Somalia", "index": 1.68, "raw": 0.327, "confidence": 0.806, "n_events": 114}
 {"run_id": "2026-07-02T22Z", "ts": "2026-07-02T22:00:00Z", "name": "Somalia", "index": 1.51, "raw": 0.245, "confidence": 0.809, "n_events": 109}
+{"run_id": "2026-07-03T02Z", "ts": "2026-07-03T02:00:00Z", "name": "Somalia", "index": 1.47, "raw": 0.225, "confidence": 0.811, "n_events": 106}
