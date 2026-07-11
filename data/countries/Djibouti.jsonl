@@ -124,3 +124,4 @@
 {"run_id": "2026-07-11T12Z", "ts": "2026-07-11T12:00:00Z", "name": "Djibouti", "index": 1.2, "raw": 0.094, "confidence": 0.779, "n_events": 14}
 {"run_id": "2026-07-11T14Z", "ts": "2026-07-11T14:00:00Z", "name": "Djibouti", "index": 1.22, "raw": 0.105, "confidence": 0.772, "n_events": 14}
 {"run_id": "2026-07-11T16Z", "ts": "2026-07-11T16:00:00Z", "name": "Djibouti", "index": 1.25, "raw": 0.117, "confidence": 0.761, "n_events": 12}
+{"run_id": "2026-07-11T18Z", "ts": "2026-07-11T18:00:00Z", "name": "Djibouti", "index": 1.28, "raw": 0.134, "confidence": 0.746, "n_events": 9}
