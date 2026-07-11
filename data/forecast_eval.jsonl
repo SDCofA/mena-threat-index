@@ -111,3 +111,4 @@
 {"run_id": "2026-07-11T14Z", "ts": "2026-07-11T14:00:00Z", "actual": 1.99, "model_pred": 1.99, "naive_pred": 1.99, "err_model": 0.0, "err_naive": 0.0}
 {"run_id": "2026-07-11T16Z", "ts": "2026-07-11T16:00:00Z", "actual": 1.97, "model_pred": 1.99, "naive_pred": 1.99, "err_model": 0.02, "err_naive": 0.02}
 {"run_id": "2026-07-11T18Z", "ts": "2026-07-11T18:00:00Z", "actual": 1.98, "model_pred": 1.97, "naive_pred": 1.97, "err_model": 0.01, "err_naive": 0.01}
+{"run_id": "2026-07-11T20Z", "ts": "2026-07-11T20:00:00Z", "actual": 1.98, "model_pred": 1.98, "naive_pred": 1.98, "err_model": 0.0, "err_naive": 0.0}
