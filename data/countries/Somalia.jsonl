@@ -154,3 +154,4 @@
 {"run_id": "2026-07-14T14Z", "ts": "2026-07-14T14:00:00Z", "name": "Somalia", "index": 3.48, "raw": 1.341, "confidence": 0.797, "n_events": 83}
 {"run_id": "2026-07-14T16Z", "ts": "2026-07-14T16:00:00Z", "name": "Somalia", "index": 3.45, "raw": 1.321, "confidence": 0.799, "n_events": 83}
 {"run_id": "2026-07-14T18Z", "ts": "2026-07-14T18:00:00Z", "name": "Somalia", "index": 3.41, "raw": 1.301, "confidence": 0.798, "n_events": 84}
+{"run_id": "2026-07-14T20Z", "ts": "2026-07-14T20:00:00Z", "name": "Somalia", "index": 3.34, "raw": 1.255, "confidence": 0.799, "n_events": 82}
