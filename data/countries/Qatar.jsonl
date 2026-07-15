@@ -158,3 +158,4 @@
 {"run_id": "2026-07-14T22Z", "ts": "2026-07-14T22:00:00Z", "name": "Qatar", "index": 1.21, "raw": 0.099, "confidence": 0.807, "n_events": 157}
 {"run_id": "2026-07-15T00Z", "ts": "2026-07-15T00:00:00Z", "name": "Qatar", "index": 1.24, "raw": 0.11, "confidence": 0.804, "n_events": 154}
 {"run_id": "2026-07-15T04Z", "ts": "2026-07-15T04:00:00Z", "name": "Qatar", "index": 1.4, "raw": 0.189, "confidence": 0.8, "n_events": 154}
+{"run_id": "2026-07-15T06Z", "ts": "2026-07-15T06:00:00Z", "name": "Qatar", "index": 1.56, "raw": 0.269, "confidence": 0.796, "n_events": 158}
