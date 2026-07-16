@@ -173,3 +173,4 @@
 {"run_id": "2026-07-16T14Z", "ts": "2026-07-16T14:00:00Z", "name": "Algeria", "index": 1.64, "raw": 0.307, "confidence": 0.809, "n_events": 159}
 {"run_id": "2026-07-16T16Z", "ts": "2026-07-16T16:00:00Z", "name": "Algeria", "index": 1.45, "raw": 0.212, "confidence": 0.807, "n_events": 164}
 {"run_id": "2026-07-16T18Z", "ts": "2026-07-16T18:00:00Z", "name": "Algeria", "index": 1.58, "raw": 0.275, "confidence": 0.81, "n_events": 163}
+{"run_id": "2026-07-16T20Z", "ts": "2026-07-16T20:00:00Z", "name": "Algeria", "index": 1.46, "raw": 0.221, "confidence": 0.812, "n_events": 160}
