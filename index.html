@@ -33,21 +33,60 @@
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#2c2820;border-radius:0}
   ::-webkit-scrollbar-track{background:#15130f}
+  @media (max-width:720px){
+    html,body{width:100%;max-width:100%;overflow-x:clip}
+    .mti-shell{width:100%;max-width:100%;min-width:0}
+    .mti-main{min-width:0;width:100%;padding-left:16px!important;padding-right:16px!important}
+    .mti-main>*,.mti-header-inner>*,.mti-overview-grid>*,.mti-dashboard-grid>*,.mti-detail-grid>*,.mti-card-grid>*,.mti-about-grid>*{min-width:0}
+    .mti-main p,.mti-main h1,.mti-main h2,.mti-main h3{overflow-wrap:anywhere}
+    input,select,textarea{max-width:100%;min-width:0}
+    .mti-utility-inner{padding:7px 16px!important;line-height:1.4}
+    .mti-header-inner{padding:12px 16px!important;flex-wrap:wrap;gap:12px!important}
+    .mti-brand{max-width:100%;min-width:0}
+    .mti-nav{width:100%;max-width:100%;gap:16px!important;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;white-space:nowrap;scrollbar-width:thin}
+    .mti-nav-item{display:flex;align-items:center;min-height:40px;flex:0 0 auto;padding:8px 0!important}
+    .mti-account-link,.mti-sign-in{flex:0 0 auto;min-height:40px}
+    .mti-edition-strip{align-items:flex-start!important}
+    .mti-overview-grid{grid-template-columns:minmax(0,1fr)!important}
+    .mti-overview-index{padding:28px 0!important;border-right:0!important}
+    .mti-overview-briefing{padding:28px 0!important;border-top:1px solid #221f18}
+    .mti-score-row{gap:12px!important;flex-wrap:wrap}
+    .mti-score{font-size:clamp(3.25rem,18vw,4.875rem)!important}
+    .mti-overview-stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px!important}
+    .mti-brief-meta{align-items:flex-start!important;gap:10px;flex-wrap:wrap}
+    .mti-brief-headline{font-size:clamp(1.5rem,7vw,1.8125rem)!important;overflow-wrap:anywhere}
+    [data-screen-label] h1:not(.mti-brief-headline){font-size:clamp(1.75rem,9vw,2.125rem)!important;line-height:1.15!important}
+    .mti-dashboard-grid{grid-template-columns:minmax(0,1fr)!important}
+    .mti-map-panel{min-height:340px!important;border-right:0!important;border-bottom:1px solid #2c2820}
+    .mti-map-canvas{height:340px!important}
+    .mti-ranking-panel{max-height:420px!important}
+    .mti-card-grid,.mti-detail-grid,.mti-threshold-grid,.mti-about-grid{grid-template-columns:minmax(0,1fr)!important}
+    .mti-detail-primary{padding:28px 0!important;border-right:0!important}
+    .mti-detail-secondary{padding:28px 0!important;border-top:1px solid #221f18}
+    .mti-detail-score{font-size:clamp(3rem,17vw,4.375rem)!important}
+    .mti-feed-row{grid-template-columns:minmax(0,1fr)!important;gap:8px!important;align-items:start!important;padding:14px 10px!important}
+    .mti-feed-row>div,.mti-feed-row>span{min-width:0;text-align:left!important}
+    .mti-market-scroll,.mti-source-scroll,.mti-alert-scroll{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-gutter:stable}
+    .mti-market-grid{min-width:780px}
+    .mti-source-grid{min-width:520px}
+    .mti-alert-grid{min-width:520px}
+    .mti-footer-inner,.mti-footer-meta{padding-left:16px!important;padding-right:16px!important}
+  }
 </style>
 </helmet>
-<div style="min-height:100vh;background:#15130f">
+<div class="mti-shell" style="min-height:100vh;background:#15130f">
 
   <!-- utility strip -->
   <div style="border-bottom:1px solid #221f18;background:#120f0b">
-    <div style="max-width:1180px;margin:0 auto;padding:7px 28px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:#6b6457;text-transform:uppercase">
+    <div class="mti-utility-inner" style="max-width:1180px;margin:0 auto;padding:7px 28px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:#6b6457;text-transform:uppercase">
       <span>Monarch Castle Technologies &nbsp;&middot;&nbsp; Defense Intelligence</span>
     </div>
   </div>
 
   <!-- masthead + nav -->
-  <header style="border-bottom:1px solid #2c2820;background:#15130f;position:sticky;top:0;z-index:40">
-    <div style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
-      <div onClick="{{ goOverview }}" style="display:flex;align-items:center;gap:13px;cursor:pointer">
+  <header class="mti-header" style="border-bottom:1px solid #2c2820;background:#15130f;position:sticky;top:0;z-index:40">
+    <div class="mti-header-inner" style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div class="mti-brand" onClick="{{ goOverview }}" style="display:flex;align-items:center;gap:13px;cursor:pointer">
         <div style="width:30px;height:30px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center;position:relative">
           <div style="width:9px;height:9px;background: {{ accent }};transform:rotate(45deg)"></div>
         </div>
@@ -56,18 +95,18 @@
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:#7d7565;text-transform:uppercase;margin-top:2px">M&middot;T&middot;I &nbsp; Regional Monitor</div>
         </div>
       </div>
-      <nav style="display:flex;align-items:center;gap:26px">
+      <nav class="mti-nav" style="display:flex;align-items:center;gap:26px">
         <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
-          <div class="bnti-link" onClick="{{ item.onClick }}" style="cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.01em;padding:6px 0;border-bottom:2px solid {{ item.border }};color: {{ item.color }};transition:color .15s">{{ item.label }}</div>
+          <div class="bnti-link mti-nav-item" onClick="{{ item.onClick }}" style="cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.01em;padding:6px 0;border-bottom:2px solid {{ item.border }};color: {{ item.color }};transition:color .15s">{{ item.label }}</div>
         </sc-for>
         <sc-if value="{{ isLoggedIn }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ goAccount }}" class="bnti-link" style="cursor:pointer;display:flex;align-items:center;gap:9px;padding-left:10px;border-left:1px solid #2c2820">
+          <div onClick="{{ goAccount }}" class="bnti-link mti-account-link" style="cursor:pointer;display:flex;align-items:center;gap:9px;padding-left:10px;border-left:1px solid #2c2820">
             <div style="width:26px;height:26px;border-radius:50%;background:#26221b;border:1px solid #463f31;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c9a24b">{{ userInitial }}</div>
             <span style="font-size:12.5px;color:#b8b0a0">{{ userName }}</span>
           </div>
         </sc-if>
         <sc-if value="{{ isLoggedOut }}" hint-placeholder-val="{{ true }}">
-          <div onClick="{{ goLogin }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#15130f;background:#ece6d8;padding:7px 15px;border-radius:1px">Sign in</div>
+          <div class="mti-sign-in" onClick="{{ goLogin }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#15130f;background:#ece6d8;padding:7px 15px;border-radius:1px">Sign in</div>
         </sc-if>
       </nav>
     </div>
@@ -75,10 +114,10 @@
 
   <!-- ============ OVERVIEW ============ -->
   <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
-  <main data-screen-label="Overview" style="max-width:1180px;margin:0 auto;padding:0 28px">
+  <main class="mti-main" data-screen-label="Overview" style="max-width:1180px;margin:0 auto;padding:0 28px">
 
     <!-- edition strip -->
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #221f18;flex-wrap:wrap">
+    <div class="mti-edition-strip" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #221f18;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9a9284;text-transform:uppercase">
         <span style="width:7px;height:7px;border-radius:50%;background:{{ liveColor }};display:inline-block;animation:bntiPulse 1.8s infinite"></span>
         {{ liveLabel }}
@@ -89,12 +128,12 @@
     </div>
 
     <!-- hero: composite index + briefing -->
-    <section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;border-bottom:1px solid #2c2820">
+    <section class="mti-overview-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;border-bottom:1px solid #2c2820">
       <!-- index -->
-      <div style="padding:36px 40px 36px 0;border-right:1px solid #221f18">
+      <div class="mti-overview-index" style="padding:36px 40px 36px 0;border-right:1px solid #221f18">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:18px">Composite MENA Threat Index</div>
-        <div style="display:flex;align-items:flex-end;gap:16px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:78px;line-height:.82;font-weight:500;color:#ece6d8;letter-spacing:-.02em">{{ mainIndex }}</div>
+        <div class="mti-score-row" style="display:flex;align-items:flex-end;gap:16px">
+          <div class="mti-score" style="font-family:'IBM Plex Mono',monospace;font-size:78px;line-height:.82;font-weight:500;color:#ece6d8;letter-spacing:-.02em">{{ mainIndex }}</div>
           <div style="padding-bottom:8px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#7d7565">/ 10.0</div>
             <div style="margin-top:8px;display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid {{ statusColor }};border-radius:1px">
@@ -115,7 +154,7 @@
             <span>1 · Stable</span><span>4 · Elevated</span><span>7 · Critical</span><span>10</span>
           </div>
         </div>
-        <div style="display:flex;gap:28px;margin-top:26px">
+        <div class="mti-overview-stats" style="display:flex;gap:28px;margin-top:26px">
           <div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:{{ deltaColor }}">{{ deltaLabel }}</div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">vs prior reading</div>
@@ -135,12 +174,12 @@
         </div>
       </div>
       <!-- briefing -->
-      <div style="padding:36px 0 36px 40px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
+      <div class="mti-overview-briefing" style="padding:36px 0 36px 40px">
+        <div class="mti-brief-meta" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase">Regional briefing &middot; {{ briefWindow }} window</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6b6457">{{ briefSources }}</div>
         </div>
-        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:29px;line-height:1.22;color:#ece6d8;margin:0 0 22px 0;letter-spacing:-.005em;text-wrap:pretty">{{ briefHeadline }}</h1>
+        <h1 class="mti-brief-headline" style="font-family:'Spectral',serif;font-weight:600;font-size:29px;line-height:1.22;color:#ece6d8;margin:0 0 22px 0;letter-spacing:-.005em;text-wrap:pretty">{{ briefHeadline }}</h1>
         <div style="display:flex;flex-direction:column;gap:13px">
           <sc-for list="{{ briefBullets }}" as="b" hint-placeholder-count="3">
             <div style="display:flex;gap:13px;align-items:flex-start">
@@ -169,18 +208,18 @@
           <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border:1px solid #c9a24b"></span>MENA · tracked</span>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;border:1px solid #2c2820;background:#191711">
-        <div style="border-right:1px solid #2c2820;position:relative;min-height:460px;background:#15130f">
-          <div ref="{{ setMapEl }}" style="width:100%;height:460px;position:relative">
+      <div class="mti-dashboard-grid" style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;border:1px solid #2c2820;background:#191711">
+        <div class="mti-map-panel" style="border-right:1px solid #2c2820;position:relative;min-height:460px;background:#15130f">
+          <div class="mti-map-canvas" ref="{{ setMapEl }}" style="width:100%;height:460px;position:relative">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;color:#5a5448;text-transform:uppercase">Loading regional map…</div>
           </div>
         </div>
-        <div data-ranking-menu style="max-height:460px;overflow-y:auto;background:#15130f">
+        <div class="mti-ranking-panel" data-ranking-menu style="max-height:460px;overflow-y:auto;background:#15130f">
           <div style="position:sticky;top:0;z-index:2;padding:12px 16px;border-bottom:1px solid #221f18;background:#191711;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#7d7565;text-transform:uppercase;display:flex;justify-content:space-between">
             <span>Country menu</span><span>Index</span>
           </div>
           <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="12">
-            <div class="bnti-row" onClick="{{ c.onOpen }}" style="display:grid;grid-template-columns:22px 22px minmax(0,1fr) 42px;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #1c1a14;cursor:pointer;transition:background .12s">
+            <div class="bnti-row mti-country-row" onClick="{{ c.onOpen }}" style="display:grid;grid-template-columns:22px 22px minmax(0,1fr) 42px;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #1c1a14;cursor:pointer;transition:background .12s">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7d7565;text-align:right">{{ c.rank }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#15130f;background:{{ c.color }};padding:2px 5px;border-radius:1px">{{ c.code }}</span>
               <div style="min-width:0">
@@ -232,7 +271,7 @@
       <sc-if value="{{ hasFeed }}" hint-placeholder-val="{{ true }}">
       <div style="border-top:1px solid #2c2820">
         <sc-for list="{{ feed }}" as="ev" hint-placeholder-count="8">
-          <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
+          <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed mti-feed-row" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565;letter-spacing:.04em">{{ ev.time }}</div>
             <div style="min-width:0">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:5px">
@@ -258,13 +297,13 @@
 
   <!-- ============ COUNTRIES ============ -->
   <sc-if value="{{ isCountries }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Countries" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
+  <main class="mti-main" data-screen-label="Countries" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
     <div style="padding:34px 0 24px 0;border-bottom:1px solid #2c2820">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Watchlist · 24 countries</div>
       <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#ece6d8;margin:0">MENA countries</h1>
       <p style="color:#9a9284;font-size:14.5px;max-width:620px;margin:12px 0 0 0;line-height:1.6">Each country is scored from regional reporting and mapped onto a fixed 1–10 threat scale. Open a country for its active signals and category breakdown.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820">
+    <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820">
       <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="7">
         <div class="bnti-card" onClick="{{ c.onOpen }}" style="border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;cursor:pointer;transition:border-color .15s;background:#15130f">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
@@ -294,19 +333,19 @@
 
   <!-- ============ COUNTRY DETAIL ============ -->
   <sc-if value="{{ isCountry }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Country detail" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
+  <main class="mti-main" data-screen-label="Country detail" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
     <div style="padding:20px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">
       <span class="bnti-link" onClick="{{ goCountries }}" style="cursor:pointer">Countries</span> <span style="color:#4f4940">/</span> <span style="color:#b8b0a0">{{ d_name }}</span>
     </div>
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border-top:1px solid #2c2820;border-bottom:1px solid #2c2820">
-      <div style="padding:34px 40px 34px 0;border-right:1px solid #221f18">
+    <div class="mti-detail-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border-top:1px solid #2c2820;border-bottom:1px solid #2c2820">
+      <div class="mti-detail-primary" style="padding:34px 40px 34px 0;border-right:1px solid #221f18">
         <div style="display:flex;align-items:center;gap:13px;margin-bottom:6px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#15130f;background:{{ d_color }};padding:3px 8px;border-radius:1px">{{ d_code }}</span>
           <div onClick="{{ d_onFav }}" style="font-size:19px;color:{{ d_favColor }};cursor:pointer;line-height:1">{{ d_favGlyph }}</div>
         </div>
         <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#ece6d8;margin:6px 0 0 0">{{ d_name }}</h1>
         <div style="display:flex;align-items:flex-end;gap:16px;margin-top:24px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:70px;line-height:.82;color:{{ d_color }}">{{ d_index }}</div>
+          <div class="mti-detail-score" style="font-family:'IBM Plex Mono',monospace;font-size:70px;line-height:.82;color:{{ d_color }}">{{ d_index }}</div>
           <div style="padding-bottom:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#7d7565">/ 10.0</div>
           <div style="margin-top:8px;display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid {{ d_color }};border-radius:1px"><span style="width:6px;height:6px;border-radius:50%;background:{{ d_color }}"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:{{ d_color }}">{{ d_status }}</span></div></div>
         </div>
@@ -322,7 +361,7 @@
         </div>
       </div>
       <!-- breakdown -->
-      <div style="padding:34px 0 34px 40px">
+      <div class="mti-detail-secondary" style="padding:34px 0 34px 40px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:20px">Signal categories</div>
         <sc-if value="{{ d_hasBreakdown }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:16px">
@@ -363,7 +402,7 @@
       <sc-if value="{{ d_hasEvents }}" hint-placeholder-val="{{ true }}">
       <div style="border-top:1px solid #2c2820">
         <sc-for list="{{ d_events }}" as="ev" hint-placeholder-count="4">
-          <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
+          <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed mti-feed-row" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565">{{ ev.time }}</div>
             <div style="min-width:0">
               <div style="margin-bottom:5px"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:{{ ev.catColor }};text-transform:uppercase">{{ ev.cat }}</span></div>
@@ -383,7 +422,7 @@
 
   <!-- ============ MARKETS ============ -->
   <sc-if value="{{ isMarkets }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Markets" style="max-width:1180px;margin:0 auto;padding:0 28px 70px 28px">
+  <main class="mti-main" data-screen-label="Markets" style="max-width:1180px;margin:0 auto;padding:0 28px 70px 28px">
     <div style="padding:34px 0 24px 0;border-bottom:1px solid #2c2820">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Markets</div>
       <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#ece6d8;margin:0">Threat-linked market watch</h1>
@@ -399,11 +438,12 @@
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;color:#5a5448;text-transform:uppercase">Loading market chart…</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase">
+      <div class="mti-market-scroll">
+      <div class="mti-market-grid" style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase">
         <span>Instrument</span><span>Class</span><span>Last</span><span>Chg</span><span>Corr</span><span>Beta</span><span>Dir</span><span>1d forecast</span>
       </div>
       <sc-for list="{{ marketRows }}" as="m" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:15px 18px;border-bottom:1px solid #1c1a14;align-items:start">
+        <div class="mti-market-grid" style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:15px 18px;border-bottom:1px solid #1c1a14;align-items:start">
           <div>
             <div style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ m.name }}</div>
             <sc-if value="{{ m.isPreliminary }}" hint-placeholder-val="{{ false }}">
@@ -426,13 +466,14 @@
           </div>
         </div>
       </sc-for>
+      </div>
     </section>
   </main>
   </sc-if>
 
   <!-- ============ METHODOLOGY ============ -->
   <sc-if value="{{ isMethodology }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Methodology" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
+  <main class="mti-main" data-screen-label="Methodology" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
     <div style="padding:40px 0 28px 0;border-bottom:1px solid #2c2820">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:12px">Methodology</div>
       <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#ece6d8;margin:0">How the index is built</h1>
@@ -476,7 +517,7 @@
 
     <!-- thresholds -->
     <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 16px 0">Operational thresholds</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <div class="mti-threshold-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
       <div style="border:1px solid #2c2820;border-top:2px solid #6fae7e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6fae7e">STABLE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">1.0 – 4.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Routine reporting; no region-wide escalation.</div></div>
       <div style="border:1px solid #2c2820;border-top:2px solid #d8a13f;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#d8a13f">ELEVATED</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">4.0 – 7.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Sustained tension or instability warranting watch.</div></div>
       <div style="border:1px solid #2c2820;border-top:2px solid #cf5b4e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#cf5b4e">CRITICAL</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">7.0 – 10.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Active conflict or security rupture with regional consequences.</div></div>
@@ -487,12 +528,12 @@
 
     <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Sources</h2>
     <p style="color:#9a9284;font-size:14px;margin:0 0 20px 0">Reporting is drawn from regional outlets in their original language, plus aggregated news indices. Coverage is reviewed as feeds change.</p>
-    <div style="border:1px solid #2c2820">
-      <div style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Outlet</span><span>Coverage</span><span>Language</span></div>
-      <div style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://news.google.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Google News RSS ↗</a><span style="font-size:13px;color:#9a9284">24 tracked countries</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">MULTI</span></div>
-      <div style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.middleeasteye.net" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Middle East Eye ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
-      <div style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.newarab.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The New Arab ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
-      <div style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://syrianobserver.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The Syrian Observer ↗</a><span style="font-size:13px;color:#9a9284">Levant coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
+    <div class="mti-source-scroll" style="border:1px solid #2c2820">
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Outlet</span><span>Coverage</span><span>Language</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://news.google.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Google News RSS ↗</a><span style="font-size:13px;color:#9a9284">24 tracked countries</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">MULTI</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.middleeasteye.net" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Middle East Eye ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.newarab.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The New Arab ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://syrianobserver.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The Syrian Observer ↗</a><span style="font-size:13px;color:#9a9284">Levant coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
     </div>
 
     <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Methodology basis</h2>
@@ -507,7 +548,7 @@
 
   <!-- ============ ABOUT ============ -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="About" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
+  <main class="mti-main" data-screen-label="About" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
     <div style="padding:40px 0 28px 0;border-bottom:1px solid #2c2820">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:12px">About</div>
       <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#ece6d8;margin:0;max-width:600px">A standing read on MENA risk</h1>
@@ -515,7 +556,7 @@
     <div style="padding:32px 0;border-bottom:1px solid #221f18">
       <p style="font-family:'Spectral',serif;font-size:21px;line-height:1.55;color:#d8d0c0;margin:0;text-wrap:pretty">MTI watches public reporting across 24 MENA countries, categorises it by country and threat type, and turns each update into a risk signal you can follow over time — open to anyone, with no wall.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #221f18">
+    <div class="mti-about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #221f18">
       <div style="padding:30px 30px 30px 0;border-right:1px solid #221f18">
         <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#ece6d8;margin:0 0 10px 0">What we measure</h3>
         <p style="color:#a8a090;font-size:14.5px;line-height:1.65;margin:0">Diplomatic friction, political instability, humanitarian strain, border-security and conflict signals — scored consistently so a quiet week and a tense one are comparable.</p>
@@ -540,7 +581,7 @@
 
   <!-- ============ AUTH ============ -->
   <sc-if value="{{ isAuth }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Sign in" style="max-width:430px;margin:0 auto;padding:64px 28px 80px 28px">
+  <main class="mti-main" data-screen-label="Sign in" style="max-width:430px;margin:0 auto;padding:64px 28px 80px 28px">
     <div style="text-align:center;margin-bottom:30px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:14px">{{ authEyebrow }}</div>
       <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:30px;color:#ece6d8;margin:0">{{ authTitle }}</h1>
@@ -572,7 +613,7 @@
 
   <!-- ============ ACCOUNT ============ -->
   <sc-if value="{{ isAccount }}" hint-placeholder-val="{{ false }}">
-  <main data-screen-label="Account" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
+  <main class="mti-main" data-screen-label="Account" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
     <div style="padding:40px 0 24px 0;border-bottom:1px solid #2c2820;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Your watchlist</div>
@@ -592,7 +633,7 @@
       </div>
     </sc-if>
     <sc-if value="{{ hasFavs }}" hint-placeholder-val="{{ false }}">
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820;margin-top:26px">
+      <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820;margin-top:26px">
         <sc-for list="{{ favList }}" as="c" hint-placeholder-count="2">
           <div class="bnti-card" onClick="{{ c.onOpen }}" style="border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;cursor:pointer;background:#15130f;transition:border-color .15s">
             <div style="display:flex;justify-content:space-between;align-items:flex-start">
@@ -624,10 +665,10 @@
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:{{ digestColor }};border:1px solid {{ digestColor }};padding:2px 9px">{{ digestGlyph }}</span>
           </div>
         </div>
-        <div style="border:1px solid #2c2820">
-          <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Neighbour</span><span>Index</span><span>Notify at</span></div>
+        <div class="mti-alert-scroll" style="border:1px solid #2c2820">
+          <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Neighbour</span><span>Index</span><span>Notify at</span></div>
           <sc-for list="{{ alertList }}" as="a" hint-placeholder-count="2">
-            <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid #1c1a14">
+            <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid #1c1a14">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ a.color }};padding:3px 7px">{{ a.code }}</span>
               <span style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ a.name }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:{{ a.color }}">{{ a.index }}</span>
@@ -654,8 +695,8 @@
   </sc-if>
 
   <!-- footer -->
-  <footer style="border-top:1px solid #2c2820;background:#120f0b;margin-top:20px">
-    <div style="max-width:1180px;margin:0 auto;padding:34px 28px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap">
+  <footer class="mti-footer" style="border-top:1px solid #2c2820;background:#120f0b;margin-top:20px">
+    <div class="mti-footer-inner" style="max-width:1180px;margin:0 auto;padding:34px 28px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap">
       <div style="max-width:340px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
           <div style="width:22px;height:22px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#c9a24b;transform:rotate(45deg)"></div></div>
@@ -679,7 +720,7 @@
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid #221f18"><div style="max-width:1180px;margin:0 auto;padding:14px 28px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#4f4940;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><span>© 2026 Monarch Castle Technologies</span><span>Situational-awareness aid · not an intelligence assessment</span></div></div>
+    <div style="border-top:1px solid #221f18"><div class="mti-footer-meta" style="max-width:1180px;margin:0 auto;padding:14px 28px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#4f4940;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><span>© 2026 Monarch Castle Technologies</span><span>Situational-awareness aid · not an intelligence assessment</span></div></div>
   </footer>
 
   <!-- share modal -->
