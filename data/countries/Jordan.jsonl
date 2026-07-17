@@ -183,3 +183,4 @@
 {"run_id": "2026-07-17T14Z", "ts": "2026-07-17T14:00:00Z", "name": "Jordan", "index": 1.11, "raw": 0.049, "confidence": 0.803, "n_events": 180}
 {"run_id": "2026-07-17T16Z", "ts": "2026-07-17T16:00:00Z", "name": "Jordan", "index": 1.1, "raw": 0.046, "confidence": 0.8, "n_events": 182}
 {"run_id": "2026-07-17T18Z", "ts": "2026-07-17T18:00:00Z", "name": "Jordan", "index": 1.06, "raw": 0.029, "confidence": 0.802, "n_events": 178}
+{"run_id": "2026-07-17T20Z", "ts": "2026-07-17T20:00:00Z", "name": "Jordan", "index": 1.05, "raw": 0.025, "confidence": 0.798, "n_events": 184}
