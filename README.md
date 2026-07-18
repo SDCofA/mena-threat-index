@@ -199,7 +199,9 @@ The preview is maintained as a repository asset; the live interface or generated
 
 ## Data and methodology
 
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the implementation files in this repository. Source dates, transformation steps, and known gaps must travel with analytical outputs.
+- [METHODOLOGY_REVIEW.md](METHODOLOGY_REVIEW.md)
+
+These repository-specific sources define the methodology or provenance boundary. Source dates, transformation steps, and known gaps must travel with analytical outputs.
 
 ## Update frequency
 
@@ -211,21 +213,12 @@ The publishing workflow targets a two-hour refresh; source and model gates may d
 python -m pytest -q
 ```
 
-```shell
-python -m pytest -q tests/test_repository_hygiene.py
-```
-
 Run only in a trusted development environment and review repository-specific prerequisites before using networked or hardware features.
 
 ## Architecture
 
-- `404.html` — repository entry point or configuration.
-- `apple-touch-icon.png` — repository entry point or configuration.
-- `config/` — implementation or data module.
-- `data/` — implementation or data module.
-- `favicon.ico` — repository entry point or configuration.
-- `icon.png` — repository entry point or configuration.
-- `index.html` — repository entry point or configuration.
+- `pipeline/` — repository-specific implementation, data, or configuration boundary.
+- `mena_data.json` — repository-specific implementation, data, or configuration boundary.
 
 ## Tests
 
