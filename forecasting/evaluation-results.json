@@ -1,0 +1,121 @@
+{
+  "baselines": [
+    "naive",
+    "persistence",
+    "expanding-mean-reference"
+  ],
+  "benchmarkId": "mena-threat-index-one-step-pilot",
+  "benchmarkManifestHash": "sha256:b18ed7fbc4b4832ca008b62263c99c1a55e7de647d369b2632a145d40b61dcac",
+  "calibration": {
+    "empiricalCoverage": {
+      "50": 0.8057142857142857,
+      "80": 0.88,
+      "95": 0.9714285714285714
+    },
+    "historicalIssuanceNote": "These intervals are migration diagnostics and were not part of the historically issued point forecasts.",
+    "method": "Rolling absolute-residual coverage envelopes using only previously resolved errors.",
+    "nominalCoverage": {
+      "50": 0.5,
+      "80": 0.8,
+      "95": 0.95
+    },
+    "sampleCount": 175
+  },
+  "codeVersion": "forecast-standard-pilot/v1",
+  "comparisons": {
+    "modelVsNaive": {
+      "direction": "higher-error-than-naive",
+      "maeDifference": 0.0004494382022471998,
+      "pairedBootstrap95": {
+        "lower": -0.0006179775280898856,
+        "resamples": 10000,
+        "seed": 20260718,
+        "upper": 0.0018539325842696645
+      },
+      "relativeMaePercent": 5.405405405405506
+    }
+  },
+  "domain": "MENA composite threat-index series",
+  "exclusions": [
+    "Rows missing a finite actual, model prediction, naïve prediction, or timestamp.",
+    "Legacy forecast rows whose stored point cannot be matched exactly to the immediately preceding history record are excluded from governed forecast-record migration but retained in aggregate evaluation."
+  ],
+  "horizon": "one recorded pipeline step",
+  "limitations": [
+    "The frozen period is short and operational rather than a randomized sample.",
+    "Three legacy rows are not eligible for governed record migration because their points do not match the immediately preceding retained history row.",
+    "The model MAE is higher than the naive MAE in this frozen sample; no performance claim is supported.",
+    "Migration intervals test calibration mechanics but were not issued with the historical point forecasts."
+  ],
+  "metrics": {
+    "expanding-mean-reference": {
+      "mae": 0.04412648037153777,
+      "rmse": 0.06278347243683069
+    },
+    "model": {
+      "mae": 0.008764044943820229,
+      "rmse": 0.014221363894199314
+    },
+    "naive": {
+      "mae": 0.008314606741573029,
+      "rmse": 0.011708059262123385
+    },
+    "persistence": {
+      "mae": 0.008314606741573029,
+      "rmse": 0.011708059262123385
+    }
+  },
+  "migration": {
+    "eligibleForecastRecords": 175,
+    "excludedLegacyRows": [
+      {
+        "historyModelPoint": 2.06,
+        "historyNaivePoint": 2.06,
+        "issueRunId": "2026-06-29T14Z",
+        "reason": "Stored evaluation points do not exactly match the immediately preceding history row; the legacy result is retained for aggregate evaluation but is not rewritten as a governed forecast.",
+        "recordedModelPoint": 2.07,
+        "recordedNaivePoint": 2.07,
+        "runId": "2026-06-29T18Z"
+      },
+      {
+        "historyModelPoint": 1.94,
+        "historyNaivePoint": 1.96,
+        "issueRunId": "2026-07-04T12Z",
+        "reason": "Stored evaluation points do not exactly match the immediately preceding history row; the legacy result is retained for aggregate evaluation but is not rewritten as a governed forecast.",
+        "recordedModelPoint": 1.9,
+        "recordedNaivePoint": 1.93,
+        "runId": "2026-07-04T14Z"
+      },
+      {
+        "historyModelPoint": 2.17,
+        "historyNaivePoint": 2.17,
+        "issueRunId": "2026-07-15T06Z",
+        "reason": "Stored evaluation points do not exactly match the immediately preceding history row; the legacy result is retained for aggregate evaluation but is not rewritten as a governed forecast.",
+        "recordedModelPoint": 2.15,
+        "recordedNaivePoint": 2.15,
+        "runId": "2026-07-15T10Z"
+      }
+    ]
+  },
+  "missingDataHandling": "No imputation and no timestamp interpolation.",
+  "period": {
+    "end": "2026-07-18T10:00:00Z",
+    "start": "2026-06-27T20:00:00Z"
+  },
+  "rollingOrigin": {
+    "futureInputsUsed": false,
+    "orderedBy": "ts",
+    "referenceBaselineWarmStart": "First expanding-mean prediction uses the recorded naive point."
+  },
+  "sampleCount": 178,
+  "schemaVersion": "mti-governed-evaluation/v1",
+  "segmentResults": [
+    {
+      "modelMae": 0.008764044943820229,
+      "naiveMae": 0.008314606741573029,
+      "sampleCount": 178,
+      "segment": "full frozen period"
+    }
+  ],
+  "sourceResolutionRule": "Resolve each stored one-step point forecast against the next actual value recorded in data/forecast_eval.jsonl."
+}

@@ -1,0 +1,14 @@
+{
+  "governanceCommit": "86b1c12",
+  "sourceRepository": "MonarchCastleTech/company-governance",
+  "schemas": {
+    "forecastEvent": {
+      "path": "forecasting/schemas/forecast-event.schema.json",
+      "sha256": "sha256:981788e16a7bf6a1957d604a656a72d641bd3771d59b70541aca851e541da7ce"
+    },
+    "provenance": {
+      "path": "forecasting/schemas/provenance.schema.json",
+      "sha256": "sha256:87c8732815727bff139443f77bcc175c56c86f182d9f80c0036161c6e4dc835e"
+    }
+  }
+}
