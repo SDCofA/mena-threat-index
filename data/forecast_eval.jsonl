@@ -180,3 +180,4 @@
 {"run_id": "2026-07-18T14Z", "ts": "2026-07-18T14:00:00Z", "actual": 2.01, "model_pred": 2.0, "naive_pred": 2.0, "err_model": 0.01, "err_naive": 0.01}
 {"run_id": "2026-07-18T16Z", "ts": "2026-07-18T16:00:00Z", "actual": 2.02, "model_pred": 2.02, "naive_pred": 2.01, "err_model": 0.0, "err_naive": 0.01}
 {"run_id": "2026-07-18T18Z", "ts": "2026-07-18T18:00:00Z", "actual": 2.13, "model_pred": 2.03, "naive_pred": 2.02, "err_model": 0.1, "err_naive": 0.11}
+{"run_id": "2026-07-18T20Z", "ts": "2026-07-18T20:00:00Z", "actual": 2.15, "model_pred": 2.16, "naive_pred": 2.13, "err_model": 0.01, "err_naive": 0.02}
