@@ -59,6 +59,11 @@ def test_svg_sparkline_binding_emits_no_native_points_console_error():
     if not chrome:
         pytest.skip("Chrome/Chromium unavailable")
 
+    html = _frontend_html()
+    sparkline = re.search(r"<polyline\b[^>]*\bc\.spark\b[^>]*>", html)
+    assert sparkline, "country sparkline template is missing"
+    assert 'sc-camel-points="{{ c.spark }}"' in sparkline.group(0)
+
     handler = functools.partial(_QuietHandler, directory=ROOT)
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
