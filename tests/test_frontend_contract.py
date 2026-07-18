@@ -19,6 +19,21 @@ def _frontend_html():
         return source.read()
 
 
+def _contrast_ratio(foreground, background):
+    def luminance(color):
+        channels = [int(color[index:index + 2], 16) / 255 for index in (1, 3, 5)]
+        linear = [
+            channel / 12.92
+            if channel <= 0.03928
+            else ((channel + 0.055) / 1.055) ** 2.4
+            for channel in channels
+        ]
+        return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+    light, dark = sorted((luminance(foreground), luminance(background)), reverse=True)
+    return (light + 0.05) / (dark + 0.05)
+
+
 def _mobile_css(html):
     style = re.search(r"<style>([\s\S]*?)</style>", html)
     assert style, "frontend stylesheet is missing"
@@ -96,6 +111,34 @@ def test_svg_sparkline_binding_emits_no_native_points_console_error():
 
     assert result.returncode == 0, result.stderr
     assert "<polyline> attribute points:" not in result.stderr
+
+
+def test_document_exposes_lighthouse_title_language_and_description():
+    html = _frontend_html()
+
+    assert re.search(r"<html\b[^>]*\blang=\"en\"", html, re.I)
+    assert "<title>MENA Threat Index | SDCofA</title>" in html
+    description = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', html, re.I)
+    assert description
+    assert len(description.group(1)) >= 50
+
+
+def test_every_select_has_an_accessible_name():
+    html = _frontend_html()
+    selects = re.findall(r"<select\b[^>]*>", html, re.I)
+
+    assert len(selects) == 4
+    assert all(re.search(r'\baria-label="[^"]+"', select, re.I) for select in selects)
+
+
+def test_muted_text_palette_meets_normal_text_contrast():
+    html = _frontend_html()
+
+    compact = re.sub(r"\s+", "", html.lower())
+    assert '[style*="color:#6b6457"],[style*="color:#7d7565"]{color:#9a9284!important}' in compact
+    assert 'svgtext[fill="#6b6457"],svgtext[fill="#7d7565"]{fill:#9a9284!important}' in compact
+    assert "input::placeholder{color:#9a9284}" in compact
+    assert _contrast_ratio("#9a9284", "#1c1a14") >= 4.5
 
 
 def test_transform_live_accepts_pipeline_briefing_bullets():

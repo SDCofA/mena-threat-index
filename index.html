@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <title>MENA Threat Index | SDCofA</title>
+    <meta name="description" content="Open, auditable monitoring of geopolitical risk signals across the Middle East and North Africa.">
     <link rel="icon" href="./favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png">
     <link rel="manifest" href="./site.webmanifest">
@@ -28,7 +30,9 @@
   .bnti-row:hover{background:#1f1c16 !important}
   .bnti-feed:hover{background:#1c1a14 !important}
   .bnti-card:hover{border-color:#3a352a !important}
-  input::placeholder{color:#6b6457}
+  input::placeholder{color:#9a9284}
+  [style*="color:#6b6457"],[style*="color:#7d7565"]{color:#9a9284!important}
+  svg text[fill="#6b6457"],svg text[fill="#7d7565"]{fill:#9a9284!important}
   input:focus{outline:none;border-color:#c9a24b !important}
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#2c2820;border-radius:0}
@@ -253,13 +257,13 @@
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin:30px 0 16px 0;gap:16px;flex-wrap:wrap">
         <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Latest intelligence</h2>
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <select value="{{ feedCountry }}" onChange="{{ onFeedCountry }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by country" value="{{ feedCountry }}" onChange="{{ onFeedCountry }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedCountryOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
-          <select value="{{ feedCat }}" onChange="{{ onFeedCat }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by category" value="{{ feedCat }}" onChange="{{ onFeedCat }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedCatOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
-          <select value="{{ feedSev }}" onChange="{{ onFeedSev }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by severity" value="{{ feedSev }}" onChange="{{ onFeedSev }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedSevOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
           <sc-if value="{{ feedFiltered }}" hint-placeholder-val="{{ false }}">
@@ -672,7 +676,7 @@
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ a.color }};padding:3px 7px">{{ a.code }}</span>
               <span style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ a.name }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:{{ a.color }}">{{ a.index }}</span>
-              <select value="{{ a.alertVal }}" onChange="{{ a.onAlert }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+              <select aria-label="{{ a.name }} alert threshold" value="{{ a.alertVal }}" onChange="{{ a.onAlert }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
                 <option value="off">Off</option>
                 <option value="elevated">Elevated · 4.0</option>
                 <option value="critical">Critical · 7.0</option>

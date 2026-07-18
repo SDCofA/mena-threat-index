@@ -1,0 +1,24 @@
+{
+  "benchmarkManifestHash": "sha256:b18ed7fbc4b4832ca008b62263c99c1a55e7de647d369b2632a145d40b61dcac",
+  "blindAuditHash": "sha256:d537f91214d5c531cb8593ac6a98832a2eee425219e058558add68d622ff105b",
+  "evaluationResultsHash": "sha256:54016e4d9f0ae5849bccb108799e6cb273c2fb4f1106fbe3dae3280182301c19",
+  "forecastLedgerHash": "sha256:1038773641901c588a8b0f80f4d392c1b54c7e707adad5e50557c0a18c6fba39",
+  "governanceCommit": "86b1c12",
+  "legacyEvaluationCount": 178,
+  "migrationExclusionCount": 3,
+  "recordCount": 175,
+  "schemaLockHash": "sha256:223e6d2d55263f7a01aab27e25eba09ccea852b0511061752d8d5a1418b0d9fe",
+  "schemaVersion": "mti-forecast-provenance/v1",
+  "sourceBaseCommit": "02da23265a6420a272ce2aa3134b4d72fa4d6f75",
+  "sourceSnapshots": {
+    "forecastEvaluations": {
+      "observationCount": 178,
+      "path": "data/forecast_eval.jsonl",
+      "sha256": "sha256:8ecd3f27fe82727f6c27d58738d9f0bf377e6247a62bba2bebeee76700456114"
+    },
+    "history": {
+      "path": "data/history.jsonl",
+      "sha256": "sha256:d23a1b1642c1d0fa950a25d84983ed138a412555eed2af0cbbb3fd1e38ea7bf5"
+    }
+  }
+}

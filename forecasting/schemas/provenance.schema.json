@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://monarchcastle.tech/governance/forecasting/schemas/provenance.schema.json",
+  "title": "Forecast provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sourceRecords", "dataSnapshotHash", "codeCommit", "benchmarkManifestHash"],
+  "properties": {
+    "sourceRecords": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["source", "retrievedAt", "hash"], "properties": { "source": { "type": "string", "format": "uri", "pattern": "^https?://" }, "retrievedAt": { "type": "string", "format": "date-time", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,9})?Z$" }, "hash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" } } } },
+    "featureTimestamps": { "type": "array", "items": { "type": "string", "format": "date-time", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,9})?Z$" } },
+    "dataSnapshotHash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" },
+    "codeCommit": { "type": "string", "minLength": 1 },
+    "benchmarkManifestHash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://monarchcastle.tech/governance/forecasting/schemas/forecast-event.schema.json",
+  "title": "Append-only forecast event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "lineageId", "version", "recordType", "target", "outcomeSpace", "issuedAt", "dataCutoff", "horizon", "distribution", "uncertainty", "assumptions", "method", "resolutionCriteria", "provenance", "supersedes"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 }, "lineageId": { "type": "string", "minLength": 1 }, "version": { "type": "integer", "minimum": 1 }, "recordType": { "const": "forecast" },
+    "target": { "type": "object", "additionalProperties": false, "required": ["id", "label", "type"], "properties": { "id": { "type": "string", "minLength": 1 }, "label": { "type": "string", "minLength": 1 }, "type": { "enum": ["binary", "categorical", "ordered-multiclass", "continuous", "interval"] } } },
+    "outcomeSpace": { "type": "object", "additionalProperties": false, "required": ["type"], "properties": { "type": { "enum": ["binary", "categorical", "ordered-multiclass", "continuous", "interval"] }, "categories": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }, "unit": { "type": "string", "minLength": 1 } } },
+    "issuedAt": { "type": "string", "format": "date-time", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,9})?Z$" }, "dataCutoff": { "type": "string", "format": "date-time", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,9})?Z$" },
+    "horizon": { "type": "object", "additionalProperties": false, "required": ["value", "unit", "endsAt"], "properties": { "value": { "type": "number", "exclusiveMinimum": 0 }, "unit": { "type": "string", "minLength": 1 }, "endsAt": { "type": "string", "format": "date-time", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,9})?Z$" } } },
+    "distribution": { "type": "object" }, "uncertainty": { "type": "object", "additionalProperties": false, "required": ["description"], "properties": { "description": { "type": "string", "minLength": 1 }, "confidenceLevel": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 } } }, "assumptions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "method": { "type": "object", "additionalProperties": false, "required": ["name", "modelVersion", "dataVersion", "codeVersion"], "properties": { "name": { "type": "string", "minLength": 1 }, "modelVersion": { "type": "string", "minLength": 1 }, "dataVersion": { "type": "string", "minLength": 1 }, "codeVersion": { "type": "string", "minLength": 1 } } },
+    "resolutionCriteria": { "type": "object", "additionalProperties": false, "required": ["source", "rule", "outcome", "score"], "properties": { "source": { "type": "string", "format": "uri", "pattern": "^https?://" }, "rule": { "type": "string", "minLength": 1 }, "outcome": {}, "score": { "type": ["number", "null"] } } },
+    "provenance": { "$ref": "provenance.schema.json" }, "supersedes": { "type": ["string", "null"] }
+  },
+  "$defs": {
+    "coverageIntervals": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "object", "additionalProperties": false, "required": ["level", "lower", "upper"], "properties": { "level": { "type": "number", "enum": [0.5, 0.8, 0.95] }, "lower": { "type": "number" }, "upper": { "type": "number" } } },
+      "allOf": [
+        { "contains": { "properties": { "level": { "const": 0.5 } }, "required": ["level"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "level": { "const": 0.8 } }, "required": ["level"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "level": { "const": 0.95 } }, "required": ["level"] }, "minContains": 1, "maxContains": 1 }
+      ]
+    }
+  },
+  "allOf": [
+    { "if": { "properties": { "target": { "properties": { "type": { "const": "binary" } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "properties": { "type": { "const": "binary" }, "categories": { "minItems": 2, "maxItems": 2 } }, "required": ["categories"] }, "distribution": { "type": "object", "additionalProperties": false, "required": ["probabilities"], "properties": { "probabilities": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "minimum": 0, "maximum": 1 } } } } } } },
+    { "if": { "properties": { "target": { "properties": { "type": { "enum": ["categorical", "ordered-multiclass"] } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "required": ["categories"] }, "distribution": { "type": "object", "additionalProperties": false, "required": ["probabilities"], "properties": { "probabilities": { "type": "array", "minItems": 2, "items": { "type": "number", "minimum": 0, "maximum": 1 } } } } } } },
+    { "if": { "properties": { "target": { "properties": { "type": { "const": "continuous" } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "properties": { "type": { "const": "continuous" } }, "required": ["unit"], "not": { "required": ["categories"] } }, "distribution": { "type": "object", "additionalProperties": false, "required": ["point", "intervals"], "properties": { "point": { "type": "number" }, "intervals": { "$ref": "#/$defs/coverageIntervals" } } } } } },
+    { "if": { "properties": { "target": { "properties": { "type": { "const": "interval" } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "properties": { "type": { "const": "interval" } }, "required": ["unit"], "not": { "required": ["categories"] } }, "distribution": { "type": "object", "additionalProperties": false, "required": ["point", "intervals"], "properties": { "point": { "type": "number" }, "intervals": { "$ref": "#/$defs/coverageIntervals" } } } } } },
+    { "if": { "properties": { "target": { "properties": { "type": { "const": "categorical" } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "properties": { "type": { "const": "categorical" } } } } } },
+    { "if": { "properties": { "target": { "properties": { "type": { "const": "ordered-multiclass" } }, "required": ["type"] } } }, "then": { "properties": { "outcomeSpace": { "properties": { "type": { "const": "ordered-multiclass" } } } } } }
+  ]
+}

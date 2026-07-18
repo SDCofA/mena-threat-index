@@ -1,0 +1,23 @@
+{
+  "auditProtocol": "Reviewer receives only forecastId and reconstructs inputs, method/version, outcome, and score from committed artifacts.",
+  "forecastId": "mti-composite-2026-07-18t08z-v1",
+  "reconstruction": {
+    "forecastId": "mti-composite-2026-07-18t08z-v1",
+    "inputs": {
+      "dataCutoff": "2026-07-18T08:00:00Z",
+      "dataSnapshotHash": "sha256:b6ebdc648d03dbb8e2f17b7acc339f55d78d0fc8a69fd59e51ae53a9873746f2",
+      "historyRunId": "2026-07-18T08Z",
+      "recordedNaivePoint": 1.98
+    },
+    "method": {
+      "codeVersion": "forecast-standard-pilot/v1",
+      "dataVersion": "sha256:b18ed7fbc4b4832ca008b62263c99c1a55e7de647d369b2632a145d40b61dcac",
+      "modelVersion": "legacy-pre-governance",
+      "name": "MENA one-step composite forecast (legacy governed migration)"
+    },
+    "outcome": 1.98,
+    "point": 1.98,
+    "score": 0.0,
+    "verified": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "mena-threat-index-one-step-pilot",
+  "version": 1,
+  "status": "frozen-before-evaluation",
+  "frozenAt": "2026-07-18T12:00:00Z",
+  "governanceCommit": "86b1c12",
+  "codeVersion": "forecast-standard-pilot/v1",
+  "sourceBaseCommit": "02da23265a6420a272ce2aa3134b4d72fa4d6f75",
+  "sourceSnapshot": {
+    "forecastEvaluations": {
+      "path": "data/forecast_eval.jsonl",
+      "sha256": "sha256:8ecd3f27fe82727f6c27d58738d9f0bf377e6247a62bba2bebeee76700456114",
+      "observationCount": 178
+    },
+    "history": {
+      "path": "data/history.jsonl",
+      "sha256": "sha256:d23a1b1642c1d0fa950a25d84983ed138a412555eed2af0cbbb3fd1e38ea7bf5"
+    }
+  },
+  "preregistration": {
+    "targetDefinition": "Next recorded MENA composite threat-index level.",
+    "resolutionRule": "Resolve each stored one-step point forecast against the next actual value recorded in data/forecast_eval.jsonl.",
+    "method": "Rolling-origin evaluation in timestamp order with issue-time cutoff enforcement and no shuffled observations.",
+    "confidenceInterval": "Paired bootstrap 95% confidence interval over model-minus-baseline absolute-error differences.",
+    "horizon": "one recorded pipeline step",
+    "domain": "MENA composite threat-index series",
+    "segments": ["full frozen period"],
+    "exclusions": [
+      "Rows missing a finite actual, model prediction, naïve prediction, or timestamp.",
+      "Legacy forecast rows whose stored point cannot be matched exactly to the immediately preceding history record are excluded from governed forecast-record migration but retained in aggregate evaluation."
+    ],
+    "missingDataHandling": "No imputation and no timestamp interpolation."
+  },
+  "baselines": ["naive", "persistence", "expanding-mean-reference"],
+  "scoring": {
+    "primary": "mae",
+    "secondary": ["rmse", "coverage50", "coverage80", "coverage95"],
+    "bootstrapSeed": 20260718,
+    "bootstrapResamples": 10000
+  },
+  "reportingRequired": [
+    "sampleCount",
+    "period",
+    "horizon",
+    "domain",
+    "exclusions",
+    "missingDataHandling",
+    "segmentResults",
+    "limitations",
+    "codeVersion",
+    "manifestHash"
+  ]
+}

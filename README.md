@@ -234,7 +234,7 @@ Original software history is maintained in Git. External datasets, reports, trad
 
 Forecasts and model-derived scores are probabilistic, time-bound analytical outputs—not facts, guarantees, or advice. Evaluate them against their stated horizon, source timestamp, methodology, and subsequent outcomes. Missing or delayed inputs can defer publication.
 
-For an auditable, structured backtest diagnostic, run `python -m scripts.forecast_backtest --json`; see [methodology sensitivity and governance boundaries](docs/methodology_sensitivity.md). This diagnostic is not a preregistered benchmark and cannot support a public comparative-accuracy claim.
+The governed pilot freezes 178 timestamped model-vs-naïve observations before evaluation. On that sample, the recorded model has **5.4% higher MAE than the naïve baseline**, and the paired 95% interval for the MAE difference includes zero. No comparative-performance claim is supported. See the [forecast model card](docs/forecasting/model-card.md), [evaluation report](docs/forecasting/evaluation-report.md), and [machine-readable evidence](forecasting/evaluation-results.json). Reproduce the committed artifacts with `python -m scripts.forecast_governance --check`.
 
 ## Security
 
