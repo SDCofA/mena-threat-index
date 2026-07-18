@@ -187,3 +187,4 @@
 {"run_id": "2026-07-17T22Z", "ts": "2026-07-17T22:00:00Z", "name": "Iraq", "index": 1.97, "raw": 0.477, "confidence": 0.803, "n_events": 167}
 {"run_id": "2026-07-18T00Z", "ts": "2026-07-18T00:00:00Z", "name": "Iraq", "index": 1.9, "raw": 0.437, "confidence": 0.803, "n_events": 165}
 {"run_id": "2026-07-18T04Z", "ts": "2026-07-18T04:00:00Z", "name": "Iraq", "index": 2.09, "raw": 0.536, "confidence": 0.802, "n_events": 163}
+{"run_id": "2026-07-18T06Z", "ts": "2026-07-18T06:00:00Z", "name": "Iraq", "index": 2.39, "raw": 0.698, "confidence": 0.802, "n_events": 169}
