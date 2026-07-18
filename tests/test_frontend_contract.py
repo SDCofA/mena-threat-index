@@ -1,8 +1,12 @@
+import functools
+import http.server
 import os
 import re
 import shutil
 import subprocess
+import tempfile
 import textwrap
+import threading
 
 import pytest
 
@@ -32,6 +36,61 @@ def _mobile_css(html):
             if depth == 0:
                 return css[opening + 1:offset]
     raise AssertionError("mobile breakpoint is not closed")
+
+
+def _chrome():
+    candidates = (
+        shutil.which("chrome"),
+        shutil.which("google-chrome"),
+        shutil.which("chromium"),
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    )
+    return next((candidate for candidate in candidates if candidate and os.path.exists(candidate)), None)
+
+
+class _QuietHandler(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *_args):
+        pass
+
+
+def test_svg_sparkline_binding_emits_no_native_points_console_error():
+    chrome = _chrome()
+    if not chrome:
+        pytest.skip("Chrome/Chromium unavailable")
+
+    handler = functools.partial(_QuietHandler, directory=ROOT)
+    server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        with tempfile.TemporaryDirectory() as profile:
+            result = subprocess.run(
+                [
+                    chrome,
+                    "--headless=new",
+                    "--disable-gpu",
+                    "--disable-extensions",
+                    "--no-first-run",
+                    f"--user-data-dir={profile}",
+                    "--enable-logging=stderr",
+                    "--v=0",
+                    "--virtual-time-budget=12000",
+                    "--dump-dom",
+                    f"http://127.0.0.1:{server.server_port}/",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                check=False,
+            )
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=5)
+
+    assert result.returncode == 0, result.stderr
+    assert "<polyline> attribute points:" not in result.stderr
 
 
 def test_transform_live_accepts_pipeline_briefing_bullets():
