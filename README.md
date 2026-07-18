@@ -234,6 +234,8 @@ Original software history is maintained in Git. External datasets, reports, trad
 
 Forecasts and model-derived scores are probabilistic, time-bound analytical outputs—not facts, guarantees, or advice. Evaluate them against their stated horizon, source timestamp, methodology, and subsequent outcomes. Missing or delayed inputs can defer publication.
 
+For an auditable, structured backtest diagnostic, run `python -m scripts.forecast_backtest --json`; see [methodology sensitivity and governance boundaries](docs/methodology_sensitivity.md). This diagnostic is not a preregistered benchmark and cannot support a public comparative-accuracy claim.
+
 ## Security
 
 Do not publish vulnerabilities in an issue. Use GitHub's private vulnerability-reporting flow when available, or follow the [organization security policy](https://github.com/SDCofA/.github/security/policy).
