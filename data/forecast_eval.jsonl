@@ -215,3 +215,4 @@
 {"run_id": "2026-07-22T10Z", "ts": "2026-07-22T10:00:00Z", "actual": 2.47, "model_pred": 2.5, "naive_pred": 2.5, "err_model": 0.03, "err_naive": 0.03}
 {"run_id": "2026-07-22T12Z", "ts": "2026-07-22T12:00:00Z", "actual": 2.45, "model_pred": 2.46, "naive_pred": 2.47, "err_model": 0.01, "err_naive": 0.02}
 {"run_id": "2026-07-22T14Z", "ts": "2026-07-22T14:00:00Z", "actual": 2.43, "model_pred": 2.44, "naive_pred": 2.45, "err_model": 0.01, "err_naive": 0.02}
+{"run_id": "2026-07-22T16Z", "ts": "2026-07-22T16:00:00Z", "actual": 2.43, "model_pred": 2.42, "naive_pred": 2.43, "err_model": 0.01, "err_naive": 0.0}
