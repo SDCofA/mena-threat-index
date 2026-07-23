@@ -238,3 +238,4 @@
 {"run_id": "2026-07-23T10Z", "ts": "2026-07-23T10:00:00Z", "name": "Palestine", "index": 2.47, "raw": 0.744, "confidence": 0.802, "n_events": 168}
 {"run_id": "2026-07-23T12Z", "ts": "2026-07-23T12:00:00Z", "name": "Palestine", "index": 2.36, "raw": 0.683, "confidence": 0.802, "n_events": 174}
 {"run_id": "2026-07-23T14Z", "ts": "2026-07-23T14:00:00Z", "name": "Palestine", "index": 2.45, "raw": 0.733, "confidence": 0.802, "n_events": 182}
+{"run_id": "2026-07-23T16Z", "ts": "2026-07-23T16:00:00Z", "name": "Palestine", "index": 2.35, "raw": 0.678, "confidence": 0.801, "n_events": 182}
