@@ -258,3 +258,4 @@
 {"run_id": "2026-07-25T12Z", "ts": "2026-07-25T12:00:00Z", "name": "Israel", "index": 2.98, "raw": 1.037, "confidence": 0.801, "n_events": 173}
 {"run_id": "2026-07-25T14Z", "ts": "2026-07-25T14:00:00Z", "name": "Israel", "index": 2.83, "raw": 0.946, "confidence": 0.8, "n_events": 174}
 {"run_id": "2026-07-25T16Z", "ts": "2026-07-25T16:00:00Z", "name": "Israel", "index": 2.29, "raw": 0.646, "confidence": 0.8, "n_events": 171}
+{"run_id": "2026-07-25T18Z", "ts": "2026-07-25T18:00:00Z", "name": "Israel", "index": 2.63, "raw": 0.832, "confidence": 0.798, "n_events": 172}
