@@ -302,3 +302,4 @@
 {"run_id": "2026-07-30T08Z", "ts": "2026-07-30T08:00:00Z", "name": "Iraq", "index": 2.31, "raw": 0.658, "confidence": 0.8, "n_events": 178}
 {"run_id": "2026-07-30T10Z", "ts": "2026-07-30T10:00:00Z", "name": "Iraq", "index": 2.32, "raw": 0.661, "confidence": 0.8, "n_events": 178}
 {"run_id": "2026-07-30T12Z", "ts": "2026-07-30T12:00:00Z", "name": "Iraq", "index": 2.17, "raw": 0.583, "confidence": 0.8, "n_events": 178}
+{"run_id": "2026-07-30T14Z", "ts": "2026-07-30T14:00:00Z", "name": "Iraq", "index": 2.08, "raw": 0.53, "confidence": 0.799, "n_events": 179}
