@@ -343,3 +343,4 @@
 {"run_id": "2026-08-03T16Z", "ts": "2026-08-03T16:00:00Z", "name": "Tunisia", "index": 1.14, "raw": 0.063, "confidence": 0.794, "n_events": 103}
 {"run_id": "2026-08-03T18Z", "ts": "2026-08-03T18:00:00Z", "name": "Tunisia", "index": 1.12, "raw": 0.057, "confidence": 0.794, "n_events": 107}
 {"run_id": "2026-08-03T20Z", "ts": "2026-08-03T20:00:00Z", "name": "Tunisia", "index": 1.12, "raw": 0.056, "confidence": 0.796, "n_events": 107}
+{"run_id": "2026-08-03T22Z", "ts": "2026-08-03T22:00:00Z", "name": "Tunisia", "index": 1.12, "raw": 0.054, "confidence": 0.797, "n_events": 107}
