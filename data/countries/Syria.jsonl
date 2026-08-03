@@ -338,3 +338,4 @@
 {"run_id": "2026-08-02T22Z", "ts": "2026-08-02T22:00:00Z", "name": "Syria", "index": 2.65, "raw": 0.842, "confidence": 0.802, "n_events": 121}
 {"run_id": "2026-08-03T02Z", "ts": "2026-08-03T02:00:00Z", "name": "Syria", "index": 2.46, "raw": 0.737, "confidence": 0.8, "n_events": 125}
 {"run_id": "2026-08-03T06Z", "ts": "2026-08-03T06:00:00Z", "name": "Syria", "index": 2.61, "raw": 0.819, "confidence": 0.799, "n_events": 132}
+{"run_id": "2026-08-03T10Z", "ts": "2026-08-03T10:00:00Z", "name": "Syria", "index": 2.34, "raw": 0.67, "confidence": 0.797, "n_events": 134}
