@@ -371,3 +371,4 @@
 {"run_id": "2026-08-11T16Z", "ts": "2026-08-11T16:00:00Z", "name": "Turkey", "index": 1.9, "raw": 0.437, "confidence": 0.803, "n_events": 246}
 {"run_id": "2026-08-11T18Z", "ts": "2026-08-11T18:00:00Z", "name": "Turkey", "index": 1.96, "raw": 0.469, "confidence": 0.8, "n_events": 255}
 {"run_id": "2026-08-11T20Z", "ts": "2026-08-11T20:00:00Z", "name": "Turkey", "index": 1.81, "raw": 0.393, "confidence": 0.801, "n_events": 259}
+{"run_id": "2026-08-11T22Z", "ts": "2026-08-11T22:00:00Z", "name": "Turkey", "index": 1.85, "raw": 0.415, "confidence": 0.798, "n_events": 256}
