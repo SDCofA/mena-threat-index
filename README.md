@@ -10,7 +10,7 @@
   ![Cadence](https://img.shields.io/badge/CADENCE-EVERY%202%20HOURS-b0894f?style=flat-square)
   ![Coverage](https://img.shields.io/badge/COVERAGE-24%20STATES-6e1f2b?style=flat-square)
   ![Strategic Data Company of Ankara](https://img.shields.io/badge/STRATEGIC%20DATA%20CO.-ANKARA-0b1f3a?style=flat-square)
-  ![License](https://img.shields.io/badge/LICENSE-APACHE--2.0-b0894f?style=flat-square)
+  ![License](https://img.shields.io/badge/LICENSE-MIT-b0894f?style=flat-square)
 
 </div>
 
@@ -165,7 +165,7 @@ python -m http.server 8000      # then open http://localhost:8000/
 - **Lawful, open-source collection only.** Public sources exclusively. The optional NVIDIA key lives solely as a GitHub Actions secret, is read from `NVIDIA_API_KEY` at runtime, and is never written to any file in this repository. Should a key ever be exposed in plaintext, rotate it at <https://build.nvidia.com>.
 - **Reproducibility.** The Index reconstructs exactly from a clean checkout; fixed weights and append-only histories guarantee that any past reading can be reproduced.
 - **Fail-safe by design.** Degraded runs are withheld rather than published. Silence is preferred to a false signal.
-- **Licensed under Apache-2.0** — see [`LICENSE`](LICENSE). © 2026 Monarch Castle Holdings · Ankara, Türkiye.
+- **Licensed under MIT** — see [`LICENSE`](LICENSE). © 2026 Monarch Castle Holdings · Ankara, Türkiye.
 
 ---
 
@@ -242,7 +242,7 @@ Do not publish vulnerabilities in an issue. Use GitHub's private vulnerability-r
 
 ## License
 
-Original repository code and documentation are available under **Apache-2.0**; see [LICENSE](LICENSE). That license does not override third-party terms documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Original repository code and documentation are available under **MIT**; see [LICENSE](LICENSE). That license does not override third-party terms documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Citation
 
