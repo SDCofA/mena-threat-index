@@ -366,3 +366,4 @@
 {"run_id": "2026-08-11T06Z", "ts": "2026-08-11T06:00:00Z", "name": "Jordan", "index": 1.2, "raw": 0.094, "confidence": 0.798, "n_events": 187}
 {"run_id": "2026-08-11T08Z", "ts": "2026-08-11T08:00:00Z", "name": "Jordan", "index": 1.17, "raw": 0.078, "confidence": 0.802, "n_events": 183}
 {"run_id": "2026-08-11T10Z", "ts": "2026-08-11T10:00:00Z", "name": "Jordan", "index": 1.17, "raw": 0.079, "confidence": 0.803, "n_events": 173}
+{"run_id": "2026-08-11T12Z", "ts": "2026-08-11T12:00:00Z", "name": "Jordan", "index": 1.15, "raw": 0.069, "confidence": 0.802, "n_events": 180}
