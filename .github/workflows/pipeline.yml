@@ -14,15 +14,15 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
       - name: Run pipeline
         env:
-          NVIDIA_API_KEY: `${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: python -m pipeline.run
       - name: Commit data
         run: |
@@ -39,8 +39,8 @@ jobs:
             done
             exit 1
           fi
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: .
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
