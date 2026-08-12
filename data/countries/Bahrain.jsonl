@@ -381,3 +381,4 @@
 {"run_id": "2026-08-12T14Z", "ts": "2026-08-12T14:00:00Z", "name": "Bahrain", "index": 1.29, "raw": 0.138, "confidence": 0.801, "n_events": 150}
 {"run_id": "2026-08-12T16Z", "ts": "2026-08-12T16:00:00Z", "name": "Bahrain", "index": 1.36, "raw": 0.168, "confidence": 0.802, "n_events": 145}
 {"run_id": "2026-08-12T18Z", "ts": "2026-08-12T18:00:00Z", "name": "Bahrain", "index": 1.33, "raw": 0.155, "confidence": 0.802, "n_events": 150}
+{"run_id": "2026-08-12T20Z", "ts": "2026-08-12T20:00:00Z", "name": "Bahrain", "index": 1.36, "raw": 0.17, "confidence": 0.802, "n_events": 153}
