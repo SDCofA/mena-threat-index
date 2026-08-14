@@ -404,3 +404,4 @@
 {"run_id": "2026-08-14T16Z", "ts": "2026-08-14T16:00:00Z", "name": "Morocco", "index": 2.15, "raw": 0.568, "confidence": 0.796, "n_events": 175}
 {"run_id": "2026-08-14T18Z", "ts": "2026-08-14T18:00:00Z", "name": "Morocco", "index": 2.11, "raw": 0.55, "confidence": 0.795, "n_events": 170}
 {"run_id": "2026-08-14T20Z", "ts": "2026-08-14T20:00:00Z", "name": "Morocco", "index": 2.04, "raw": 0.513, "confidence": 0.795, "n_events": 167}
+{"run_id": "2026-08-14T22Z", "ts": "2026-08-14T22:00:00Z", "name": "Morocco", "index": 2.0, "raw": 0.492, "confidence": 0.798, "n_events": 160}
