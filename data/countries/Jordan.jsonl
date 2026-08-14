@@ -403,3 +403,4 @@
 {"run_id": "2026-08-14T14Z", "ts": "2026-08-14T14:00:00Z", "name": "Jordan", "index": 1.32, "raw": 0.15, "confidence": 0.804, "n_events": 176}
 {"run_id": "2026-08-14T16Z", "ts": "2026-08-14T16:00:00Z", "name": "Jordan", "index": 1.41, "raw": 0.194, "confidence": 0.802, "n_events": 179}
 {"run_id": "2026-08-14T18Z", "ts": "2026-08-14T18:00:00Z", "name": "Jordan", "index": 1.38, "raw": 0.178, "confidence": 0.802, "n_events": 177}
+{"run_id": "2026-08-14T20Z", "ts": "2026-08-14T20:00:00Z", "name": "Jordan", "index": 1.38, "raw": 0.179, "confidence": 0.802, "n_events": 176}
