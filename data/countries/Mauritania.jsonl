@@ -441,3 +441,4 @@
 {"run_id": "2026-08-17T18Z", "ts": "2026-08-17T18:00:00Z", "name": "Mauritania", "index": 1.01, "raw": 0.004, "confidence": 0.8, "n_events": 28}
 {"run_id": "2026-08-17T20Z", "ts": "2026-08-17T20:00:00Z", "name": "Mauritania", "index": 1.01, "raw": 0.003, "confidence": 0.799, "n_events": 29}
 {"run_id": "2026-08-17T22Z", "ts": "2026-08-17T22:00:00Z", "name": "Mauritania", "index": 1.01, "raw": 0.003, "confidence": 0.808, "n_events": 30}
+{"run_id": "2026-08-18T00Z", "ts": "2026-08-18T00:00:00Z", "name": "Mauritania", "index": 1.0, "raw": 0.0, "confidence": 0.05, "n_events": 0}
