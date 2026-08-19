@@ -458,3 +458,4 @@
 {"run_id": "2026-08-19T04Z", "ts": "2026-08-19T04:00:00Z", "name": "Kuwait", "index": 1.85, "raw": 0.414, "confidence": 0.796, "n_events": 178}
 {"run_id": "2026-08-19T06Z", "ts": "2026-08-19T06:00:00Z", "name": "Kuwait", "index": 1.89, "raw": 0.432, "confidence": 0.797, "n_events": 151}
 {"run_id": "2026-08-19T08Z", "ts": "2026-08-19T08:00:00Z", "name": "Kuwait", "index": 1.73, "raw": 0.351, "confidence": 0.797, "n_events": 174}
+{"run_id": "2026-08-19T10Z", "ts": "2026-08-19T10:00:00Z", "name": "Kuwait", "index": 1.92, "raw": 0.451, "confidence": 0.8, "n_events": 172}
