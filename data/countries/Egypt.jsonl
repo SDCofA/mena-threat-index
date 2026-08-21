@@ -487,3 +487,4 @@
 {"run_id": "2026-08-21T14Z", "ts": "2026-08-21T14:00:00Z", "name": "Egypt", "index": 1.7, "raw": 0.335, "confidence": 0.803, "n_events": 186}
 {"run_id": "2026-08-21T16Z", "ts": "2026-08-21T16:00:00Z", "name": "Egypt", "index": 1.61, "raw": 0.294, "confidence": 0.798, "n_events": 188}
 {"run_id": "2026-08-21T18Z", "ts": "2026-08-21T18:00:00Z", "name": "Egypt", "index": 1.59, "raw": 0.28, "confidence": 0.795, "n_events": 192}
+{"run_id": "2026-08-21T20Z", "ts": "2026-08-21T20:00:00Z", "name": "Egypt", "index": 1.89, "raw": 0.436, "confidence": 0.05, "n_events": 10}
