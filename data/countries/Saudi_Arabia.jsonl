@@ -492,3 +492,4 @@
 {"run_id": "2026-08-22T00Z", "ts": "2026-08-22T00:00:00Z", "name": "Saudi Arabia", "index": 1.82, "raw": 0.396, "confidence": 0.795, "n_events": 189}
 {"run_id": "2026-08-22T02Z", "ts": "2026-08-22T02:00:00Z", "name": "Saudi Arabia", "index": 1.81, "raw": 0.395, "confidence": 0.796, "n_events": 189}
 {"run_id": "2026-08-22T04Z", "ts": "2026-08-22T04:00:00Z", "name": "Saudi Arabia", "index": 1.72, "raw": 0.346, "confidence": 0.796, "n_events": 187}
+{"run_id": "2026-08-22T06Z", "ts": "2026-08-22T06:00:00Z", "name": "Saudi Arabia", "index": 1.64, "raw": 0.306, "confidence": 0.797, "n_events": 183}
