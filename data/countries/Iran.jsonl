@@ -494,3 +494,4 @@
 {"run_id": "2026-08-22T04Z", "ts": "2026-08-22T04:00:00Z", "name": "Iran", "index": 4.52, "raw": 2.066, "confidence": 0.8, "n_events": 133}
 {"run_id": "2026-08-22T06Z", "ts": "2026-08-22T06:00:00Z", "name": "Iran", "index": 4.87, "raw": 2.345, "confidence": 0.799, "n_events": 133}
 {"run_id": "2026-08-22T08Z", "ts": "2026-08-22T08:00:00Z", "name": "Iran", "index": 5.07, "raw": 2.508, "confidence": 0.798, "n_events": 133}
+{"run_id": "2026-08-22T10Z", "ts": "2026-08-22T10:00:00Z", "name": "Iran", "index": 5.13, "raw": 2.561, "confidence": 0.805, "n_events": 130}
