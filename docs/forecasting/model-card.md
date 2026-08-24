@@ -4,7 +4,7 @@
 
 - **Evaluation contract:** `forecast-standard-pilot/v1`
 - **Historical model version:** `legacy-pre-governance`
-- **Governance source:** `MonarchCastleTech/company-governance` commit `86b1c12`
+- **Governance source:** repository-local forecasting contract, retained from governance commit `86b1c12`
 - **Source snapshot commit:** `02da23265a6420a272ce2aa3134b4d72fa4d6f75`
 - **Target:** next recorded MENA composite threat-index level
 - **Target type and unit:** continuous, index points

@@ -25,8 +25,7 @@ from pipeline.util import ROOT
 
 DATA = os.path.join(ROOT, "data")
 DEFAULT_MANIFEST = os.path.join(
-    os.path.dirname(os.path.dirname(ROOT)),
-    "company-governance",
+    ROOT,
     "forecasting",
     "benchmark-manifest.json",
 )

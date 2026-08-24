@@ -1,6 +1,6 @@
 {
   "governanceCommit": "86b1c12",
-  "sourceRepository": "MonarchCastleTech/company-governance",
+  "sourceRepository": "SDCofA/mena-threat-index",
   "schemas": {
     "forecastEvent": {
       "path": "forecasting/schemas/forecast-event.schema.json",
