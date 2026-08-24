@@ -520,3 +520,4 @@
 {"run_id": "2026-08-24T08Z", "ts": "2026-08-24T08:00:00Z", "name": "Lebanon", "index": 1.63, "raw": 0.301, "confidence": 0.799, "n_events": 142}
 {"run_id": "2026-08-24T10Z", "ts": "2026-08-24T10:00:00Z", "name": "Lebanon", "index": 1.53, "raw": 0.253, "confidence": 0.799, "n_events": 153}
 {"run_id": "2026-08-24T12Z", "ts": "2026-08-24T12:00:00Z", "name": "Lebanon", "index": 1.65, "raw": 0.312, "confidence": 0.798, "n_events": 156}
+{"run_id": "2026-08-24T14Z", "ts": "2026-08-24T14:00:00Z", "name": "Lebanon", "index": 1.86, "raw": 0.418, "confidence": 0.803, "n_events": 158}
