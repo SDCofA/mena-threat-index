@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://monarchcastle.tech/governance/forecasting/schemas/provenance.schema.json",
+  "$id": "https://monarchcastletech.github.io/governance/forecasting/schemas/provenance.schema.json",
   "title": "Forecast provenance",
   "type": "object",
   "additionalProperties": false,

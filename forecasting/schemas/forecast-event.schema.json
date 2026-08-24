@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://monarchcastle.tech/governance/forecasting/schemas/forecast-event.schema.json",
+  "$id": "https://monarchcastletech.github.io/governance/forecasting/schemas/forecast-event.schema.json",
   "title": "Append-only forecast event",
   "type": "object",
   "additionalProperties": false,
