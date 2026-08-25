@@ -525,3 +525,4 @@
 {"run_id": "2026-08-24T18Z", "ts": "2026-08-24T18:00:00Z", "name": "United Arab Emirates", "index": 2.34, "raw": 0.669, "confidence": 0.797, "n_events": 239}
 {"run_id": "2026-08-24T20Z", "ts": "2026-08-24T20:00:00Z", "name": "United Arab Emirates", "index": 2.13, "raw": 0.558, "confidence": 0.8, "n_events": 232}
 {"run_id": "2026-08-24T22Z", "ts": "2026-08-24T22:00:00Z", "name": "United Arab Emirates", "index": 2.18, "raw": 0.584, "confidence": 0.801, "n_events": 235}
+{"run_id": "2026-08-25T00Z", "ts": "2026-08-25T00:00:00Z", "name": "United Arab Emirates", "index": 2.27, "raw": 0.635, "confidence": 0.8, "n_events": 244}
