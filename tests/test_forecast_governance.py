@@ -87,7 +87,7 @@ def test_records_preserve_recorded_points_and_are_append_only(tmp_path):
         module.write_immutable_ledger(ledger, changed)
 
 
-def test_frozen_sources_survive_append_only_operational_updates():
+def test_frozen_sources_survive_append_only_operational_updates(tmp_path):
     module = load_pilot()
     history, evaluations = source_rows()
 
@@ -95,6 +95,16 @@ def test_frozen_sources_survive_append_only_operational_updates():
     assert len(evaluations) == 178
     assert len(module.load_jsonl(ROOT / "data" / "history.jsonl")) >= len(history)
     assert len(module.load_jsonl(ROOT / "data" / "forecast_eval.jsonl")) >= len(evaluations)
+
+    manifest = json.loads(BENCHMARK_MANIFEST.read_text(encoding="utf-8"))
+    linux_copy = tmp_path / "history.jsonl"
+    source_lines = (ROOT / "data" / "history.jsonl").read_bytes().replace(b"\r\n", b"\n").splitlines()
+    linux_copy.write_bytes(b"\n".join(source_lines) + b"\n")
+    recovered = module.load_frozen_jsonl(
+        linux_copy,
+        manifest["sourceSnapshot"]["history"]["sha256"],
+    )
+    assert len(recovered) == len(history)
 
 
 def test_temporal_leakage_is_rejected():

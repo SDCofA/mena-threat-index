@@ -89,16 +89,25 @@ def load_frozen_jsonl(path, expected_sha256):
     each prefix keeps the benchmark reproducible without blocking new readings.
     """
     rows = []
-    digest = hashlib.sha256()
+    raw_digest = hashlib.sha256()
+    crlf_digest = hashlib.sha256()
     with Path(path).open("rb") as source:
         for line_number, raw_line in enumerate(source, 1):
-            digest.update(raw_line)
+            raw_digest.update(raw_line)
+            normalized_line = raw_line.replace(b"\r\n", b"\n")
+            if normalized_line.endswith(b"\n"):
+                normalized_line = normalized_line[:-1] + b"\r\n"
+            crlf_digest.update(normalized_line)
             if raw_line.strip():
                 try:
                     rows.append(json.loads(raw_line))
                 except json.JSONDecodeError as error:
                     raise ValueError(f"{path}:{line_number}: invalid JSON") from error
-            if "sha256:" + digest.hexdigest() == expected_sha256:
+            candidates = {
+                "sha256:" + raw_digest.hexdigest(),
+                "sha256:" + crlf_digest.hexdigest(),
+            }
+            if expected_sha256 in candidates:
                 return rows
     raise ValueError(f"frozen source prefix not found: {path}")
 
