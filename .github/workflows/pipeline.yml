@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt pytest
       - name: Run pipeline
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
