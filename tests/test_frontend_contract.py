@@ -175,3 +175,46 @@ def test_mobile_contract_uses_phone_padding_and_responsive_content_rows():
     assert re.search(r"\.mti-main\{[^}]*padding-left:16px!important[^}]*padding-right:16px!important", mobile_css)
     assert re.search(r"\.mti-dashboard-grid\{[^}]*grid-template-columns:minmax\(0,1fr\)!important", mobile_css)
     assert re.search(r"\.mti-feed-row\{[^}]*grid-template-columns:minmax\(0,1fr\)!important", mobile_css)
+
+
+def test_primary_navigation_uses_keyboard_native_controls():
+    html = _frontend_html()
+    nav = re.search(r'<nav\b[^>]*aria-label="Primary navigation"[\s\S]*?</nav>', html)
+
+    assert nav
+    assert len(re.findall(r'<button\b[^>]*\bmti-nav-item\b', nav.group(0))) == 1
+    assert "['Overview','overview'],['Countries','countries'],['Markets','markets'],['Methodology','methodology'],['About','about']" in html
+    assert 'aria-current="{{ item.current }}"' in nav.group(0)
+    assert 'type="button" class="mti-brand mti-button"' in html
+    assert '>My workspace</button>' in nav.group(0)
+
+
+def test_local_workspace_does_not_masquerade_as_auth_or_delivery():
+    html = _frontend_html()
+
+    assert 'data-screen-label="Local workspace"' in html
+    assert "type=\"password\"" not in html
+    assert "localStorage.setItem('mti_user'" not in html
+    assert "localStorage.setItem('mti_delivery'" not in html
+    assert "Daily email digest" not in html
+    assert "Once the MTI worker is connected" not in html
+    assert "does not collect credentials, email addresses, or send notifications" in html
+
+
+def test_share_dialog_is_named_keyboard_closable_and_reports_copy_result():
+    html = _frontend_html()
+
+    assert 'role="dialog" aria-modal="true" aria-labelledby="mti-share-title"' in html
+    assert 'aria-label="Close share briefing"' in html
+    assert "e.key==='Escape'" in html
+    assert 'role="status" aria-live="polite"' in html
+    assert "copyStatus:ok?'Copied ✓':'Copy failed'" in html
+
+
+def test_404_is_a_plain_recovery_page_not_a_second_dashboard():
+    with open(os.path.join(ROOT, "404.html"), encoding="utf-8") as source:
+        not_found = source.read()
+
+    assert '<a href="/mena-threat-index/">Open MENA Threat Index</a>' in not_found
+    assert "<x-dc" not in not_found
+    assert "mena_data.json" not in not_found

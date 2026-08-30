@@ -33,7 +33,9 @@
   input::placeholder{color:#9a9284}
   [style*="color:#6b6457"],[style*="color:#7d7565"]{color:#9a9284!important}
   svg text[fill="#6b6457"],svg text[fill="#7d7565"]{fill:#9a9284!important}
-  input:focus{outline:none;border-color:#c9a24b !important}
+  .mti-button{appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:0;color:inherit;font:inherit;margin:0;padding:0;text-align:inherit}
+  .mti-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #c9a24b;outline-offset:3px}
+  input:focus{border-color:#c9a24b !important}
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#2c2820;border-radius:0}
   ::-webkit-scrollbar-track{background:#15130f}
@@ -52,7 +54,7 @@
     .mti-brand{max-width:100%;min-width:0}
     .mti-nav{width:100%;max-width:100%;gap:16px!important;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;white-space:nowrap;scrollbar-width:thin}
     .mti-nav-item{display:flex;align-items:center;min-height:40px;flex:0 0 auto;padding:8px 0!important}
-    .mti-account-link,.mti-sign-in{flex:0 0 auto;min-height:40px}
+    .mti-workspace-link{flex:0 0 auto;min-height:40px}
     .mti-edition-strip{align-items:flex-start!important}
     .mti-overview-grid{grid-template-columns:minmax(0,1fr)!important}
     .mti-overview-index{padding:28px 0!important;border-right:0!important}
@@ -93,7 +95,7 @@
   <!-- masthead + nav -->
   <header class="mti-header" style="border-bottom:1px solid #2c2820;background:#15130f;position:sticky;top:0;z-index:40">
     <div class="mti-header-inner" style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
-      <div class="mti-brand" onClick="{{ goOverview }}" style="display:flex;align-items:center;gap:13px;cursor:pointer">
+      <button type="button" class="mti-brand mti-button" onClick="{{ goOverview }}" aria-label="MENA Threat Index overview" style="display:flex;align-items:center;gap:13px;cursor:pointer">
         <div style="width:38px;height:38px;overflow:hidden;flex:0 0 38px" aria-hidden="true">
           <img src="./logo.png" alt="" style="display:block;height:38px;width:76px;max-width:none;object-fit:cover;object-position:left center">
         </div>
@@ -101,20 +103,12 @@
           <div style="font-family:'Spectral',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:#ece6d8">MENA Threat Index</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:#7d7565;text-transform:uppercase;margin-top:2px">M&middot;T&middot;I &nbsp; Regional Monitor</div>
         </div>
-      </div>
-      <nav class="mti-nav" style="display:flex;align-items:center;gap:26px">
+      </button>
+      <nav class="mti-nav" aria-label="Primary navigation" style="display:flex;align-items:center;gap:26px">
         <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
-          <div class="bnti-link mti-nav-item" onClick="{{ item.onClick }}" style="cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.01em;padding:6px 0;border-bottom:2px solid {{ item.border }};color: {{ item.color }};transition:color .15s">{{ item.label }}</div>
+          <button type="button" class="bnti-link mti-button mti-nav-item" onClick="{{ item.onClick }}" aria-current="{{ item.current }}" style="cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.01em;padding:6px 0;border-bottom:2px solid {{ item.border }};color: {{ item.color }};transition:color .15s">{{ item.label }}</button>
         </sc-for>
-        <sc-if value="{{ isLoggedIn }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ goAccount }}" class="bnti-link mti-account-link" style="cursor:pointer;display:flex;align-items:center;gap:9px;padding-left:10px;border-left:1px solid #2c2820">
-            <div style="width:26px;height:26px;border-radius:50%;background:#26221b;border:1px solid #463f31;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c9a24b">{{ userInitial }}</div>
-            <span style="font-size:12.5px;color:#b8b0a0">{{ userName }}</span>
-          </div>
-        </sc-if>
-        <sc-if value="{{ isLoggedOut }}" hint-placeholder-val="{{ true }}">
-          <div class="mti-sign-in" onClick="{{ goLogin }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#15130f;background:#ece6d8;padding:7px 15px;border-radius:1px">Sign in</div>
-        </sc-if>
+        <button type="button" class="mti-button mti-workspace-link" onClick="{{ goWorkspace }}" aria-current="{{ workspaceCurrent }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#15130f;background:#ece6d8;padding:7px 15px;border-radius:1px">My workspace</button>
       </nav>
     </div>
   </header>
@@ -198,9 +192,9 @@
         </div>
         <div style="margin-top:24px;padding-top:16px;border-top:1px solid #221f18;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#6b6457">Next briefing refresh &middot; {{ briefRefresh }}</span>
-          <div onClick="{{ openShare }}" class="bnti-link" style="cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#c9a24b;text-transform:uppercase;border:1px solid #463f31;padding:7px 12px">
+          <button type="button" ref="{{ setShareButtonEl }}" onClick="{{ openShare }}" class="bnti-link mti-button" style="cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#c9a24b;text-transform:uppercase;border:1px solid #463f31;padding:7px 12px">
             <span style="font-size:12px;line-height:1">⤴</span> Share briefing
-          </div>
+          </button>
         </div>
       </div>
     </section>
@@ -227,7 +221,7 @@
             <span>Country menu</span><span>Index</span>
           </div>
           <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="12">
-            <div class="bnti-row mti-country-row" onClick="{{ c.onOpen }}" style="display:grid;grid-template-columns:22px 22px minmax(0,1fr) 42px;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #1c1a14;cursor:pointer;transition:background .12s">
+            <button type="button" class="bnti-row mti-button mti-country-row" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="width:100%;display:grid;grid-template-columns:22px 22px minmax(0,1fr) 42px;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #1c1a14;cursor:pointer;transition:background .12s">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7d7565;text-align:right">{{ c.rank }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#15130f;background:{{ c.color }};padding:2px 5px;border-radius:1px">{{ c.code }}</span>
               <div style="min-width:0">
@@ -235,7 +229,7 @@
                 <div style="height:3px;background:#26221b;margin-top:6px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width: {{ c.pct }}%;background:{{ c.color }}"></div></div>
               </div>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:{{ c.color }};text-align:right">{{ c.index }}</span>
-            </div>
+            </button>
           </sc-for>
         </div>
       </div>
@@ -271,7 +265,7 @@
             <sc-for list="{{ feedSevOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
           <sc-if value="{{ feedFiltered }}" hint-placeholder-val="{{ false }}">
-            <span onClick="{{ clearFeed }}" class="bnti-link" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">✕ Clear</span>
+            <button type="button" onClick="{{ clearFeed }}" class="bnti-link mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">✕ Clear</button>
           </sc-if>
         </div>
       </div>
@@ -296,7 +290,7 @@
       <sc-if value="{{ noFeed }}" hint-placeholder-val="{{ false }}">
         <div style="border:1px solid #2c2820;padding:38px;text-align:center">
           <div style="font-family:'Spectral',serif;font-size:17px;color:#9a9284;margin-bottom:6px">No signals match these filters</div>
-          <span onClick="{{ clearFeed }}" class="bnti-link" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c9a24b;letter-spacing:.06em">Clear filters</span>
+          <button type="button" onClick="{{ clearFeed }}" class="bnti-link mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c9a24b;letter-spacing:.06em">Clear filters</button>
         </div>
       </sc-if>
     </section>
@@ -313,13 +307,13 @@
     </div>
     <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820">
       <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="7">
-        <div class="bnti-card" onClick="{{ c.onOpen }}" style="border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;cursor:pointer;transition:border-color .15s;background:#15130f">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="bnti-card" style="position:relative;border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;transition:border-color .15s;background:#15130f">
+          <button type="button" class="mti-button" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="display:block;width:100%;cursor:pointer">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-right:34px">
             <div style="display:flex;align-items:center;gap:11px">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#15130f;background:{{ c.color }};padding:3px 7px;border-radius:1px">{{ c.code }}</span>
               <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#ece6d8;margin:0">{{ c.name }}</h3>
             </div>
-            <div onClick="{{ c.onFav }}" style="font-size:17px;color:{{ c.favColor }};cursor:pointer;line-height:1;padding:2px">{{ c.favGlyph }}</div>
           </div>
           <div style="display:flex;align-items:flex-end;gap:12px;margin-top:18px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:42px;line-height:.85;color:{{ c.color }}">{{ c.index }}</div>
@@ -333,6 +327,8 @@
             <span>{{ c.eventCount }} signals</span><span>{{ c.topCat }}</span>
           </div>
           <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#9a9284;text-wrap:pretty">{{ c.latest }}</div>
+          </button>
+          <button type="button" class="mti-button" onClick="{{ c.onFav }}" aria-label="{{ c.favLabel }}" aria-pressed="{{ c.isFav }}" style="position:absolute;top:24px;right:24px;font-size:17px;color:{{ c.favColor }};cursor:pointer;line-height:1;padding:2px">{{ c.favGlyph }}</button>
         </div>
       </sc-for>
     </div>
@@ -343,13 +339,13 @@
   <sc-if value="{{ isCountry }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Country detail" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
     <div style="padding:20px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">
-      <span class="bnti-link" onClick="{{ goCountries }}" style="cursor:pointer">Countries</span> <span style="color:#4f4940">/</span> <span style="color:#b8b0a0">{{ d_name }}</span>
+      <button type="button" class="bnti-link mti-button" onClick="{{ goCountries }}" style="cursor:pointer">Countries</button> <span style="color:#4f4940">/</span> <span style="color:#b8b0a0">{{ d_name }}</span>
     </div>
     <div class="mti-detail-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border-top:1px solid #2c2820;border-bottom:1px solid #2c2820">
       <div class="mti-detail-primary" style="padding:34px 40px 34px 0;border-right:1px solid #221f18">
         <div style="display:flex;align-items:center;gap:13px;margin-bottom:6px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#15130f;background:{{ d_color }};padding:3px 8px;border-radius:1px">{{ d_code }}</span>
-          <div onClick="{{ d_onFav }}" style="font-size:19px;color:{{ d_favColor }};cursor:pointer;line-height:1">{{ d_favGlyph }}</div>
+          <button type="button" class="mti-button" onClick="{{ d_onFav }}" aria-label="{{ d_favLabel }}" aria-pressed="{{ d_favOn }}" style="font-size:19px;color:{{ d_favColor }};cursor:pointer;line-height:1">{{ d_favGlyph }}</button>
         </div>
         <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#ece6d8;margin:6px 0 0 0">{{ d_name }}</h1>
         <div style="display:flex;align-items:flex-end;gap:16px;margin-top:24px">
@@ -391,13 +387,13 @@
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:14px;flex-wrap:wrap">
         <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#ece6d8;margin:0">Index history <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6b6457;letter-spacing:.06em">· 48h</span></h2>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <div onClick="{{ toggleWhy }}" class="bnti-link" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#9a9284;border:1px solid #2c2820;padding:7px 13px">Why this score?</div>
-          <div onClick="{{ toggleCountryAlert }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:{{ d_alertColor }};border:1px solid #463f31;padding:7px 13px;display:flex;align-items:center;gap:7px"><span style="font-size:11px">🔔</span>{{ d_alertLabel }}</div>
+          <button type="button" onClick="{{ toggleWhy }}" class="bnti-link mti-button" aria-expanded="{{ whyOpen }}" aria-controls="mti-score-explanation" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#9a9284;border:1px solid #2c2820;padding:7px 13px">Why this score?</button>
+          <button type="button" onClick="{{ toggleCountryThreshold }}" class="mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:{{ d_thresholdColor }};border:1px solid #463f31;padding:7px 13px;display:flex;align-items:center;gap:7px"><span aria-hidden="true" style="font-size:11px">◆</span>{{ d_thresholdLabel }}</button>
         </div>
       </div>
       <div ref="{{ setCHistEl }}" style="width:100%;height:210px;border:1px solid #2c2820;background:#15130f"></div>
       <sc-if value="{{ whyOpen }}" hint-placeholder-val="{{ false }}">
-        <div style="margin-top:14px;border:1px solid #2c2820;background:#120f0b;padding:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.95;color:#c4bcac">
+        <div id="mti-score-explanation" style="margin-top:14px;border:1px solid #2c2820;background:#120f0b;padding:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.95;color:#c4bcac">
           <div style="color:#7d7565">// {{ d_eventCount }} active signals · mean event weight {{ d_wAvg }}</div>
           <div>PerCountry = 1 + 9 · ( 1 − e<sup style="color:#c9a24b">−{{ d_wAvg }}/5 · 1.2</sup> ) = <span style="color:{{ d_color }}">{{ d_wComputed }}</span></div>
           <div style="color:#7d7565;margin-top:10px;line-height:1.6;font-family:'IBM Plex Sans';font-size:12.5px">The history series is reconstructed for illustration; live deployments persist each two-hour reading per country.</div>
@@ -587,55 +583,23 @@
   </main>
   </sc-if>
 
-  <!-- ============ AUTH ============ -->
-  <sc-if value="{{ isAuth }}" hint-placeholder-val="{{ false }}">
-  <main class="mti-main" data-screen-label="Sign in" style="max-width:430px;margin:0 auto;padding:64px 28px 80px 28px">
-    <div style="text-align:center;margin-bottom:30px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:14px">{{ authEyebrow }}</div>
-      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:30px;color:#ece6d8;margin:0">{{ authTitle }}</h1>
-      <p style="color:#9a9284;font-size:14px;line-height:1.6;margin:12px 0 0 0">Saving favourites is optional — the entire index is open without an account.</p>
-    </div>
-    <div style="border:1px solid #2c2820;background:#191711;padding:28px">
-      <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
-        <div style="margin-bottom:16px">
-          <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7d7565;text-transform:uppercase;margin-bottom:8px">Name</label>
-          <input value="{{ fName }}" onInput="{{ onName }}" placeholder="Your name" style="width:100%;background:#15130f;border:1px solid #2c2820;color:#ece6d8;padding:11px 13px;font-family:'IBM Plex Sans';font-size:14px;border-radius:1px" />
-        </div>
-      </sc-if>
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7d7565;text-transform:uppercase;margin-bottom:8px">Email</label>
-        <input value="{{ fEmail }}" onInput="{{ onEmail }}" placeholder="you@example.com" style="width:100%;background:#15130f;border:1px solid #2c2820;color:#ece6d8;padding:11px 13px;font-family:'IBM Plex Sans';font-size:14px;border-radius:1px" />
-      </div>
-      <div style="margin-bottom:22px">
-        <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7d7565;text-transform:uppercase;margin-bottom:8px">Password</label>
-        <input type="password" value="{{ fPass }}" onInput="{{ onPass }}" placeholder="••••••••" style="width:100%;background:#15130f;border:1px solid #2c2820;color:#ece6d8;padding:11px 13px;font-family:'IBM Plex Sans';font-size:14px;border-radius:1px" />
-      </div>
-      <div onClick="{{ submitAuth }}" style="cursor:pointer;text-align:center;background:#ece6d8;color:#15130f;font-weight:600;font-size:14px;padding:12px;border-radius:1px">{{ authButton }}</div>
-      <div style="text-align:center;margin-top:18px;font-size:13px;color:#9a9284">
-        {{ authSwitchText }} <span class="bnti-link" onClick="{{ toggleAuth }}" style="cursor:pointer;color:#c9a24b">{{ authSwitchLink }}</span>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:18px"><span class="bnti-link" onClick="{{ goOverview }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.06em">← Continue without signing in</span></div>
-  </main>
-  </sc-if>
-
-  <!-- ============ ACCOUNT ============ -->
-  <sc-if value="{{ isAccount }}" hint-placeholder-val="{{ false }}">
-  <main class="mti-main" data-screen-label="Account" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
+  <!-- ============ LOCAL WORKSPACE ============ -->
+  <sc-if value="{{ isWorkspace }}" hint-placeholder-val="{{ false }}">
+  <main class="mti-main" data-screen-label="Local workspace" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
     <div style="padding:40px 0 24px 0;border-bottom:1px solid #2c2820;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Your watchlist</div>
-        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:32px;color:#ece6d8;margin:0">Welcome back, {{ userName }}</h1>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Browser-local preferences</div>
+        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:32px;color:#ece6d8;margin:0">My workspace</h1>
+        <p style="color:#9a9284;font-size:14px;line-height:1.6;margin:12px 0 0 0;max-width:720px">No account is required. Favourites and visual thresholds stay only in this browser; MTI does not collect credentials, email addresses, or send notifications.</p>
       </div>
-      <div onClick="{{ signOut }}" class="bnti-link" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#9a9284;border:1px solid #2c2820;padding:8px 14px">Sign out</div>
     </div>
     <sc-if value="{{ hasBreach }}" hint-placeholder-val="{{ false }}">
       <div style="margin-top:22px;border:1px solid #cf5b4e;background:#211410;padding:15px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#cf5b4e;text-transform:uppercase;border:1px solid #cf5b4e;padding:3px 8px">Alert</span>
-        <span style="font-size:14px;color:#e8c4ba">{{ breachCount }} watched country/countries are at or above your alert threshold.</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#cf5b4e;text-transform:uppercase;border:1px solid #cf5b4e;padding:3px 8px">Threshold</span>
+        <span style="font-size:14px;color:#e8c4ba">{{ breachCount }} watched country/countries are at or above your saved visual threshold.</span>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-left:auto">
           <sc-for list="{{ breachList }}" as="b" hint-placeholder-count="1">
-            <span onClick="{{ b.onOpen }}" class="bnti-link" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ b.color }};padding:4px 9px">{{ b.code }} · {{ b.index }}</span>
+            <button type="button" onClick="{{ b.onOpen }}" class="bnti-link mti-button" aria-label="Open {{ b.name }}, index {{ b.index }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ b.color }};padding:4px 9px">{{ b.code }} · {{ b.index }}</button>
           </sc-for>
         </div>
       </div>
@@ -643,13 +607,15 @@
     <sc-if value="{{ hasFavs }}" hint-placeholder-val="{{ false }}">
       <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820;margin-top:26px">
         <sc-for list="{{ favList }}" as="c" hint-placeholder-count="2">
-          <div class="bnti-card" onClick="{{ c.onOpen }}" style="border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;cursor:pointer;background:#15130f;transition:border-color .15s">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div class="bnti-card" style="position:relative;border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;background:#15130f;transition:border-color .15s">
+            <button type="button" class="mti-button" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="display:block;width:100%;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-right:34px">
               <div style="display:flex;align-items:center;gap:11px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ c.color }};padding:3px 7px">{{ c.code }}</span><h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#ece6d8;margin:0">{{ c.name }}</h3></div>
-              <div onClick="{{ c.onFav }}" style="font-size:17px;color:#c9a24b;cursor:pointer">★</div>
             </div>
             <div style="display:flex;align-items:flex-end;gap:12px;margin-top:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:40px;line-height:.85;color:{{ c.color }}">{{ c.index }}</div><div style="padding-bottom:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:{{ c.color }}">{{ c.status }}</div></div>
             <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#9a9284;text-wrap:pretty">{{ c.latest }}</div>
+            </button>
+            <button type="button" class="mti-button" onClick="{{ c.onFav }}" aria-label="{{ c.favLabel }}" aria-pressed="true" style="position:absolute;top:24px;right:24px;font-size:17px;color:#c9a24b;cursor:pointer">★</button>
           </div>
         </sc-for>
       </div>
@@ -658,29 +624,25 @@
       <div style="border:1px solid #2c2820;padding:54px;text-align:center;margin-top:26px">
         <div style="font-family:'Spectral',serif;font-size:20px;color:#d8d0c0;margin-bottom:8px">No favourites yet</div>
         <p style="color:#7d7565;font-size:14px;margin:0 0 20px 0">Star a country to pin it here and follow its index over time.</p>
-        <div onClick="{{ goCountries }}" style="display:inline-block;cursor:pointer;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:10px 18px;border-radius:1px">Browse countries</div>
+        <button type="button" onClick="{{ goCountries }}" class="mti-button" style="display:inline-block;cursor:pointer;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:10px 18px;border-radius:1px">Browse countries</button>
       </div>
     </sc-if>
     <sc-if value="{{ hasFavs }}" hint-placeholder-val="{{ false }}">
       <div style="margin-top:40px">
         <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:14px">
           <div>
-            <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Alerts</h2>
-            <p style="color:#9a9284;font-size:14px;margin:8px 0 0 0">Choose the level at which each watched country should notify you.</p>
-          </div>
-          <div onClick="{{ toggleDigest }}" style="cursor:pointer;display:flex;align-items:center;gap:11px;border:1px solid #2c2820;padding:9px 15px">
-            <span style="font-family:'IBM Plex Sans';font-size:13px;color:#c4bcac">Daily email digest</span>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:{{ digestColor }};border:1px solid {{ digestColor }};padding:2px 9px">{{ digestGlyph }}</span>
+            <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Visual thresholds</h2>
+            <p style="color:#9a9284;font-size:14px;margin:8px 0 0 0">Choose a level to highlight here when a watched country reaches it. This page does not send notifications.</p>
           </div>
         </div>
         <div class="mti-alert-scroll" style="border:1px solid #2c2820">
-          <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Neighbour</span><span>Index</span><span>Notify at</span></div>
-          <sc-for list="{{ alertList }}" as="a" hint-placeholder-count="2">
+          <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Country</span><span>Index</span><span>Highlight at</span></div>
+          <sc-for list="{{ thresholdList }}" as="a" hint-placeholder-count="2">
             <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid #1c1a14">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ a.color }};padding:3px 7px">{{ a.code }}</span>
               <span style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ a.name }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:{{ a.color }}">{{ a.index }}</span>
-              <select aria-label="{{ a.name }} alert threshold" value="{{ a.alertVal }}" onChange="{{ a.onAlert }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+              <select aria-label="{{ a.name }} visual threshold" value="{{ a.thresholdVal }}" onChange="{{ a.onThreshold }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
                 <option value="off">Off</option>
                 <option value="elevated">Elevated · 4.0</option>
                 <option value="critical">Critical · 7.0</option>
@@ -688,15 +650,7 @@
             </div>
           </sc-for>
         </div>
-        <div style="margin-top:18px;border:1px solid #2c2820;padding:18px 20px;display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7d7565;text-transform:uppercase;margin-bottom:8px">Delivery address</div>
-            <input value="{{ deliveryEmail }}" onInput="{{ onDelivery }}" placeholder="you@example.com" style="width:100%;background:#15130f;border:1px solid #2c2820;color:#ece6d8;padding:10px 12px;font-family:'IBM Plex Sans';font-size:14px;border-radius:1px" />
-          </div>
-          <div onClick="{{ saveDelivery }}" style="cursor:pointer;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:11px 18px;border-radius:1px">Save delivery</div>
-          <sc-if value="{{ deliverySaved }}" hint-placeholder-val="{{ false }}"><span style="padding-bottom:11px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6fae7e;letter-spacing:.06em">Saved ✓</span></sc-if>
-        </div>
-        <p style="color:#5a5448;font-size:12px;margin:12px 0 0 0;line-height:1.5">Preferences are saved to this browser. Once the MTI worker is connected, alerts and the digest dispatch to this address on the two-hour update cycle.</p>
+        <p style="color:#9a9284;font-size:12px;margin:12px 0 0 0;line-height:1.5">Preferences remain on this device in browser storage and do not leave MTI.</p>
       </div>
     </sc-if>
   </main>
@@ -715,14 +669,14 @@
       <div style="display:flex;gap:48px;flex-wrap:wrap">
         <div style="display:flex;flex-direction:column;gap:9px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#5a5448;text-transform:uppercase;margin-bottom:3px">Product</div>
-          <span class="bnti-link" onClick="{{ goOverview }}" style="cursor:pointer;font-size:13px;color:#9a9284">Live overview</span>
-          <span class="bnti-link" onClick="{{ goCountries }}" style="cursor:pointer;font-size:13px;color:#9a9284">Countries</span>
-          <span class="bnti-link" onClick="{{ goMarkets }}" style="cursor:pointer;font-size:13px;color:#9a9284">Markets</span>
-          <span class="bnti-link" onClick="{{ goMethodology }}" style="cursor:pointer;font-size:13px;color:#9a9284">Methodology</span>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goOverview }}" style="cursor:pointer;font-size:13px;color:#9a9284">Live overview</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goCountries }}" style="cursor:pointer;font-size:13px;color:#9a9284">Countries</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goMarkets }}" style="cursor:pointer;font-size:13px;color:#9a9284">Markets</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goMethodology }}" style="cursor:pointer;font-size:13px;color:#9a9284">Methodology</button>
         </div>
         <div style="display:flex;flex-direction:column;gap:9px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#5a5448;text-transform:uppercase;margin-bottom:3px">Company</div>
-          <span class="bnti-link" onClick="{{ goAbout }}" style="cursor:pointer;font-size:13px;color:#9a9284">About</span>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goAbout }}" style="cursor:pointer;font-size:13px;color:#9a9284">About</button>
           <span style="font-size:13px;color:#9a9284">Monarch Castle Technologies</span>
           <span style="font-size:13px;color:#9a9284">Apache-2.0 · 2026</span>
         </div>
@@ -733,11 +687,11 @@
 
   <!-- share modal -->
   <sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}">
-  <div onClick="{{ closeShare }}" style="position:fixed;inset:0;z-index:80;background:rgba(8,7,5,0.78);display:flex;align-items:center;justify-content:center;padding:24px">
-    <div onClick="{{ stopProp }}" style="width:100%;max-width:460px;background:#1a1711;border:1px solid #463f31;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+  <div onClick="{{ closeShare }}" onKeyDown="{{ shareKeyDown }}" style="position:fixed;inset:0;z-index:80;background:rgba(8,7,5,0.78);display:flex;align-items:center;justify-content:center;padding:24px">
+    <div ref="{{ setShareDialogEl }}" role="dialog" aria-modal="true" aria-labelledby="mti-share-title" onClick="{{ stopProp }}" style="width:100%;max-width:460px;background:#1a1711;border:1px solid #463f31;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
       <div style="padding:14px 20px;border-bottom:1px solid #2c2820;display:flex;justify-content:space-between;align-items:center">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#7d7565;text-transform:uppercase">Share briefing</span>
-        <span onClick="{{ closeShare }}" style="cursor:pointer;color:#9a9284;font-size:16px;line-height:1">✕</span>
+        <span id="mti-share-title" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#7d7565;text-transform:uppercase">Share briefing</span>
+        <button type="button" ref="{{ setShareCloseEl }}" class="mti-button" onClick="{{ closeShare }}" aria-label="Close share briefing" style="cursor:pointer;color:#9a9284;font-size:16px;line-height:1;padding:6px">✕</button>
       </div>
       <div style="padding:26px 24px;background:#15130f;border-bottom:1px solid #2c2820">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
@@ -752,8 +706,8 @@
         <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#5a5448">Updated {{ updatedLabel }} · monarch castle technologies</div>
       </div>
       <div style="padding:16px 20px;display:flex;gap:10px;align-items:center">
-        <div onClick="{{ copyBrief }}" style="cursor:pointer;flex:1;text-align:center;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:11px;border-radius:1px">Copy to clipboard</div>
-        <sc-if value="{{ copied }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6fae7e;letter-spacing:.06em">Copied ✓</span></sc-if>
+        <button type="button" onClick="{{ copyBrief }}" class="mti-button" style="cursor:pointer;flex:1;text-align:center;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:11px;border-radius:1px">Copy to clipboard</button>
+        <span role="status" aria-live="polite" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:{{ copyStatusColor }};letter-spacing:.06em">{{ copyStatus }}</span>
       </div>
     </div>
   </div>
@@ -763,7 +717,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#c9a24b&quot;,&quot;options&quot;:[&quot;#c9a24b&quot;,&quot;#b07d3f&quot;,&quot;#8a9bb0&quot;,&quot;#9c6b52&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;showForecast&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'overview', activeCountry: 'Egypt', authMode: 'login', fName:'', fEmail:'', fPass:'', user: null, favs: [], alerts: {}, digest: false, deliveryEmail:'', deliverySaved:false, feedCountry:'all', feedCat:'all', feedSev:'all', shareOpen:false, copied:false, whyOpen:false, liveAt:0, liveErr:false };
+  state = { route: 'overview', activeCountry: 'Egypt', favs: [], thresholds: {}, feedCountry:'all', feedCat:'all', feedSev:'all', shareOpen:false, copyStatus:'', whyOpen:false, liveAt:0, liveErr:false };
 
   CODES = { Algeria:'DZ',Bahrain:'BH',Egypt:'EG',Iran:'IR',Iraq:'IQ',Israel:'IL',Jordan:'JO',Kuwait:'KW',Lebanon:'LB',Libya:'LY',Morocco:'MA',Oman:'OM',Palestine:'PS',Qatar:'QA','Saudi Arabia':'SA',Syria:'SY',Tunisia:'TN','United Arab Emirates':'AE',Yemen:'YE',Turkey:'TR',Sudan:'SD',Mauritania:'MR',Djibouti:'DJ',Somalia:'SO' };
   dataset(){ return this._live || this.DATA; }
@@ -853,17 +807,13 @@ class Component extends DCLogic {
   componentDidMount(){
     this._readyTimer=setTimeout(()=>{ document.documentElement.classList.add('mti-data-ready'); this.setState({liveErr:true}); },10000);
     try {
-      ['user','favs','alerts','digest','delivery'].forEach(k=>{
-        const oldK='bnti_'+k, newK='mti_'+k;
-        if(localStorage.getItem(newK)==null && localStorage.getItem(oldK)!=null) localStorage.setItem(newK, localStorage.getItem(oldK));
-        if(localStorage.getItem(oldK)!=null) localStorage.removeItem(oldK);
-      });
-      const u = JSON.parse(localStorage.getItem('mti_user') || 'null');
+      if(localStorage.getItem('mti_favs')==null && localStorage.getItem('bnti_favs')!=null) localStorage.setItem('mti_favs', localStorage.getItem('bnti_favs'));
+      const oldThresholds=localStorage.getItem('mti_alerts')||localStorage.getItem('bnti_alerts');
+      if(localStorage.getItem('mti_thresholds')==null && oldThresholds!=null) localStorage.setItem('mti_thresholds', oldThresholds);
+      ['bnti_favs','bnti_alerts','bnti_user','bnti_digest','bnti_delivery','mti_alerts','mti_user','mti_digest','mti_delivery'].forEach(k=>localStorage.removeItem(k));
       const f = JSON.parse(localStorage.getItem('mti_favs') || '[]');
-      const al = JSON.parse(localStorage.getItem('mti_alerts') || '{}');
-      const dg = localStorage.getItem('mti_digest') === '1';
-      const dl = localStorage.getItem('mti_delivery') || '';
-      this.setState({ user:u, favs:Array.isArray(f)?f:[], alerts: al&&typeof al==='object'?al:{}, digest:dg, deliveryEmail:dl });
+      const thresholds = JSON.parse(localStorage.getItem('mti_thresholds') || '{}');
+      this.setState({ favs:Array.isArray(f)?f:[], thresholds:thresholds&&typeof thresholds==='object'?thresholds:{} });
     } catch(e){}
     this.loadLive();
     fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
@@ -871,7 +821,7 @@ class Component extends DCLogic {
     this._tick = setInterval(()=>this.drawAll(), 350);
   }
   componentDidUpdate(){ this.drawAll(); }
-  componentWillUnmount(){ clearInterval(this._tick); clearTimeout(this._readyTimer); }
+  componentWillUnmount(){ clearInterval(this._tick); clearTimeout(this._readyTimer); clearTimeout(this._copyTimer); }
 
   // ---- helpers ----
   color(i){ return i>=7 ? '#cf5b4e' : i>=4 ? '#d8a13f' : '#6fae7e'; }
@@ -880,7 +830,7 @@ class Component extends DCLogic {
   fmt(s){ const d=new Date(s); if(isNaN(d)) return s; const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const p=n=>String(n).padStart(2,'0'); return p(d.getDate())+' '+M[d.getMonth()]+' '+p(d.getHours())+':'+p(d.getMinutes()); }
   go(route, extra){ this.setState(Object.assign({ route }, extra||{})); try{ window.scrollTo(0,0); }catch(e){} this._mapKey=null; this._trendKey=null; this._chKey=null; this._marketsKey=null; }
-  setAlert(name,val){ const a=Object.assign({},this.state.alerts); if(val==='off'){ delete a[name]; } else { a[name]=val; } this.setState({alerts:a}); try{ localStorage.setItem('mti_alerts', JSON.stringify(a)); }catch(e){} }
+  setThreshold(name,val){ const values=Object.assign({},this.state.thresholds); if(val==='off'){ delete values[name]; } else { values[name]=val; } this.setState({thresholds:values}); try{ localStorage.setItem('mti_thresholds', JSON.stringify(values)); }catch(e){} }
   chist(name, current){ let s=0; for(let i=0;i<name.length;i++) s=(s*31+name.charCodeAt(i))%99991; const r=()=>{ s=(s*1103515245+12345)&0x7fffffff; return s/0x7fffffff; }; const n=this.dataset().history.length; const a=[]; let v=Math.max(1.2,Math.min(9,current+(r()-0.5)*2.4)); for(let i=0;i<n;i++){ a.push(v); v=v+(r()-0.5)*1.5; v=Math.max(1,Math.min(10,v)); } a[n-1]=current; if(n>1) a[n-2]=(a[n-2]+current)/2; return a; }
   spark(a){ const n=a.length,W=100,H=30,p=3; if(n<2){ a=[a[0]||1,a[0]||1]; } return a.map((v,i)=>{ const x=(i/(a.length-1))*W; const y=p+(1-(v-1)/9)*(H-2*p); return x.toFixed(1)+','+y.toFixed(1); }).join(' '); }
   accent(){ return this.props.accent || '#c9a24b'; }
@@ -889,7 +839,6 @@ class Component extends DCLogic {
     return Object.keys(c).map(n=>({ name:n, ...c[n] })).sort((a,b)=> b.index-a.index || a.name.localeCompare(b.name)); }
 
   toggleFav(name){
-    if(!this.state.user){ this.go('login'); return; }
     const favs = this.state.favs.includes(name) ? this.state.favs.filter(x=>x!==name) : this.state.favs.concat(name);
     this.setState({ favs }); try{ localStorage.setItem('mti_favs', JSON.stringify(favs)); }catch(e){}
   }
@@ -906,7 +855,7 @@ class Component extends DCLogic {
     const m={l:30,r:14,t:12,b:20};
     const x=d3.scaleTime().domain(d3.extent(data,d=>d.t)).range([m.l,w-m.r]);
     const y=d3.scaleLinear().domain([1,10]).range([h-m.b,m.t]);
-    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).style('display','block');
+    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','img').attr('aria-label',cn+' threat index history').style('display','block');
     [[1,4,'#6fae7e'],[4,7,'#d8a13f'],[7,10,'#cf5b4e']].forEach(b=> svg.append('rect').attr('x',m.l).attr('width',w-m.l-m.r).attr('y',y(b[1])).attr('height',y(b[0])-y(b[1])).attr('fill',b[2]).attr('opacity',0.05));
     [1,4,7,10].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b'); svg.append('text').attr('x',6).attr('y',y(v)+3).attr('fill','#6b6457').attr('font-size',9).attr('font-family',"'IBM Plex Mono',monospace").text(v); });
     const line=d3.line().x(d=>x(d.t)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
@@ -916,7 +865,13 @@ class Component extends DCLogic {
     svg.append('path').datum(data).attr('d',line).attr('fill','none').attr('stroke',col).attr('stroke-width',1.7);
     const last=data[data.length-1]; svg.append('circle').attr('cx',x(last.t)).attr('cy',y(last.v)).attr('r',3.4).attr('fill',col);
   }
-  _copyBrief(){ const D=this.dataset(); const t='MTI · MENA Threat Index\nComposite '+D.meta.mainIndex.toFixed(2)+' / 10 · '+this.label(D.meta.mainIndex)+'\nUpdated '+this.fmt(D.meta.updated)+' UTC\n\n'+D.brief.headline+'\n\n'+D.brief.bullets.map(b=>'• '+b.text).join('\n')+'\n\nMonarch Castle Technologies · open monitoring'; try{ navigator.clipboard.writeText(t); }catch(e){} this.setState({copied:true}); setTimeout(()=>this.setState({copied:false}),1800); }
+  _copyBrief(){
+    const D=this.dataset();
+    const text='MTI · MENA Threat Index\nComposite '+D.meta.mainIndex.toFixed(2)+' / 10 · '+this.label(D.meta.mainIndex)+'\nUpdated '+this.fmt(D.meta.updated)+' UTC\n\n'+D.brief.headline+'\n\n'+D.brief.bullets.map(b=>'• '+b.text).join('\n')+'\n\nMonarch Castle Technologies · open monitoring';
+    const done=(ok)=>{ this.setState({copyStatus:ok?'Copied ✓':'Copy failed'}); clearTimeout(this._copyTimer); this._copyTimer=setTimeout(()=>this.setState({copyStatus:''}),2400); };
+    const fallback=()=>{ let area; try{ area=document.createElement('textarea'); area.value=text; area.setAttribute('readonly',''); area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select(); const ok=typeof document.execCommand==='function'&&document.execCommand('copy'); area.remove(); done(ok); }catch(e){ if(area&&area.remove)area.remove(); done(false); } };
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(()=>done(true)).catch(fallback); else fallback(); }catch(e){ fallback(); }
+  }
   drawMap(){
     const d3=window.d3, tj=window.topojson, topo=this._topo, el=this.mapEl;
     if(!d3||!tj||!topo||!el) return;
@@ -929,7 +884,7 @@ class Component extends DCLogic {
     if(!core.length){ return; }
     const proj=d3.geoMercator().fitExtent([[26,26],[w-26,h-26]], {type:'FeatureCollection',features:core});
     const path=d3.geoPath(proj);
-    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).style('display','block');
+    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','group').attr('aria-label','Interactive regional threat map').style('display','block');
     svg.append('g').selectAll('path').data(world.features).enter().append('path')
       .attr('d',path).attr('fill','#201d16').attr('stroke','#2c2820').attr('stroke-width',0.6).attr('pointer-events','none');
     const tip=d3.select(el).append('div').style('position','absolute').style('pointer-events','none')
@@ -943,12 +898,18 @@ class Component extends DCLogic {
       .attr('fill-opacity',0.85)
       .attr('stroke','#15130f')
       .attr('stroke-width',0.8)
+      .attr('tabindex',0)
+      .attr('role','button')
+      .attr('aria-label',d=>d.properties.name+', index '+tracked[d.properties.name].index.toFixed(2)+', '+self.label(tracked[d.properties.name].index)+'. Open country detail')
       .style('cursor','pointer')
       .on('mousemove',function(ev,d){ const c=tracked[d.properties.name]; tip.html(d.properties.name.toUpperCase()+' · '+c.index.toFixed(2)+' '+self.label(c.index)).style('opacity',1);
         const r=el.getBoundingClientRect(); tip.style('left',(ev.clientX-r.left)+'px').style('top',(ev.clientY-r.top)+'px');
         d3.select(this).attr('fill-opacity',1); })
       .on('mouseleave',function(ev,d){ tip.style('opacity',0); d3.select(this).attr('fill-opacity',0.85); })
-      .on('click',function(ev,d){ self.go('country',{activeCountry:d.properties.name}); });
+      .on('focus',function(ev,d){ d3.select(this).attr('fill-opacity',1).attr('stroke',self.accent()).attr('stroke-width',2); })
+      .on('blur',function(ev,d){ d3.select(this).attr('fill-opacity',0.85).attr('stroke','#15130f').attr('stroke-width',0.8); })
+      .on('click',function(ev,d){ self.go('country',{activeCountry:d.properties.name}); })
+      .on('keydown',function(ev,d){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); self.go('country',{activeCountry:d.properties.name}); } });
     svg.append('g').selectAll('text').data(core).enter().append('text')
       .attr('transform',d=>'translate('+path.centroid(d)+')').attr('text-anchor','middle')
       .attr('font-family',"'IBM Plex Mono',monospace").attr('font-size',9).attr('letter-spacing','0.08em')
@@ -970,7 +931,7 @@ class Component extends DCLogic {
     const m={l:30,r:16,t:14,b:22};
     const x=d3.scaleTime().domain(d3.extent(all,d=>d.t)).range([m.l,w-m.r]);
     const y=d3.scaleLinear().domain([1,10]).range([h-m.b,m.t]);
-    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).style('display','block');
+    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','img').attr('aria-label','Regional threat trend and outlook').style('display','block');
     [[1,4,'#6fae7e'],[4,7,'#d8a13f'],[7,10,'#cf5b4e']].forEach(b=>{
       svg.append('rect').attr('x',m.l).attr('width',w-m.l-m.r).attr('y',y(b[1])).attr('height',y(b[0])-y(b[1])).attr('fill',b[2]).attr('opacity',0.05); });
     [1,4,7,10].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b');
@@ -1000,7 +961,7 @@ class Component extends DCLogic {
     const m={l:34,r:18,t:18,b:24};
     const x=d3.scaleTime().domain(d3.extent(all,d=>d.t)).range([m.l,w-m.r]);
     const y=d3.scaleLinear().domain([0,1]).range([h-m.b,m.t]);
-    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).style('display','block');
+    const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','img').attr('aria-label','MTI and '+top.name+' normalized market trend').style('display','block');
     [0,.5,1].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b'); });
     const line=d3.line().x(d=>x(d.t)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
     svg.append('path').datum(index).attr('d',line).attr('fill','none').attr('stroke','#ece6d8').attr('stroke-width',1.7);
@@ -1014,7 +975,7 @@ class Component extends DCLogic {
     const route=S.route;
     const navDef=[['Overview','overview'],['Countries','countries'],['Markets','markets'],['Methodology','methodology'],['About','about']];
     const activeRoutes={ overview:'overview', countries:'countries', country:'countries', markets:'markets', methodology:'methodology', about:'about' };
-    const nav=navDef.map(([label,key])=>({ label, onClick:()=>this.go(key),
+    const nav=navDef.map(([label,key])=>({ label, onClick:()=>this.go(key), current:activeRoutes[route]===key?'page':'false',
       color: activeRoutes[route]===key ? '#ece6d8' : '#9a9284',
       border: activeRoutes[route]===key ? accent : 'transparent' }));
 
@@ -1031,7 +992,7 @@ class Component extends DCLogic {
       return { name:o.name, code:o.code, index:o.index.toFixed(2), raw:o.raw.toFixed(2),
         color:this.color(o.index), status:this.label(o.index), pct:Math.max(2,((o.index-1)/9*100)).toFixed(1),
         rank:String(i+1), eventCount:counts[o.name]||0, topCat:top, latest,
-        isFav, favGlyph:isFav?'★':'☆', favColor:isFav?accent:'#5a5448', spark:this.spark((o.history&&o.history.length?o.history.map(p=>p.index):this.chist(o.name,o.index))),
+        isFav, favGlyph:isFav?'★':'☆', favColor:isFav?accent:'#5a5448', favLabel:(isFav?'Remove ':'Add ')+o.name+(isFav?' from':' to')+' local favourites', spark:this.spark((o.history&&o.history.length?o.history.map(p=>p.index):this.chist(o.name,o.index))),
         onOpen:()=>this.go('country',{activeCountry:o.name}), onFav:(e)=>{ if(e&&e.stopPropagation)e.stopPropagation(); this.toggleFav(o.name); } };
     };
     const countriesList=sorted.map(mkCountry);
@@ -1090,16 +1051,13 @@ class Component extends DCLogic {
     const weightsV=D.weights.map(w=>({ label:w[1], weight:(w[2]>0?'+':'')+w[2].toFixed(1),
       color: w[2]>=5?'#cf5b4e': w[2]>=3?'#d8a13f': w[2]>0?'#8fae8a': w[2]<0?'#7fa0b8':'#7d7565' }));
 
-    // auth
-    const isSignup=S.authMode==='signup';
     const favList=countriesList.filter(c=>c.isFav);
-    const alertList=sorted.filter(o=>S.favs.includes(o.name)).map(o=>{
-      const av=S.alerts[o.name]||'off', thr=av==='critical'?7:av==='elevated'?4:99;
+    const thresholdList=sorted.filter(o=>S.favs.includes(o.name)).map(o=>{
+      const threshold=S.thresholds[o.name]||'off', boundary=threshold==='critical'?7:threshold==='elevated'?4:99;
       return { name:o.name, code:o.code, index:o.index.toFixed(2), color:this.color(o.index), status:this.label(o.index),
-        alertVal:av, alertLabelText: av==='off'?'Off':av==='critical'?'≥ 7.0 Critical':'≥ 4.0 Elevated',
-        breaching: av!=='off'&&o.index>=thr, onAlert:(e)=>this.setAlert(o.name, e.target.value) };
+        thresholdVal:threshold, breaching:threshold!=='off'&&o.index>=boundary, onThreshold:(e)=>this.setThreshold(o.name, e.target.value) };
     });
-    const breaches=alertList.filter(a=>a.breaching).map(a=>({ name:a.name, code:a.code, index:a.index, color:a.color, status:a.status, onOpen:()=>this.go('country',{activeCountry:a.name}) }));
+    const breaches=thresholdList.filter(a=>a.breaching).map(a=>({ name:a.name, code:a.code, index:a.index, color:a.color, status:a.status, onOpen:()=>this.go('country',{activeCountry:a.name}) }));
     const marketRows=((D.markets&&D.markets.instruments)||[]).map(m=>({
       name:m.name, assetClass:m.asset_class, last:m.last,
       changePct:((m.change_pct>0?'+':'')+(m.change_pct||0).toFixed(2)+'%'),
@@ -1116,13 +1074,11 @@ class Component extends DCLogic {
       // route flags
       isOverview: route==='overview', isCountries: route==='countries', isCountry: route==='country',
       isMarkets: route==='markets', isMethodology: route==='methodology', isAbout: route==='about',
-      isAuth: route==='login'||route==='signup', isSignup, isAccount: route==='account',
-      isLoggedIn: !!S.user, isLoggedOut: !S.user,
-      userName: S.user ? S.user.name : '', userInitial: S.user ? (S.user.name||'U')[0].toUpperCase() : 'U',
+      isWorkspace:route==='workspace', workspaceCurrent:route==='workspace'?'page':'false',
       // nav handlers
       goOverview:()=>this.go('overview'), goCountries:()=>this.go('countries'), goMarkets:()=>this.go('markets'),
       goMethodology:()=>this.go('methodology'), goAbout:()=>this.go('about'),
-      goLogin:()=>this.go('login'), goAccount:()=>this.go('account'),
+      goWorkspace:()=>this.go('workspace'),
       // overview
       updatedLabel:this.fmt(D.meta.updated)+' UTC', nextLabel:this.fmt(D.meta.next)+' UTC',
       liveOn: !!this._live, liveLabel: this._live ? 'Live data' : (S.liveErr ? 'Cached snapshot' : 'Connecting…'),
@@ -1142,9 +1098,12 @@ class Component extends DCLogic {
       onFeedSev:(e)=>this.setState({feedSev:e.target.value}),
       feedFiltered: (S.feedCountry!=='all'||S.feedCat!=='all'||S.feedSev!=='all'),
       clearFeed:()=>this.setState({feedCountry:'all',feedCat:'all',feedSev:'all'}),
-      openShare:()=>this.setState({shareOpen:true}), closeShare:()=>this.setState({shareOpen:false}),
-      shareOpen:S.shareOpen, copied:S.copied, copyBrief:()=>this._copyBrief(),
+      openShare:()=>{ this.setState({shareOpen:true,copyStatus:''}); setTimeout(()=>{ if(this.shareCloseEl)this.shareCloseEl.focus(); },0); },
+      closeShare:()=>{ this.setState({shareOpen:false,copyStatus:''}); setTimeout(()=>{ if(this.shareButtonEl)this.shareButtonEl.focus(); },0); },
+      shareKeyDown:(e)=>{ if(!e)return; if(e.key==='Escape'){ e.preventDefault(); this.setState({shareOpen:false,copyStatus:''}); setTimeout(()=>{ if(this.shareButtonEl)this.shareButtonEl.focus(); },0); return; } if(e.key==='Tab'&&this.shareDialogEl){ const items=Array.from(this.shareDialogEl.querySelectorAll('button:not([disabled]),a[href]')); if(!items.length)return; const first=items[0],last=items[items.length-1]; if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); } else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); } } },
+      shareOpen:S.shareOpen, copyStatus:S.copyStatus, copyStatusColor:S.copyStatus==='Copy failed'?'#cf5b4e':'#6fae7e', copyBrief:()=>this._copyBrief(),
       stopProp:(e)=>{ if(e&&e.stopPropagation) e.stopPropagation(); },
+      setShareButtonEl:(el)=>{ this.shareButtonEl=el; }, setShareCloseEl:(el)=>{ this.shareCloseEl=el; }, setShareDialogEl:(el)=>{ this.shareDialogEl=el; },
       rangeLabel:rmin.toFixed(1)+'–'+rmax.toFixed(1), forecastLabel:D.forecast[D.forecast.length-1][1].toFixed(2),
       showForecast: this.props.showForecast !== false,
       setMapEl:(el)=>{ this.mapEl=el; }, setTrendEl:(el)=>{ this.trendEl=el; },
@@ -1159,41 +1118,19 @@ class Component extends DCLogic {
       d_color:this.color(co.index), d_status:this.label(co.index), d_pct:((co.index-1)/9*100).toFixed(1),
       d_eventCount:counts[cn]||0, d_breakdown, d_hasBreakdown:d_breakdown.length>0, d_noBreakdown:d_breakdown.length===0,
       d_events, d_hasEvents:d_events.length>0, d_noEvents:d_events.length===0,
-      d_favGlyph:dFav?'★':'☆', d_favColor:dFav?accent:'#5a5448', d_onFav:()=>this.toggleFav(cn),
+      d_favGlyph:dFav?'★':'☆', d_favColor:dFav?accent:'#5a5448', d_favOn:dFav, d_favLabel:(dFav?'Remove ':'Add ')+cn+(dFav?' from':' to')+' local favourites', d_onFav:()=>this.toggleFav(cn),
       setCHistEl:(el)=>{ this.cHistEl=el; },
       whyOpen:S.whyOpen, toggleWhy:()=>this.setState({whyOpen:!S.whyOpen}),
       d_wAvg:co.raw.toFixed(2), d_wComputed:(1+9*(1-Math.exp(-co.raw/5*1.2))).toFixed(2),
-      d_alertOn: !!S.alerts[cn], d_alertColor: S.alerts[cn]?accent:'#9a9284',
-      d_alertLabel: S.alerts[cn] ? ('Alert armed · ≥ '+(S.alerts[cn]==='critical'?'7.0':'4.0')) : ('Get alerts for '+cn),
-      toggleCountryAlert:()=>{ if(!S.user){ this.go('login'); return; } const cur=S.alerts[cn]; const next=!cur?'elevated':cur==='elevated'?'critical':'off'; this.setAlert(cn,next); },
+      d_thresholdColor:S.thresholds[cn]?accent:'#9a9284',
+      d_thresholdLabel:S.thresholds[cn]?('Local threshold · ≥ '+(S.thresholds[cn]==='critical'?'7.0':'4.0')):('Set visual threshold for '+cn),
+      toggleCountryThreshold:()=>{ const cur=S.thresholds[cn]; const next=!cur?'elevated':cur==='elevated'?'critical':'off'; this.setThreshold(cn,next); },
       // methodology
       pipeline, weights:weightsV,
-      // auth
-      authEyebrow:isSignup?'Create account':'Member access',
-      authTitle:isSignup?'Create your watchlist':'Sign in to MTI',
-      authButton:isSignup?'Create account':'Sign in',
-      authSwitchText:isSignup?'Already have an account?':'New to MTI?',
-      authSwitchLink:isSignup?'Sign in':'Create one',
-      fName:S.fName, fEmail:S.fEmail, fPass:S.fPass,
-      onName:(e)=>this.setState({fName:e.target.value}), onEmail:(e)=>this.setState({fEmail:e.target.value}), onPass:(e)=>this.setState({fPass:e.target.value}),
-      toggleAuth:()=>this.setState({authMode:S.authMode==='signup'?'login':'signup'}),
-      submitAuth:()=>{
-        const name = S.fName.trim() || (S.fEmail.split('@')[0]||'Analyst');
-        const user={ name, email:S.fEmail };
-        try{ localStorage.setItem('mti_user', JSON.stringify(user)); }catch(e){}
-        this.setState({ user, fName:'', fEmail:'', fPass:'' }); this.go('account');
-      },
-      // account
+      // local workspace
       favList, hasFavs:favList.length>0, noFavs:favList.length===0,
-      alertList, hasAlerts:alertList.length>0,
-      breachList:breaches, hasBreach:breaches.length>0, breachCount:breaches.length,
-      digestOn:S.digest, digestColor:S.digest?accent:'#5a5448', digestGlyph:S.digest?'On':'Off',
-      toggleDigest:()=>{ const d=!S.digest; this.setState({digest:d}); try{ localStorage.setItem('mti_digest', d?'1':''); }catch(e){} },
-      deliveryEmail: S.deliveryEmail || (S.user&&S.user.email) || '',
-      onDelivery:(e)=>this.setState({deliveryEmail:e.target.value, deliverySaved:false}),
-      saveDelivery:()=>{ try{ localStorage.setItem('mti_delivery', S.deliveryEmail || (S.user&&S.user.email) || ''); }catch(e){} this.setState({deliverySaved:true}); setTimeout(()=>this.setState({deliverySaved:false}),1800); },
-      deliverySaved:S.deliverySaved,
-      signOut:()=>{ try{ localStorage.removeItem('mti_user'); }catch(e){} this.setState({user:null}); this.go('overview'); }
+      thresholdList, hasThresholds:thresholdList.length>0,
+      breachList:breaches, hasBreach:breaches.length>0, breachCount:breaches.length
     };
   }
 }
