@@ -37,6 +37,9 @@
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#2c2820;border-radius:0}
   ::-webkit-scrollbar-track{background:#15130f}
+  html:not(.mti-data-ready) .mti-main{display:none}
+  .mti-data-loader{max-width:1180px;margin:0 auto;padding:72px 28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9a9284;text-transform:uppercase}
+  html.mti-data-ready .mti-data-loader{display:none}
   @media (max-width:720px){
     html,body{width:100%;max-width:100%;overflow-x:clip}
     .mti-shell{width:100%;max-width:100%;min-width:0}
@@ -91,8 +94,8 @@
   <header class="mti-header" style="border-bottom:1px solid #2c2820;background:#15130f;position:sticky;top:0;z-index:40">
     <div class="mti-header-inner" style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
       <div class="mti-brand" onClick="{{ goOverview }}" style="display:flex;align-items:center;gap:13px;cursor:pointer">
-        <div style="width:30px;height:30px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center;position:relative">
-          <div style="width:9px;height:9px;background: {{ accent }};transform:rotate(45deg)"></div>
+        <div style="width:38px;height:38px;overflow:hidden;flex:0 0 38px" aria-hidden="true">
+          <img src="./logo.png" alt="" style="display:block;height:38px;width:76px;max-width:none;object-fit:cover;object-position:left center">
         </div>
         <div style="line-height:1.05">
           <div style="font-family:'Spectral',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:#ece6d8">MENA Threat Index</div>
@@ -115,6 +118,7 @@
       </nav>
     </div>
   </header>
+  <div class="mti-data-loader" role="status" aria-live="polite">Loading current regional intelligence…</div>
 
   <!-- ============ OVERVIEW ============ -->
   <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
@@ -784,11 +788,15 @@ class Component extends DCLogic {
   }
   loadLive(){
     const urls=['./mena_data.json','https://raw.githubusercontent.com/akgularda/mena-threat-index/main/mena_data.json'];
-    const tryUrl=(i)=>{ if(i>=urls.length){ this.setState({liveErr:true}); return; }
-      fetch(urls[i],{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
-        if(j && j.countries){ this._live=this.transformLive(j); this._mapKey=null; this._trendKey=null; this._chKey=null; this._marketsKey=null; this.setState({liveAt:Date.now(), liveErr:false}); }
+    const ready=(failed)=>{ clearTimeout(this._readyTimer); document.documentElement.classList.add('mti-data-ready'); this.setState({liveAt:failed?0:Date.now(),liveErr:failed}); };
+    const tryUrl=(i)=>{ if(i>=urls.length){ ready(true); return; }
+      const controller=typeof AbortController==='function'?new AbortController():null;
+      const timeout=setTimeout(()=>{ if(controller) controller.abort(); },4000);
+      fetch(urls[i],Object.assign({cache:'no-store'},controller?{signal:controller.signal}:{})).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
+        clearTimeout(timeout);
+        if(j && j.countries){ this._live=this.transformLive(j); this._mapKey=null; this._trendKey=null; this._chKey=null; this._marketsKey=null; ready(false); }
         else tryUrl(i+1);
-      }).catch(()=>tryUrl(i+1)); };
+      }).catch(()=>{ clearTimeout(timeout); tryUrl(i+1); }); };
     tryUrl(0);
   }
 
@@ -796,10 +804,10 @@ class Component extends DCLogic {
     meta: { mainIndex: 3.84, status: 'STABLE', updated: '2026-06-26T02:52:18', next: '2026-06-26T04:00:00', model:'deterministic' },
     brief: {
       window: '6h', sources: 'Egypt · Iran · Iraq · Israel · Saudi Arabia', refresh: '06:00 UTC',
-      headline: 'Regional baseline seeded while the live MENA pipeline warms up',
+      headline: 'Last verified regional snapshot',
       bullets: [
-        { text: 'The launch fallback keeps the dashboard usable until the first live mena_data.json publish succeeds.', cat:'neutral' },
-        { text: 'Forecast and market panels will switch to generated data as soon as the pipeline publishes.', cat:'diplomatic_tensions' },
+        { text: 'The dashboard retains its last verified reading if a refresh is temporarily unavailable.', cat:'neutral' },
+        { text: 'The status line distinguishes current data from the retained snapshot.', cat:'diplomatic_tensions' },
         { text: 'Country readings remain deterministic and bounded on the same 1–10 scale.', cat:'trade_agreement' }
       ]
     },
@@ -813,10 +821,10 @@ class Component extends DCLogic {
     },
     events: {
       Egypt: [
-        { t:'MTI fallback awaiting first live regional run', cat:'neutral', src:'MTI', date:'2026-06-26T02:52:00Z', link:'', w:0.0 }
+        { t:'Last verified regional reading retained', cat:'neutral', src:'MTI', date:'2026-06-26T02:52:00Z', link:'', w:0.0 }
       ],
       Iran: [
-        { t:'Illustrative regional signal carried from the legacy seed', cat:'diplomatic_tensions', src:'MTI', date:'2026-06-26T02:52:00Z', link:'', w:2.5 }
+        { t:'Previous regional signal retained pending refresh', cat:'diplomatic_tensions', src:'MTI', date:'2026-06-26T02:52:00Z', link:'', w:2.5 }
       ],
       Iraq: [],
       Israel: [],
@@ -843,6 +851,7 @@ class Component extends DCLogic {
   CATLABEL = { military_conflict:'Military conflict', terrorism:'Terrorism', border_security:'Border security', political_instability:'Political instability', humanitarian_crisis:'Humanitarian crisis', diplomatic_tensions:'Diplomatic tensions', trade_agreement:'Trade & de-escalation', neutral:'Neutral' };
 
   componentDidMount(){
+    this._readyTimer=setTimeout(()=>{ document.documentElement.classList.add('mti-data-ready'); this.setState({liveErr:true}); },10000);
     try {
       ['user','favs','alerts','digest','delivery'].forEach(k=>{
         const oldK='bnti_'+k, newK='mti_'+k;
@@ -862,7 +871,7 @@ class Component extends DCLogic {
     this._tick = setInterval(()=>this.drawAll(), 350);
   }
   componentDidUpdate(){ this.drawAll(); }
-  componentWillUnmount(){ clearInterval(this._tick); }
+  componentWillUnmount(){ clearInterval(this._tick); clearTimeout(this._readyTimer); }
 
   // ---- helpers ----
   color(i){ return i>=7 ? '#cf5b4e' : i>=4 ? '#d8a13f' : '#6fae7e'; }

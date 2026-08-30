@@ -11,7 +11,7 @@ METHODOLOGY_EVIDENCE = ["METHODOLOGY_REVIEW.md"]
 QUICK_START_COMMANDS = ["python -m pytest -q"]
 ARCHITECTURE_IDENTIFIERS = ["pipeline/","mena_data.json"]
 THIRD_PARTY_EXCLUSIONS = ["news, market, forecast, and geopolitical datasets","logos, maps, trademarks, screenshots, and external assets"]
-LICENSE_DECISION = "preserve-apache"
+LICENSE_DECISION = "new-mit"
 
 
 def test_repository_hygiene_documentation_contract():

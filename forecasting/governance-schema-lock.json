@@ -1,14 +1,14 @@
 {
-  "governanceCommit": "86b1c12",
+  "governanceCommit": "e26de16",
   "sourceRepository": "SDCofA/mena-threat-index",
   "schemas": {
     "forecastEvent": {
       "path": "forecasting/schemas/forecast-event.schema.json",
-      "sha256": "sha256:981788e16a7bf6a1957d604a656a72d641bd3771d59b70541aca851e541da7ce"
+      "sha256": "sha256:feec0d8c022dd7422029bf0e6c716af7dc3133fe7e9906e161ade655541e666c"
     },
     "provenance": {
       "path": "forecasting/schemas/provenance.schema.json",
-      "sha256": "sha256:87c8732815727bff139443f77bcc175c56c86f182d9f80c0036161c6e4dc835e"
+      "sha256": "sha256:4b2e3e7a742147db20fe79fbc68f5658a929f5ba72504bc8a01c1306e941a492"
     }
   }
 }

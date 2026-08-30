@@ -7,7 +7,7 @@
   "legacyEvaluationCount": 178,
   "migrationExclusionCount": 3,
   "recordCount": 175,
-  "schemaLockHash": "sha256:223e6d2d55263f7a01aab27e25eba09ccea852b0511061752d8d5a1418b0d9fe",
+  "schemaLockHash": "sha256:475f8d9426e9cdb573fe4c05a64fdd0f6670c0581f1bd13f6d8ea44499ef6e7c",
   "schemaVersion": "mti-forecast-provenance/v1",
   "sourceBaseCommit": "02da23265a6420a272ce2aa3134b4d72fa4d6f75",
   "sourceSnapshots": {

@@ -60,6 +60,15 @@ def sha256_bytes(value):
     return "sha256:" + hashlib.sha256(value).hexdigest()
 
 
+def normalized_text_bytes(path):
+    return Path(path).read_bytes().replace(b"\r\n", b"\n")
+
+
+def sha256_file(path):
+    """Hash repository text identically on Windows and Linux checkouts."""
+    return sha256_bytes(normalized_text_bytes(path))
+
+
 def load_jsonl(path):
     rows = []
     with Path(path).open(encoding="utf-8") as source:
@@ -71,6 +80,42 @@ def load_jsonl(path):
             except json.JSONDecodeError as error:
                 raise ValueError(f"{path}:{line_number}: invalid JSON") from error
     return rows
+
+
+def load_frozen_jsonl(path, expected_sha256):
+    """Load the immutable prefix identified by a frozen snapshot hash.
+
+    Operational JSONL files remain append-only after benchmark freeze. Hashing
+    each prefix keeps the benchmark reproducible without blocking new readings.
+    """
+    rows = []
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as source:
+        for line_number, raw_line in enumerate(source, 1):
+            digest.update(raw_line)
+            if raw_line.strip():
+                try:
+                    rows.append(json.loads(raw_line))
+                except json.JSONDecodeError as error:
+                    raise ValueError(f"{path}:{line_number}: invalid JSON") from error
+            if "sha256:" + digest.hexdigest() == expected_sha256:
+                return rows
+    raise ValueError(f"frozen source prefix not found: {path}")
+
+
+def load_source_snapshot_rows(root, manifest):
+    root = Path(root)
+    sources = manifest["sourceSnapshot"]
+    history_source = sources["history"]
+    evaluation_source = sources["forecastEvaluations"]
+    history = load_frozen_jsonl(root / history_source["path"], history_source["sha256"])
+    evaluations = load_frozen_jsonl(
+        root / evaluation_source["path"], evaluation_source["sha256"]
+    )
+    expected_count = evaluation_source.get("observationCount")
+    if expected_count is not None and len(evaluations) != expected_count:
+        raise ValueError("frozen evaluation count does not match benchmark manifest")
+    return history, evaluations
 
 
 def _parse_utc(value):
@@ -346,7 +391,7 @@ def write_immutable_ledger(path, records):
     path = Path(path)
     expected = _ledger_bytes(records)
     if path.exists():
-        if path.read_bytes() != expected:
+        if normalized_text_bytes(path) != expected:
             raise ImmutableForecastError(
                 f"refusing to rewrite immutable forecast ledger: {path}"
             )
@@ -489,17 +534,17 @@ def reconstruct_forecast(forecast_id, root=ROOT):
     record = matches[0]
     validate_forecast_record(record)
 
+    manifest = json.loads((root / "forecasting" / "benchmark-manifest.json").read_text(encoding="utf-8"))
+    history, evaluations = load_source_snapshot_rows(root, manifest)
     evaluation_run_id = record["resolutionCriteria"]["source"].rsplit("/", 1)[-1]
-    evaluations = load_jsonl(root / "data" / "forecast_eval.jsonl")
     evaluation = next((row for row in evaluations if row["run_id"] == evaluation_run_id), None)
     if evaluation is None:
         raise ValueError(f"resolution row missing for {forecast_id}")
-    history = load_jsonl(root / "data" / "history.jsonl")
     history_rows, history_index = _history_context(history)
     current_index = history_index[evaluation_run_id]
     issue_row = history_rows[current_index - 1]
     snapshot_hash = sha256_bytes(canonical_json_bytes(history_rows[:current_index]))
-    manifest_hash = sha256_bytes((root / "forecasting" / "benchmark-manifest.json").read_bytes())
+    manifest_hash = sha256_file(root / "forecasting" / "benchmark-manifest.json")
     verified = all(
         [
             issue_row["ts"] == record["dataCutoff"],
@@ -528,12 +573,7 @@ def reconstruct_forecast(forecast_id, root=ROOT):
 
 
 def _assert_source_snapshot(root, manifest):
-    for source in manifest["sourceSnapshot"].values():
-        actual = sha256_bytes((root / source["path"]).read_bytes())
-        if actual != source["sha256"]:
-            raise ValueError(
-                f"source snapshot changed after manifest freeze: {source['path']}"
-            )
+    load_source_snapshot_rows(root, manifest)
 
 
 def write_artifacts(root=ROOT):
@@ -541,9 +581,8 @@ def write_artifacts(root=ROOT):
     manifest_path = root / "forecasting" / "benchmark-manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     _assert_source_snapshot(root, manifest)
-    manifest_hash = sha256_bytes(manifest_path.read_bytes())
-    history = load_jsonl(root / "data" / "history.jsonl")
-    evaluations = load_jsonl(root / "data" / "forecast_eval.jsonl")
+    manifest_hash = sha256_file(manifest_path)
+    history, evaluations = load_source_snapshot_rows(root, manifest)
     records, migration_exclusions = build_forecast_records(
         history,
         evaluations,
@@ -578,10 +617,10 @@ def write_artifacts(root=ROOT):
         "governanceCommit": manifest["governanceCommit"],
         "sourceBaseCommit": manifest["sourceBaseCommit"],
         "benchmarkManifestHash": manifest_hash,
-        "forecastLedgerHash": sha256_bytes(ledger_path.read_bytes()),
-        "evaluationResultsHash": sha256_bytes(evaluation_path.read_bytes()),
-        "blindAuditHash": sha256_bytes(blind_audit_path.read_bytes()),
-        "schemaLockHash": sha256_bytes(lock_path.read_bytes()),
+        "forecastLedgerHash": sha256_file(ledger_path),
+        "evaluationResultsHash": sha256_file(evaluation_path),
+        "blindAuditHash": sha256_file(blind_audit_path),
+        "schemaLockHash": sha256_file(lock_path),
         "sourceSnapshots": manifest["sourceSnapshot"],
         "recordCount": len(records),
         "legacyEvaluationCount": len(evaluations),
@@ -600,7 +639,7 @@ def check_artifacts(root=ROOT):
         "forecasting/blind-audit.json",
         "forecasting/provenance-manifest.json",
     )
-    before = {path: (root / path).read_bytes() for path in outputs}
+    before = {path: normalized_text_bytes(root / path) for path in outputs}
     inputs = (
         "data/history.jsonl",
         "data/forecast_eval.jsonl",
@@ -616,7 +655,7 @@ def check_artifacts(root=ROOT):
             shutil.copy2(root / relative, destination)
         write_artifacts(check_root)
         for path, expected in before.items():
-            if (check_root / path).read_bytes() != expected:
+            if normalized_text_bytes(check_root / path) != expected:
                 raise ValueError(f"artifact is not deterministically reproducible: {path}")
     return True
 

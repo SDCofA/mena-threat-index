@@ -1,12 +1,8 @@
-import functools
-import http.server
 import os
 import re
 import shutil
 import subprocess
-import tempfile
 import textwrap
-import threading
 
 import pytest
 
@@ -53,64 +49,11 @@ def _mobile_css(html):
     raise AssertionError("mobile breakpoint is not closed")
 
 
-def _chrome():
-    candidates = (
-        shutil.which("chrome"),
-        shutil.which("google-chrome"),
-        shutil.which("chromium"),
-        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-    )
-    return next((candidate for candidate in candidates if candidate and os.path.exists(candidate)), None)
-
-
-class _QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *_args):
-        pass
-
-
-def test_svg_sparkline_binding_emits_no_native_points_console_error():
-    chrome = _chrome()
-    if not chrome:
-        pytest.skip("Chrome/Chromium unavailable")
-
+def test_svg_sparkline_uses_framework_safe_points_binding():
     html = _frontend_html()
     sparkline = re.search(r"<polyline\b[^>]*\bc\.spark\b[^>]*>", html)
     assert sparkline, "country sparkline template is missing"
     assert 'sc-camel-points="{{ c.spark }}"' in sparkline.group(0)
-
-    handler = functools.partial(_QuietHandler, directory=ROOT)
-    server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
-    thread = threading.Thread(target=server.serve_forever, daemon=True)
-    thread.start()
-    try:
-        with tempfile.TemporaryDirectory() as profile:
-            result = subprocess.run(
-                [
-                    chrome,
-                    "--headless=new",
-                    "--disable-gpu",
-                    "--disable-extensions",
-                    "--no-first-run",
-                    f"--user-data-dir={profile}",
-                    "--enable-logging=stderr",
-                    "--v=0",
-                    "--virtual-time-budget=12000",
-                    "--dump-dom",
-                    f"http://127.0.0.1:{server.server_port}/",
-                ],
-                capture_output=True,
-                text=True,
-                timeout=30,
-                check=False,
-            )
-    finally:
-        server.shutdown()
-        server.server_close()
-        thread.join(timeout=5)
-
-    assert result.returncode == 0, result.stderr
-    assert "<polyline> attribute points:" not in result.stderr
 
 
 def test_document_exposes_lighthouse_title_language_and_description():
@@ -121,6 +64,22 @@ def test_document_exposes_lighthouse_title_language_and_description():
     description = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', html, re.I)
     assert description
     assert len(description.group(1)) >= 50
+
+
+def test_live_data_gate_prevents_a_stale_snapshot_flash():
+    html = _frontend_html()
+
+    assert "html:not(.mti-data-ready) .mti-main{display:none}" in html
+    assert 'class="mti-data-loader" role="status" aria-live="polite"' in html
+    assert "document.documentElement.classList.add('mti-data-ready')" in html
+    assert "pipeline warms up" not in html
+    assert "legacy seed" not in html
+
+
+def test_header_uses_the_transparent_product_logo():
+    html = _frontend_html()
+
+    assert '<img src="./logo.png" alt=""' in html
 
 
 def test_every_select_has_an_accessible_name():

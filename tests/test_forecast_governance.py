@@ -39,19 +39,18 @@ def read_jsonl(path):
 
 def source_rows():
     module = load_pilot()
-    return module.load_jsonl(ROOT / "data" / "history.jsonl"), module.load_jsonl(
-        ROOT / "data" / "forecast_eval.jsonl"
-    )
+    manifest = json.loads(BENCHMARK_MANIFEST.read_text(encoding="utf-8"))
+    return module.load_source_snapshot_rows(ROOT, manifest)
 
 
 def test_governance_schemas_are_locked_to_approved_commit():
     lock = json.loads(SCHEMA_LOCK.read_text(encoding="utf-8"))
-    assert lock["governanceCommit"] == "86b1c12"
+    assert lock["governanceCommit"] == "e26de16"
     assert normalized_sha256(FORECAST_SCHEMA) == (
-        "sha256:981788e16a7bf6a1957d604a656a72d641bd3771d59b70541aca851e541da7ce"
+        "sha256:feec0d8c022dd7422029bf0e6c716af7dc3133fe7e9906e161ade655541e666c"
     )
     assert normalized_sha256(PROVENANCE_SCHEMA) == (
-        "sha256:87c8732815727bff139443f77bcc175c56c86f182d9f80c0036161c6e4dc835e"
+        "sha256:4b2e3e7a742147db20fe79fbc68f5658a929f5ba72504bc8a01c1306e941a492"
     )
     assert lock["schemas"]["forecastEvent"]["sha256"] == normalized_sha256(FORECAST_SCHEMA)
     assert lock["schemas"]["provenance"]["sha256"] == normalized_sha256(PROVENANCE_SCHEMA)
@@ -60,11 +59,10 @@ def test_governance_schemas_are_locked_to_approved_commit():
 def test_records_preserve_recorded_points_and_are_append_only(tmp_path):
     module = load_pilot()
     history, evaluations = source_rows()
-    manifest_bytes = BENCHMARK_MANIFEST.read_bytes()
     records, exclusions = module.build_forecast_records(
         history,
         evaluations,
-        module.sha256_bytes(manifest_bytes),
+        module.sha256_file(BENCHMARK_MANIFEST),
     )
 
     assert len(evaluations) == 178
@@ -89,13 +87,23 @@ def test_records_preserve_recorded_points_and_are_append_only(tmp_path):
         module.write_immutable_ledger(ledger, changed)
 
 
+def test_frozen_sources_survive_append_only_operational_updates():
+    module = load_pilot()
+    history, evaluations = source_rows()
+
+    assert len(history) == 204
+    assert len(evaluations) == 178
+    assert len(module.load_jsonl(ROOT / "data" / "history.jsonl")) >= len(history)
+    assert len(module.load_jsonl(ROOT / "data" / "forecast_eval.jsonl")) >= len(evaluations)
+
+
 def test_temporal_leakage_is_rejected():
     module = load_pilot()
     history, evaluations = source_rows()
     records, _ = module.build_forecast_records(
         history,
         evaluations,
-        module.sha256_bytes(BENCHMARK_MANIFEST.read_bytes()),
+        module.sha256_file(BENCHMARK_MANIFEST),
     )
     leaked = json.loads(json.dumps(records[0]))
     leaked["provenance"]["featureTimestamps"].append(leaked["horizon"]["endsAt"])
@@ -111,7 +119,7 @@ def test_frozen_manifest_drives_rolling_evaluation_and_required_baselines():
     records, _ = module.build_forecast_records(
         history,
         evaluations,
-        module.sha256_bytes(BENCHMARK_MANIFEST.read_bytes()),
+        module.sha256_file(BENCHMARK_MANIFEST),
     )
     result = module.evaluate(evaluations, records, manifest)
 
@@ -140,7 +148,7 @@ def test_evaluation_reproduction_is_byte_identical():
     records, _ = module.build_forecast_records(
         history,
         evaluations,
-        module.sha256_bytes(BENCHMARK_MANIFEST.read_bytes()),
+        module.sha256_file(BENCHMARK_MANIFEST),
     )
     first = module.canonical_json_bytes(module.evaluate(evaluations, records, manifest))
     second = module.canonical_json_bytes(module.evaluate(evaluations, records, manifest))
@@ -196,8 +204,8 @@ def test_published_evidence_is_machine_reproducible_and_has_no_marketing_claim()
     module = load_pilot()
     result = json.loads(EVALUATION.read_text(encoding="utf-8"))
     provenance = json.loads(PROVENANCE_MANIFEST.read_text(encoding="utf-8"))
-    assert module.sha256_bytes(LEDGER.read_bytes()) == provenance["forecastLedgerHash"]
-    assert module.sha256_bytes(EVALUATION.read_bytes()) == provenance["evaluationResultsHash"]
+    assert module.sha256_file(LEDGER) == provenance["forecastLedgerHash"]
+    assert module.sha256_file(EVALUATION) == provenance["evaluationResultsHash"]
     assert result["comparisons"]["modelVsNaive"]["relativeMaePercent"] == pytest.approx(
         5.405405405405395
     )

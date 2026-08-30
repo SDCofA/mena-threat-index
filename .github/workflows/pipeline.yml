@@ -24,6 +24,8 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: python -m pipeline.run
+      - name: Verify generated product
+        run: pytest -q
       - name: Commit data
         run: |
           git config user.name "mti-bot"
