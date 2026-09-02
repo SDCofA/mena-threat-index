@@ -584,3 +584,4 @@
 {"run_id": "2026-09-01T22Z", "ts": "2026-09-01T22:00:00Z", "index": 1.95, "raw": 1.945, "status": "STABLE", "confidence": 0.801, "n_events": 3672, "forecast_next": 1.95, "seed": false}
 {"run_id": "2026-09-02T02Z", "ts": "2026-09-02T02:00:00Z", "index": 1.94, "raw": 1.917, "status": "STABLE", "confidence": 0.8, "n_events": 3640, "forecast_next": 1.94, "seed": false}
 {"run_id": "2026-09-02T08Z", "ts": "2026-09-02T08:00:00Z", "index": 1.96, "raw": 2.026, "status": "STABLE", "confidence": 0.799, "n_events": 3562, "forecast_next": 1.96, "seed": false}
+{"run_id": "2026-09-02T14Z", "ts": "2026-09-02T14:00:00Z", "index": 1.96, "raw": 1.972, "status": "STABLE", "confidence": 0.799, "n_events": 3540, "forecast_next": 1.96, "seed": false}
