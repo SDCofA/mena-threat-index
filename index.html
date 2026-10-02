@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
-<body>
+<body class="monarch-product" data-monarch-product="mena-threat-index">
+<header class="monarch-shell"><a class="monarch-shell-brand" href="https://monarchcastle.com/">Monarch Castle<span class="monarch-shell-product">MENA Threat Index</span></a><nav aria-label="Monarch Castle collection"><a href="https://monarchcastle.com/datasets/">Data</a><a href="https://monarchcastle.com/products/">Maps</a><a href="https://monarchcastle.com/insights/">Signals</a><a href="https://monarchcastle.com/developers/">Research</a><a href="https://monarchcastle.com/methodology/">Methodology</a><a class="monarch-shell-keep" href="https://monarchcastle.com/platform/">Open The Keep</a></nav><details><summary>Collection</summary><nav aria-label="Monarch Castle collection"><a href="https://monarchcastle.com/datasets/">Data</a><a href="https://monarchcastle.com/products/">Maps</a><a href="https://monarchcastle.com/insights/">Signals</a><a href="https://monarchcastle.com/developers/">Research</a><a href="https://monarchcastle.com/methodology/">Methodology</a><a class="monarch-shell-keep" href="https://monarchcastle.com/platform/">Open The Keep</a></nav></details></header>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,25 +23,25 @@
 <style>
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:#15130f;color:#ece6d8;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
+  body{background:#0B1726;color:#F4F6F8;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
   a{color:inherit;text-decoration:none}
-  ::selection{background:#c9a24b;color:#15130f}
+  ::selection{background:#c9a24b;color:#0B1726}
   @keyframes bntiPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.82)}}
-  .bnti-link:hover{color:#ece6d8 !important}
-  .bnti-row:hover{background:#1f1c16 !important}
+  .bnti-link:hover{color:#F4F6F8 !important}
+  .bnti-row:hover{background:#162A3B !important}
   .bnti-feed:hover{background:#1c1a14 !important}
   .bnti-card:hover{border-color:#3a352a !important}
-  input::placeholder{color:#9a9284}
-  [style*="color:#6b6457"],[style*="color:#7d7565"]{color:#9a9284!important}
-  svg text[fill="#6b6457"],svg text[fill="#7d7565"]{fill:#9a9284!important}
+  input::placeholder{color:#A8B6C4}
+  [style*="color:#8498AA"]{color:#A8B6C4!important}
+  svg text[fill="#8498AA"]{fill:#A8B6C4!important}
   .mti-button{appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:0;color:inherit;font:inherit;margin:0;padding:0;text-align:inherit}
   .mti-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #c9a24b;outline-offset:3px}
   input:focus{border-color:#c9a24b !important}
   ::-webkit-scrollbar{width:10px;height:10px}
-  ::-webkit-scrollbar-thumb{background:#2c2820;border-radius:0}
-  ::-webkit-scrollbar-track{background:#15130f}
+  ::-webkit-scrollbar-thumb{background:#314252;border-radius:0}
+  ::-webkit-scrollbar-track{background:#0B1726}
   html:not(.mti-data-ready) .mti-main{display:none}
-  .mti-data-loader{max-width:1180px;margin:0 auto;padding:72px 28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9a9284;text-transform:uppercase}
+  .mti-data-loader{max-width:1180px;margin:0 auto;padding:72px 28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#A8B6C4;text-transform:uppercase}
   html.mti-data-ready .mti-data-loader{display:none}
   @media (max-width:720px){
     html,body{width:100%;max-width:100%;overflow-x:clip}
@@ -58,7 +59,7 @@
     .mti-edition-strip{align-items:flex-start!important}
     .mti-overview-grid{grid-template-columns:minmax(0,1fr)!important}
     .mti-overview-index{padding:28px 0!important;border-right:0!important}
-    .mti-overview-briefing{padding:28px 0!important;border-top:1px solid #221f18}
+    .mti-overview-briefing{padding:28px 0!important;border-top:1px solid #243746}
     .mti-score-row{gap:12px!important;flex-wrap:wrap}
     .mti-score{font-size:clamp(3.25rem,18vw,4.875rem)!important}
     .mti-overview-stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px!important}
@@ -66,12 +67,12 @@
     .mti-brief-headline{font-size:clamp(1.5rem,7vw,1.8125rem)!important;overflow-wrap:anywhere}
     [data-screen-label] h1:not(.mti-brief-headline){font-size:clamp(1.75rem,9vw,2.125rem)!important;line-height:1.15!important}
     .mti-dashboard-grid{grid-template-columns:minmax(0,1fr)!important}
-    .mti-map-panel{min-height:340px!important;border-right:0!important;border-bottom:1px solid #2c2820}
+    .mti-map-panel{min-height:340px!important;border-right:0!important;border-bottom:1px solid #314252}
     .mti-map-canvas{height:340px!important}
     .mti-ranking-panel{max-height:420px!important}
     .mti-card-grid,.mti-detail-grid,.mti-threshold-grid,.mti-about-grid{grid-template-columns:minmax(0,1fr)!important}
     .mti-detail-primary{padding:28px 0!important;border-right:0!important}
-    .mti-detail-secondary{padding:28px 0!important;border-top:1px solid #221f18}
+    .mti-detail-secondary{padding:28px 0!important;border-top:1px solid #243746}
     .mti-detail-score{font-size:clamp(3rem,17vw,4.375rem)!important}
     .mti-feed-row{grid-template-columns:minmax(0,1fr)!important;gap:8px!important;align-items:start!important;padding:14px 10px!important}
     .mti-feed-row>div,.mti-feed-row>span{min-width:0;text-align:left!important}
@@ -82,33 +83,34 @@
     .mti-footer-inner,.mti-footer-meta{padding-left:16px!important;padding-right:16px!important}
   }
 </style>
+<link rel="stylesheet" href="./assets/monarch/design.css">
 </helmet>
-<div class="mti-shell" style="min-height:100vh;background:#15130f">
+<div class="mti-shell" style="min-height:100vh;background:#0B1726">
 
   <!-- utility strip -->
-  <div style="border-bottom:1px solid #221f18;background:#120f0b">
-    <div class="mti-utility-inner" style="max-width:1180px;margin:0 auto;padding:7px 28px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:#6b6457;text-transform:uppercase">
+  <div style="border-bottom:1px solid #243746;background:#120f0b">
+    <div class="mti-utility-inner" style="max-width:1180px;margin:0 auto;padding:7px 28px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:#8498AA;text-transform:uppercase">
       <span>Monarch Castle Technologies &nbsp;&middot;&nbsp; Defense Intelligence</span>
     </div>
   </div>
 
   <!-- masthead + nav -->
-  <header class="mti-header" style="border-bottom:1px solid #2c2820;background:#15130f;position:sticky;top:0;z-index:40">
+  <header class="mti-header" style="border-bottom:1px solid #314252;background:#0B1726;position:sticky;top:0;z-index:40">
     <div class="mti-header-inner" style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
       <button type="button" class="mti-brand mti-button" onClick="{{ goOverview }}" aria-label="MENA Threat Index overview" style="display:flex;align-items:center;gap:13px;cursor:pointer">
         <div style="width:38px;height:38px;overflow:hidden;flex:0 0 38px" aria-hidden="true">
           <img src="./logo.png" alt="" style="display:block;height:38px;width:76px;max-width:none;object-fit:cover;object-position:left center">
         </div>
         <div style="line-height:1.05">
-          <div style="font-family:'Spectral',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:#ece6d8">MENA Threat Index</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:#7d7565;text-transform:uppercase;margin-top:2px">M&middot;T&middot;I &nbsp; Regional Monitor</div>
+          <div style="font-family:'Spectral',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:#F4F6F8">MENA Threat Index</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:#8498AA;text-transform:uppercase;margin-top:2px">M&middot;T&middot;I &nbsp; Regional Monitor</div>
         </div>
       </button>
       <nav class="mti-nav" aria-label="Primary navigation" style="display:flex;align-items:center;gap:26px">
         <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
           <button type="button" class="bnti-link mti-button mti-nav-item" onClick="{{ item.onClick }}" aria-current="{{ item.current }}" style="cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.01em;padding:6px 0;border-bottom:2px solid {{ item.border }};color: {{ item.color }};transition:color .15s">{{ item.label }}</button>
         </sc-for>
-        <button type="button" class="mti-button mti-workspace-link" onClick="{{ goWorkspace }}" aria-current="{{ workspaceCurrent }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#15130f;background:#ece6d8;padding:7px 15px;border-radius:1px">My workspace</button>
+        <button type="button" class="mti-button mti-workspace-link" onClick="{{ goWorkspace }}" aria-current="{{ workspaceCurrent }}" style="cursor:pointer;font-size:12.5px;font-weight:500;color:#0B1726;background:#F4F6F8;padding:7px 15px;border-radius:1px">My workspace</button>
       </nav>
     </div>
   </header>
@@ -119,25 +121,25 @@
   <main class="mti-main" data-screen-label="Overview" style="max-width:1180px;margin:0 auto;padding:0 28px">
 
     <!-- edition strip -->
-    <div class="mti-edition-strip" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #221f18;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9a9284;text-transform:uppercase">
+    <div class="mti-edition-strip" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #243746;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#A8B6C4;text-transform:uppercase">
         <span style="width:7px;height:7px;border-radius:50%;background:{{ liveColor }};display:inline-block;animation:bntiPulse 1.8s infinite"></span>
         {{ liveLabel }}
       </div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7d7565;display:flex;gap:18px;flex-wrap:wrap">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8498AA;display:flex;gap:18px;flex-wrap:wrap">
         <span>Updated {{ updatedLabel }}</span><span style="color:#4f4940">/</span><span>Next refresh {{ nextLabel }}</span>
       </div>
     </div>
 
     <!-- hero: composite index + briefing -->
-    <section class="mti-overview-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;border-bottom:1px solid #2c2820">
+    <section class="mti-overview-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;border-bottom:1px solid #314252">
       <!-- index -->
-      <div class="mti-overview-index" style="padding:36px 40px 36px 0;border-right:1px solid #221f18">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:18px">Composite MENA Threat Index</div>
+      <div class="mti-overview-index" style="padding:36px 40px 36px 0;border-right:1px solid #243746">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:18px">Composite MENA Threat Index</div>
         <div class="mti-score-row" style="display:flex;align-items:flex-end;gap:16px">
-          <div class="mti-score" style="font-family:'IBM Plex Mono',monospace;font-size:78px;line-height:.82;font-weight:500;color:#ece6d8;letter-spacing:-.02em">{{ mainIndex }}</div>
+          <div class="mti-score" style="font-family:'IBM Plex Mono',monospace;font-size:78px;line-height:.82;font-weight:500;color:#F4F6F8;letter-spacing:-.02em">{{ mainIndex }}</div>
           <div style="padding-bottom:8px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#7d7565">/ 10.0</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#8498AA">/ 10.0</div>
             <div style="margin-top:8px;display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid {{ statusColor }};border-radius:1px">
               <span style="width:6px;height:6px;border-radius:50%;background:{{ statusColor }}"></span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:{{ statusColor }}">{{ statusLabel }}</span>
@@ -150,38 +152,38 @@
             <div style="flex:3;background:#6fae7e;opacity:.22"></div>
             <div style="flex:3;background:#d8a13f;opacity:.22"></div>
             <div style="flex:3;background:#cf5b4e;opacity:.22"></div>
-            <div style="position:absolute;top:-4px;bottom:-4px;width:2px;background:#ece6d8;left: {{ mainPct }}%"></div>
+            <div style="position:absolute;top:-4px;bottom:-4px;width:2px;background:#F4F6F8;left: {{ mainPct }}%"></div>
           </div>
-          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#6b6457;margin-top:7px;text-transform:uppercase">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8498AA;margin-top:7px;text-transform:uppercase">
             <span>1 · Stable</span><span>4 · Elevated</span><span>7 · Critical</span><span>10</span>
           </div>
         </div>
         <div class="mti-overview-stats" style="display:flex;gap:28px;margin-top:26px">
           <div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:{{ deltaColor }}">{{ deltaLabel }}</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">vs prior reading</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#8498AA;text-transform:uppercase;margin-top:3px">vs prior reading</div>
           </div>
           <div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#ece6d8">{{ totalSignals }}</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">Active signals</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F4F6F8">{{ totalSignals }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#8498AA;text-transform:uppercase;margin-top:3px">Active signals</div>
           </div>
           <div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#ece6d8">24</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">Countries</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F4F6F8">24</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#8498AA;text-transform:uppercase;margin-top:3px">Countries</div>
           </div>
           <div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#ece6d8">{{ confidence }}</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#7d7565;text-transform:uppercase;margin-top:3px">Confidence</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F4F6F8">{{ confidence }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#8498AA;text-transform:uppercase;margin-top:3px">Confidence</div>
           </div>
         </div>
       </div>
       <!-- briefing -->
       <div class="mti-overview-briefing" style="padding:36px 0 36px 40px">
         <div class="mti-brief-meta" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase">Regional briefing &middot; {{ briefWindow }} window</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6b6457">{{ briefSources }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase">Regional briefing &middot; {{ briefWindow }} window</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA">{{ briefSources }}</div>
         </div>
-        <h1 class="mti-brief-headline" style="font-family:'Spectral',serif;font-weight:600;font-size:29px;line-height:1.22;color:#ece6d8;margin:0 0 22px 0;letter-spacing:-.005em;text-wrap:pretty">{{ briefHeadline }}</h1>
+        <h1 class="mti-brief-headline" style="font-family:'Spectral',serif;font-weight:600;font-size:29px;line-height:1.22;color:#F4F6F8;margin:0 0 22px 0;letter-spacing:-.005em;text-wrap:pretty">{{ briefHeadline }}</h1>
         <div style="display:flex;flex-direction:column;gap:13px">
           <sc-for list="{{ briefBullets }}" as="b" hint-placeholder-count="3">
             <div style="display:flex;gap:13px;align-items:flex-start">
@@ -190,9 +192,9 @@
             </div>
           </sc-for>
         </div>
-        <div style="margin-top:24px;padding-top:16px;border-top:1px solid #221f18;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#6b6457">Next briefing refresh &middot; {{ briefRefresh }}</span>
-          <button type="button" ref="{{ setShareButtonEl }}" onClick="{{ openShare }}" class="bnti-link mti-button" style="cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#c9a24b;text-transform:uppercase;border:1px solid #463f31;padding:7px 12px">
+        <div style="margin-top:24px;padding-top:16px;border-top:1px solid #243746;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#8498AA">Next briefing refresh &middot; {{ briefRefresh }}</span>
+          <button type="button" ref="{{ setShareButtonEl }}" onClick="{{ openShare }}" class="bnti-link mti-button" style="cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#c9a24b;text-transform:uppercase;border:1px solid #4D6376;padding:7px 12px">
             <span style="font-size:12px;line-height:1">⤴</span> Share briefing
           </button>
         </div>
@@ -202,30 +204,30 @@
     <!-- map + ranked rail -->
     <section style="padding:34px 0 8px 0">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:14px">
-        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Regional threat map</h2>
-        <div style="display:flex;gap:18px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#9a9284;text-transform:uppercase;flex-wrap:wrap">
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#F4F6F8;margin:0">Regional threat map</h2>
+        <div style="display:flex;gap:18px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#A8B6C4;text-transform:uppercase;flex-wrap:wrap">
           <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:#6fae7e"></span>Stable</span>
           <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:#d8a13f"></span>Elevated</span>
           <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:#cf5b4e"></span>Critical</span>
           <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border:1px solid #c9a24b"></span>MENA · tracked</span>
         </div>
       </div>
-      <div class="mti-dashboard-grid" style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;border:1px solid #2c2820;background:#191711">
-        <div class="mti-map-panel" style="border-right:1px solid #2c2820;position:relative;min-height:460px;background:#15130f">
+      <div class="mti-dashboard-grid" style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;border:1px solid #314252;background:#122232">
+        <div class="mti-map-panel" style="border-right:1px solid #314252;position:relative;min-height:460px;background:#0B1726">
           <div class="mti-map-canvas" ref="{{ setMapEl }}" style="width:100%;height:460px;position:relative">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;color:#5a5448;text-transform:uppercase">Loading regional map…</div>
           </div>
         </div>
-        <div class="mti-ranking-panel" data-ranking-menu style="max-height:460px;overflow-y:auto;background:#15130f">
-          <div style="position:sticky;top:0;z-index:2;padding:12px 16px;border-bottom:1px solid #221f18;background:#191711;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#7d7565;text-transform:uppercase;display:flex;justify-content:space-between">
+        <div class="mti-ranking-panel" data-ranking-menu style="max-height:460px;overflow-y:auto;background:#0B1726">
+          <div style="position:sticky;top:0;z-index:2;padding:12px 16px;border-bottom:1px solid #243746;background:#122232;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8498AA;text-transform:uppercase;display:flex;justify-content:space-between">
             <span>Country menu</span><span>Index</span>
           </div>
           <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="12">
             <button type="button" class="bnti-row mti-button mti-country-row" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="width:100%;display:grid;grid-template-columns:22px 22px minmax(0,1fr) 42px;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #1c1a14;cursor:pointer;transition:background .12s">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7d7565;text-align:right">{{ c.rank }}</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#15130f;background:{{ c.color }};padding:2px 5px;border-radius:1px">{{ c.code }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8498AA;text-align:right">{{ c.rank }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#0B1726;background:{{ c.color }};padding:2px 5px;border-radius:1px">{{ c.code }}</span>
               <div style="min-width:0">
-                <div style="font-family:'Spectral',serif;font-size:14px;color:#ece6d8;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</div>
+                <div style="font-family:'Spectral',serif;font-size:14px;color:#F4F6F8;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</div>
                 <div style="height:3px;background:#26221b;margin-top:6px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width: {{ c.pct }}%;background:{{ c.color }}"></div></div>
               </div>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:{{ c.color }};text-align:right">{{ c.index }}</span>
@@ -236,48 +238,48 @@
     </section>
 
     <!-- trend -->
-    <section style="padding:34px 0;border-top:1px solid #2c2820;margin-top:26px">
+    <section style="padding:34px 0;border-top:1px solid #314252;margin-top:26px">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px">
-        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Regional trend &amp; outlook</h2>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#F4F6F8;margin:0">Regional trend &amp; outlook</h2>
         <div style="display:flex;gap:24px">
-          <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#ece6d8">{{ rangeLabel }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase">48h range</div></div>
+          <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#F4F6F8">{{ rangeLabel }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase">48h range</div></div>
           <sc-if value="{{ showForecast }}" hint-placeholder-val="{{ true }}">
-          <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#c9a24b">{{ forecastLabel }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase">6h forecast</div></div>
+          <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#c9a24b">{{ forecastLabel }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase">6h forecast</div></div>
           </sc-if>
         </div>
       </div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6b6457;margin-bottom:16px;display:flex;gap:18px"><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:0;border-top:1.6px solid #ece6d8"></span>Observed</span><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:0;border-top:1.6px dashed #c9a24b"></span>Projected</span></div>
-      <div ref="{{ setTrendEl }}" style="width:100%;height:240px;border:1px solid #2c2820;background:#15130f"></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA;margin-bottom:16px;display:flex;gap:18px"><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:0;border-top:1.6px solid #F4F6F8"></span>Observed</span><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:0;border-top:1.6px dashed #c9a24b"></span>Projected</span></div>
+      <div ref="{{ setTrendEl }}" style="width:100%;height:240px;border:1px solid #314252;background:#0B1726"></div>
     </section>
 
     <!-- latest intelligence -->
-    <section style="padding:8px 0 50px 0;border-top:1px solid #2c2820">
+    <section style="padding:8px 0 50px 0;border-top:1px solid #314252">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin:30px 0 16px 0;gap:16px;flex-wrap:wrap">
-        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Latest intelligence</h2>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#F4F6F8;margin:0">Latest intelligence</h2>
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <select aria-label="Filter signals by country" value="{{ feedCountry }}" onChange="{{ onFeedCountry }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by country" value="{{ feedCountry }}" onChange="{{ onFeedCountry }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #314252;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#8498AA 50%),linear-gradient(135deg,#8498AA 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedCountryOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
-          <select aria-label="Filter signals by category" value="{{ feedCat }}" onChange="{{ onFeedCat }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by category" value="{{ feedCat }}" onChange="{{ onFeedCat }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #314252;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#8498AA 50%),linear-gradient(135deg,#8498AA 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedCatOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
-          <select aria-label="Filter signals by severity" value="{{ feedSev }}" onChange="{{ onFeedSev }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+          <select aria-label="Filter signals by severity" value="{{ feedSev }}" onChange="{{ onFeedSev }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #314252;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#8498AA 50%),linear-gradient(135deg,#8498AA 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
             <sc-for list="{{ feedSevOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
           </select>
           <sc-if value="{{ feedFiltered }}" hint-placeholder-val="{{ false }}">
-            <button type="button" onClick="{{ clearFeed }}" class="bnti-link mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">✕ Clear</button>
+            <button type="button" onClick="{{ clearFeed }}" class="bnti-link mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA;letter-spacing:.04em">✕ Clear</button>
           </sc-if>
         </div>
       </div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#6b6457;text-transform:uppercase;margin-bottom:6px">{{ feedCount }} signals shown</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#8498AA;text-transform:uppercase;margin-bottom:6px">{{ feedCount }} signals shown</div>
       <sc-if value="{{ hasFeed }}" hint-placeholder-val="{{ true }}">
-      <div style="border-top:1px solid #2c2820">
+      <div style="border-top:1px solid #314252">
         <sc-for list="{{ feed }}" as="ev" hint-placeholder-count="8">
           <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed mti-feed-row" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565;letter-spacing:.04em">{{ ev.time }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA;letter-spacing:.04em">{{ ev.time }}</div>
             <div style="min-width:0">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:5px">
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#15130f;background:{{ ev.countryColor }};padding:1px 6px;border-radius:1px">{{ ev.country }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#0B1726;background:{{ ev.countryColor }};padding:1px 6px;border-radius:1px">{{ ev.country }}</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:{{ ev.catColor }};text-transform:uppercase">{{ ev.cat }}</span>
               </div>
               <div style="font-family:'Spectral',serif;font-size:16px;line-height:1.34;color:#d8d0c0;text-wrap:pretty">{{ ev.title }}</div>
@@ -288,8 +290,8 @@
       </div>
       </sc-if>
       <sc-if value="{{ noFeed }}" hint-placeholder-val="{{ false }}">
-        <div style="border:1px solid #2c2820;padding:38px;text-align:center">
-          <div style="font-family:'Spectral',serif;font-size:17px;color:#9a9284;margin-bottom:6px">No signals match these filters</div>
+        <div style="border:1px solid #314252;padding:38px;text-align:center">
+          <div style="font-family:'Spectral',serif;font-size:17px;color:#A8B6C4;margin-bottom:6px">No signals match these filters</div>
           <button type="button" onClick="{{ clearFeed }}" class="bnti-link mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c9a24b;letter-spacing:.06em">Clear filters</button>
         </div>
       </sc-if>
@@ -300,19 +302,19 @@
   <!-- ============ COUNTRIES ============ -->
   <sc-if value="{{ isCountries }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Countries" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
-    <div style="padding:34px 0 24px 0;border-bottom:1px solid #2c2820">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Watchlist · 24 countries</div>
-      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#ece6d8;margin:0">MENA countries</h1>
-      <p style="color:#9a9284;font-size:14.5px;max-width:620px;margin:12px 0 0 0;line-height:1.6">Each country is scored from regional reporting and mapped onto a fixed 1–10 threat scale. Open a country for its active signals and category breakdown.</p>
+    <div style="padding:34px 0 24px 0;border-bottom:1px solid #314252">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:10px">Watchlist · 24 countries</div>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#F4F6F8;margin:0">MENA countries</h1>
+      <p style="color:#A8B6C4;font-size:14.5px;max-width:620px;margin:12px 0 0 0;line-height:1.6">Each country is scored from regional reporting and mapped onto a fixed 1–10 threat scale. Open a country for its active signals and category breakdown.</p>
     </div>
-    <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820">
+    <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #314252;border-top:1px solid #314252">
       <sc-for list="{{ countriesList }}" as="c" hint-placeholder-count="7">
-        <div class="bnti-card" style="position:relative;border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;transition:border-color .15s;background:#15130f">
+        <div class="bnti-card" style="position:relative;border-right:1px solid #314252;border-bottom:1px solid #314252;padding:24px;transition:border-color .15s;background:#0B1726">
           <button type="button" class="mti-button" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="display:block;width:100%;cursor:pointer">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-right:34px">
             <div style="display:flex;align-items:center;gap:11px">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#15130f;background:{{ c.color }};padding:3px 7px;border-radius:1px">{{ c.code }}</span>
-              <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#ece6d8;margin:0">{{ c.name }}</h3>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#0B1726;background:{{ c.color }};padding:3px 7px;border-radius:1px">{{ c.code }}</span>
+              <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#F4F6F8;margin:0">{{ c.name }}</h3>
             </div>
           </div>
           <div style="display:flex;align-items:flex-end;gap:12px;margin-top:18px">
@@ -320,13 +322,13 @@
             <div style="padding-bottom:5px;display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:{{ c.color }}"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:{{ c.color }}">{{ c.status }}</span></div>
           </div>
           <div style="margin-top:16px;padding-top:14px;border-top:1px solid #1c1a14;display:flex;align-items:center;gap:12px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#6b6457;text-transform:uppercase;white-space:nowrap">24h trend</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase;white-space:nowrap">24h trend</span>
             <svg viewBox="0 0 100 30" preserveAspectRatio="none" style="flex:1;height:26px;display:block"><polyline sc-camel-points="{{ c.spark }}" fill="none" stroke="{{ c.color }}" stroke-width="1.6" vector-effect="non-scaling-stroke"></polyline></svg>
           </div>
-          <div style="display:flex;justify-content:space-between;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565;letter-spacing:.04em">
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA;letter-spacing:.04em">
             <span>{{ c.eventCount }} signals</span><span>{{ c.topCat }}</span>
           </div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#9a9284;text-wrap:pretty">{{ c.latest }}</div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#A8B6C4;text-wrap:pretty">{{ c.latest }}</div>
           </button>
           <button type="button" class="mti-button" onClick="{{ c.onFav }}" aria-label="{{ c.favLabel }}" aria-pressed="{{ c.isFav }}" style="position:absolute;top:24px;right:24px;font-size:17px;color:{{ c.favColor }};cursor:pointer;line-height:1;padding:2px">{{ c.favGlyph }}</button>
         </div>
@@ -338,76 +340,76 @@
   <!-- ============ COUNTRY DETAIL ============ -->
   <sc-if value="{{ isCountry }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Country detail" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
-    <div style="padding:20px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565;letter-spacing:.04em">
+    <div style="padding:20px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA;letter-spacing:.04em">
       <button type="button" class="bnti-link mti-button" onClick="{{ goCountries }}" style="cursor:pointer">Countries</button> <span style="color:#4f4940">/</span> <span style="color:#b8b0a0">{{ d_name }}</span>
     </div>
-    <div class="mti-detail-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border-top:1px solid #2c2820;border-bottom:1px solid #2c2820">
-      <div class="mti-detail-primary" style="padding:34px 40px 34px 0;border-right:1px solid #221f18">
+    <div class="mti-detail-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border-top:1px solid #314252;border-bottom:1px solid #314252">
+      <div class="mti-detail-primary" style="padding:34px 40px 34px 0;border-right:1px solid #243746">
         <div style="display:flex;align-items:center;gap:13px;margin-bottom:6px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#15130f;background:{{ d_color }};padding:3px 8px;border-radius:1px">{{ d_code }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#0B1726;background:{{ d_color }};padding:3px 8px;border-radius:1px">{{ d_code }}</span>
           <button type="button" class="mti-button" onClick="{{ d_onFav }}" aria-label="{{ d_favLabel }}" aria-pressed="{{ d_favOn }}" style="font-size:19px;color:{{ d_favColor }};cursor:pointer;line-height:1">{{ d_favGlyph }}</button>
         </div>
-        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#ece6d8;margin:6px 0 0 0">{{ d_name }}</h1>
+        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#F4F6F8;margin:6px 0 0 0">{{ d_name }}</h1>
         <div style="display:flex;align-items:flex-end;gap:16px;margin-top:24px">
           <div class="mti-detail-score" style="font-family:'IBM Plex Mono',monospace;font-size:70px;line-height:.82;color:{{ d_color }}">{{ d_index }}</div>
-          <div style="padding-bottom:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#7d7565">/ 10.0</div>
+          <div style="padding-bottom:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#8498AA">/ 10.0</div>
           <div style="margin-top:8px;display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid {{ d_color }};border-radius:1px"><span style="width:6px;height:6px;border-radius:50%;background:{{ d_color }}"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:{{ d_color }}">{{ d_status }}</span></div></div>
         </div>
         <div style="margin-top:24px;position:relative;height:8px;display:flex;gap:2px">
           <div style="flex:3;background:#6fae7e;opacity:.22"></div><div style="flex:3;background:#d8a13f;opacity:.22"></div><div style="flex:3;background:#cf5b4e;opacity:.22"></div>
-          <div style="position:absolute;top:-4px;bottom:-4px;width:2px;background:#ece6d8;left: {{ d_pct }}%"></div>
+          <div style="position:absolute;top:-4px;bottom:-4px;width:2px;background:#F4F6F8;left: {{ d_pct }}%"></div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#6b6457;margin-top:7px;text-transform:uppercase"><span>1</span><span>4</span><span>7</span><span>10</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8498AA;margin-top:7px;text-transform:uppercase"><span>1</span><span>4</span><span>7</span><span>10</span></div>
         <div style="display:flex;gap:28px;margin-top:26px">
-          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_eventCount }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Signals</div></div>
-          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_raw }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Mean weight</div></div>
-          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#ece6d8">{{ d_confidence }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#7d7565;text-transform:uppercase;margin-top:3px">Confidence</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#F4F6F8">{{ d_eventCount }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase;margin-top:3px">Signals</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#F4F6F8">{{ d_raw }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase;margin-top:3px">Mean weight</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#F4F6F8">{{ d_confidence }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8498AA;text-transform:uppercase;margin-top:3px">Confidence</div></div>
         </div>
       </div>
       <!-- breakdown -->
       <div class="mti-detail-secondary" style="padding:34px 0 34px 40px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:20px">Signal categories</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:20px">Signal categories</div>
         <sc-if value="{{ d_hasBreakdown }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:16px">
           <sc-for list="{{ d_breakdown }}" as="b" hint-placeholder-count="3">
             <div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:7px"><span style="font-size:13.5px;color:#d8d0c0">{{ b.label }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9a9284">{{ b.count }} · w{{ b.weight }}</span></div>
-              <div style="height:6px;background:#1f1c16"><div style="height:100%;width: {{ b.pct }}%;background:{{ b.color }}"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:7px"><span style="font-size:13.5px;color:#d8d0c0">{{ b.label }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#A8B6C4">{{ b.count }} · w{{ b.weight }}</span></div>
+              <div style="height:6px;background:#162A3B"><div style="height:100%;width: {{ b.pct }}%;background:{{ b.color }}"></div></div>
             </div>
           </sc-for>
         </div>
         </sc-if>
         <sc-if value="{{ d_noBreakdown }}" hint-placeholder-val="{{ false }}">
-          <div style="font-family:'Spectral',serif;font-size:16px;color:#7d7565;line-height:1.5">No active threat signals in the current window. This country holds the baseline index of 1.0.</div>
+          <div style="font-family:'Spectral',serif;font-size:16px;color:#8498AA;line-height:1.5">No active threat signals in the current window. This country holds the baseline index of 1.0.</div>
         </sc-if>
       </div>
     </div>
     <!-- history + actions -->
-    <section style="padding:28px 0;border-bottom:1px solid #2c2820">
+    <section style="padding:28px 0;border-bottom:1px solid #314252">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:14px;flex-wrap:wrap">
-        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#ece6d8;margin:0">Index history <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6b6457;letter-spacing:.06em">· 48h</span></h2>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#F4F6F8;margin:0">Index history <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA;letter-spacing:.06em">· 48h</span></h2>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button type="button" onClick="{{ toggleWhy }}" class="bnti-link mti-button" aria-expanded="{{ whyOpen }}" aria-controls="mti-score-explanation" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#9a9284;border:1px solid #2c2820;padding:7px 13px">Why this score?</button>
-          <button type="button" onClick="{{ toggleCountryThreshold }}" class="mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:{{ d_thresholdColor }};border:1px solid #463f31;padding:7px 13px;display:flex;align-items:center;gap:7px"><span aria-hidden="true" style="font-size:11px">◆</span>{{ d_thresholdLabel }}</button>
+          <button type="button" onClick="{{ toggleWhy }}" class="bnti-link mti-button" aria-expanded="{{ whyOpen }}" aria-controls="mti-score-explanation" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#A8B6C4;border:1px solid #314252;padding:7px 13px">Why this score?</button>
+          <button type="button" onClick="{{ toggleCountryThreshold }}" class="mti-button" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:{{ d_thresholdColor }};border:1px solid #4D6376;padding:7px 13px;display:flex;align-items:center;gap:7px"><span aria-hidden="true" style="font-size:11px">◆</span>{{ d_thresholdLabel }}</button>
         </div>
       </div>
-      <div ref="{{ setCHistEl }}" style="width:100%;height:210px;border:1px solid #2c2820;background:#15130f"></div>
+      <div ref="{{ setCHistEl }}" style="width:100%;height:210px;border:1px solid #314252;background:#0B1726"></div>
       <sc-if value="{{ whyOpen }}" hint-placeholder-val="{{ false }}">
-        <div id="mti-score-explanation" style="margin-top:14px;border:1px solid #2c2820;background:#120f0b;padding:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.95;color:#c4bcac">
-          <div style="color:#7d7565">// {{ d_eventCount }} active signals · mean event weight {{ d_wAvg }}</div>
+        <div id="mti-score-explanation" style="margin-top:14px;border:1px solid #314252;background:#120f0b;padding:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.95;color:#c4bcac">
+          <div style="color:#8498AA">// {{ d_eventCount }} active signals · mean event weight {{ d_wAvg }}</div>
           <div>PerCountry = 1 + 9 · ( 1 − e<sup style="color:#c9a24b">−{{ d_wAvg }}/5 · 1.2</sup> ) = <span style="color:{{ d_color }}">{{ d_wComputed }}</span></div>
-          <div style="color:#7d7565;margin-top:10px;line-height:1.6;font-family:'IBM Plex Sans';font-size:12.5px">The history series is reconstructed for illustration; live deployments persist each two-hour reading per country.</div>
+          <div style="color:#8498AA;margin-top:10px;line-height:1.6;font-family:'IBM Plex Sans';font-size:12.5px">The history series is reconstructed for illustration; live deployments persist each two-hour reading per country.</div>
         </div>
       </sc-if>
     </section>
     <!-- country events -->
     <section style="padding:30px 0 0 0">
-      <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#ece6d8;margin:0 0 16px 0">Active signals</h2>
+      <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#F4F6F8;margin:0 0 16px 0">Active signals</h2>
       <sc-if value="{{ d_hasEvents }}" hint-placeholder-val="{{ true }}">
-      <div style="border-top:1px solid #2c2820">
+      <div style="border-top:1px solid #314252">
         <sc-for list="{{ d_events }}" as="ev" hint-placeholder-count="4">
           <a href="{{ ev.link }}" target="_blank" rel="noopener" class="bnti-feed mti-feed-row" style="display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;padding:15px 14px;border-bottom:1px solid #1c1a14;transition:background .12s">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565">{{ ev.time }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA">{{ ev.time }}</div>
             <div style="min-width:0">
               <div style="margin-bottom:5px"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:{{ ev.catColor }};text-transform:uppercase">{{ ev.cat }}</span></div>
               <div style="font-family:'Spectral',serif;font-size:16px;line-height:1.34;color:#d8d0c0;text-wrap:pretty">{{ ev.title }}</div>
@@ -418,7 +420,7 @@
       </div>
       </sc-if>
       <sc-if value="{{ d_noEvents }}" hint-placeholder-val="{{ false }}">
-        <div style="border:1px solid #2c2820;padding:32px;text-align:center;font-family:'Spectral',serif;font-size:16px;color:#7d7565">No reporting attributed to {{ d_name }} in this window.</div>
+        <div style="border:1px solid #314252;padding:32px;text-align:center;font-family:'Spectral',serif;font-size:16px;color:#8498AA">No reporting attributed to {{ d_name }} in this window.</div>
       </sc-if>
     </section>
   </main>
@@ -427,44 +429,44 @@
   <!-- ============ MARKETS ============ -->
   <sc-if value="{{ isMarkets }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Markets" style="max-width:1180px;margin:0 auto;padding:0 28px 70px 28px">
-    <div style="padding:34px 0 24px 0;border-bottom:1px solid #2c2820">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Markets</div>
-      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#ece6d8;margin:0">Threat-linked market watch</h1>
-      <p style="color:#9a9284;font-size:14.5px;max-width:720px;margin:12px 0 0 0;line-height:1.6">{{ marketsHeadline }}</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#7d7565;text-transform:uppercase">
-        <span style="border:1px solid #2c2820;padding:5px 9px">Regime · {{ marketsRegime }}</span>
-        <span style="border:1px solid #2c2820;padding:5px 9px">Updated · {{ marketsUpdated }}</span>
+    <div style="padding:34px 0 24px 0;border-bottom:1px solid #314252">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:10px">Markets</div>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:34px;color:#F4F6F8;margin:0">Threat-linked market watch</h1>
+      <p style="color:#A8B6C4;font-size:14.5px;max-width:720px;margin:12px 0 0 0;line-height:1.6">{{ marketsHeadline }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#8498AA;text-transform:uppercase">
+        <span style="border:1px solid #314252;padding:5px 9px">Regime · {{ marketsRegime }}</span>
+        <span style="border:1px solid #314252;padding:5px 9px">Updated · {{ marketsUpdated }}</span>
       </div>
     </div>
-    <section style="display:grid;grid-template-columns:minmax(0,1fr);gap:0;border:1px solid #2c2820;background:#191711;margin-top:26px">
-      <div style="padding:18px;border-bottom:1px solid #2c2820">
+    <section style="display:grid;grid-template-columns:minmax(0,1fr);gap:0;border:1px solid #314252;background:#122232;margin-top:26px">
+      <div style="padding:18px;border-bottom:1px solid #314252">
         <div ref="{{ setMarketsEl }}" style="height:240px;position:relative">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;color:#5a5448;text-transform:uppercase">Loading market chart…</div>
         </div>
       </div>
       <div class="mti-market-scroll">
-      <div class="mti-market-grid" style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase">
+      <div class="mti-market-grid" style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:11px 18px;border-bottom:1px solid #314252;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase">
         <span>Instrument</span><span>Class</span><span>Last</span><span>Chg</span><span>Corr</span><span>Beta</span><span>Dir</span><span>1d forecast</span>
       </div>
       <sc-for list="{{ marketRows }}" as="m" hint-placeholder-count="5">
         <div class="mti-market-grid" style="display:grid;grid-template-columns:1.2fr .75fr .7fr .7fr .8fr .7fr .7fr 1.1fr;gap:12px;padding:15px 18px;border-bottom:1px solid #1c1a14;align-items:start">
           <div>
-            <div style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ m.name }}</div>
+            <div style="font-family:'Spectral',serif;font-size:16px;color:#F4F6F8">{{ m.name }}</div>
             <sc-if value="{{ m.isPreliminary }}" hint-placeholder-val="{{ false }}">
               <div style="margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:#d8a13f;text-transform:uppercase">seeded / preliminary</div>
             </sc-if>
           </div>
-          <span style="font-size:13px;color:#9a9284">{{ m.assetClass }}</span>
+          <span style="font-size:13px;color:#A8B6C4">{{ m.assetClass }}</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#d8d0c0">{{ m.last }}</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ m.changeColor }}">{{ m.changePct }}</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#d8d0c0">{{ m.correlation }}</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#d8d0c0">{{ m.beta }}</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9a9284">{{ m.direction }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#A8B6C4">{{ m.direction }}</span>
           <div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#d8d0c0">{{ m.forecastLabel }}</div>
             <div style="display:flex;flex-direction:column;gap:3px;margin-top:6px">
               <sc-for list="{{ m.scenarios }}" as="s" hint-placeholder-count="2">
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7d7565">{{ s.label }} · {{ s.move }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8498AA">{{ s.label }} · {{ s.move }}</div>
               </sc-for>
             </div>
           </div>
@@ -478,18 +480,18 @@
   <!-- ============ METHODOLOGY ============ -->
   <sc-if value="{{ isMethodology }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Methodology" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
-    <div style="padding:40px 0 28px 0;border-bottom:1px solid #2c2820">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:12px">Methodology</div>
-      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#ece6d8;margin:0">How the index is built</h1>
-      <p style="color:#9a9284;font-size:15.5px;line-height:1.65;margin:16px 0 0 0;max-width:640px">MTI converts multilingual regional reporting into a single, repeatable threat signal for the Middle East and North Africa. The pipeline is deterministic where it matters and auditable end to end.</p>
+    <div style="padding:40px 0 28px 0;border-bottom:1px solid #314252">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:12px">Methodology</div>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#F4F6F8;margin:0">How the index is built</h1>
+      <p style="color:#A8B6C4;font-size:15.5px;line-height:1.65;margin:16px 0 0 0;max-width:640px">MTI converts multilingual regional reporting into a single, repeatable threat signal for the Middle East and North Africa. The pipeline is deterministic where it matters and auditable end to end.</p>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:0;margin-top:8px">
       <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="4">
-        <div style="display:grid;grid-template-columns:54px 1fr;gap:22px;padding:26px 0;border-bottom:1px solid #221f18">
+        <div style="display:grid;grid-template-columns:54px 1fr;gap:22px;padding:26px 0;border-bottom:1px solid #243746">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#c9a24b">{{ p.num }}</div>
           <div>
-            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#ece6d8;margin:0 0 8px 0">{{ p.title }}</h3>
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#F4F6F8;margin:0 0 8px 0">{{ p.title }}</h3>
             <p style="color:#a8a090;font-size:14.5px;line-height:1.62;margin:0;text-wrap:pretty">{{ p.body }}</p>
           </div>
         </div>
@@ -497,9 +499,9 @@
     </div>
 
     <!-- weights -->
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Category weights</h2>
-    <p style="color:#9a9284;font-size:14px;margin:0 0 20px 0">Each headline is assigned one canonical category; each category maps to a fixed severity weight, ordered from open conflict down to de-escalation. The ordering follows event-data severity scales used in conflict research (Goldstein 1992; CAMEO). Weights never change between runs.</p>
-    <div style="border:1px solid #2c2820">
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 6px 0">Category weights</h2>
+    <p style="color:#A8B6C4;font-size:14px;margin:0 0 20px 0">Each headline is assigned one canonical category; each category maps to a fixed severity weight, ordered from open conflict down to de-escalation. The ordering follows event-data severity scales used in conflict research (Goldstein 1992; CAMEO). Weights never change between runs.</p>
+    <div style="border:1px solid #314252">
       <sc-for list="{{ weights }}" as="w" hint-placeholder-count="8">
         <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid #1c1a14">
           <span style="width:9px;height:9px;background:{{ w.color }};flex-shrink:0"></span>
@@ -510,41 +512,41 @@
     </div>
 
     <!-- formula -->
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 14px 0">Scoring formula</h2>
-    <div style="border:1px solid #2c2820;background:#120f0b;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:2;color:#c4bcac">
-      <div style="color:#7d7565">// per-country score from mean event weight</div>
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 14px 0">Scoring formula</h2>
+    <div style="border:1px solid #314252;background:#120f0b;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:2;color:#c4bcac">
+      <div style="color:#8498AA">// per-country score from mean event weight</div>
       <div>PerCountry = 1 + 9 · ( 1 − e<sup style="color:#c9a24b">−avg(w)/5 · 1.2</sup> )</div>
-      <div style="color:#7d7565;margin-top:12px">// composite is a weighted average across tracked countries</div>
+      <div style="color:#8498AA;margin-top:12px">// composite is a weighted average across tracked countries</div>
       <div>Composite = weighted_avg( PerCountry across 24 tracked countries )</div>
     </div>
-    <p style="color:#9a9284;font-size:13.5px;margin:14px 0 0 0;line-height:1.6">avg(w) is the recency-weighted, credibility-weighted <strong>mean</strong> event weight, stabilised toward the country&rsquo;s recent baseline. The score reflects <strong>severity</strong>, not how many times a story is filed.</p>
+    <p style="color:#A8B6C4;font-size:13.5px;margin:14px 0 0 0;line-height:1.6">avg(w) is the recency-weighted, credibility-weighted <strong>mean</strong> event weight, stabilised toward the country&rsquo;s recent baseline. The score reflects <strong>severity</strong>, not how many times a story is filed.</p>
 
     <!-- thresholds -->
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 16px 0">Operational thresholds</h2>
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 16px 0">Operational thresholds</h2>
     <div class="mti-threshold-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-      <div style="border:1px solid #2c2820;border-top:2px solid #6fae7e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6fae7e">STABLE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">1.0 – 4.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Routine reporting; no region-wide escalation.</div></div>
-      <div style="border:1px solid #2c2820;border-top:2px solid #d8a13f;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#d8a13f">ELEVATED</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">4.0 – 7.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Sustained tension or instability warranting watch.</div></div>
-      <div style="border:1px solid #2c2820;border-top:2px solid #cf5b4e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#cf5b4e">CRITICAL</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#ece6d8;margin:10px 0 4px 0">7.0 – 10.0</div><div style="font-size:13px;color:#9a9284;line-height:1.5">Active conflict or security rupture with regional consequences.</div></div>
+      <div style="border:1px solid #314252;border-top:2px solid #6fae7e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6fae7e">STABLE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F4F6F8;margin:10px 0 4px 0">1.0 – 4.0</div><div style="font-size:13px;color:#A8B6C4;line-height:1.5">Routine reporting; no region-wide escalation.</div></div>
+      <div style="border:1px solid #314252;border-top:2px solid #d8a13f;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#d8a13f">ELEVATED</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F4F6F8;margin:10px 0 4px 0">4.0 – 7.0</div><div style="font-size:13px;color:#A8B6C4;line-height:1.5">Sustained tension or instability warranting watch.</div></div>
+      <div style="border:1px solid #314252;border-top:2px solid #cf5b4e;padding:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#cf5b4e">CRITICAL</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F4F6F8;margin:10px 0 4px 0">7.0 – 10.0</div><div style="font-size:13px;color:#A8B6C4;line-height:1.5">Active conflict or security rupture with regional consequences.</div></div>
     </div>
 
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Confidence</h2>
-    <p style="color:#9a9284;font-size:14.5px;margin:0 0 20px 0;line-height:1.65">Each country and the regional composite carry a confidence between 0 and 1. It rises with the <strong>effective number of events</strong>, the <strong>diversity of sources</strong> reporting them, and <strong>corroboration</strong> across independent outlets; it falls when coverage is thin, stale, or single-sourced. Confidence is shown alongside every reading so a well-evidenced score is not read the same as a tentative one.</p>
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 6px 0">Confidence</h2>
+    <p style="color:#A8B6C4;font-size:14.5px;margin:0 0 20px 0;line-height:1.65">Each country and the regional composite carry a confidence between 0 and 1. It rises with the <strong>effective number of events</strong>, the <strong>diversity of sources</strong> reporting them, and <strong>corroboration</strong> across independent outlets; it falls when coverage is thin, stale, or single-sourced. Confidence is shown alongside every reading so a well-evidenced score is not read the same as a tentative one.</p>
 
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Sources</h2>
-    <p style="color:#9a9284;font-size:14px;margin:0 0 20px 0">Reporting is drawn from regional outlets in their original language, plus aggregated news indices. Coverage is reviewed as feeds change.</p>
-    <div class="mti-source-scroll" style="border:1px solid #2c2820">
-      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Outlet</span><span>Coverage</span><span>Language</span></div>
-      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://news.google.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Google News RSS ↗</a><span style="font-size:13px;color:#9a9284">24 tracked countries</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">MULTI</span></div>
-      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.middleeasteye.net" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Middle East Eye ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
-      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.newarab.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The New Arab ↗</a><span style="font-size:13px;color:#9a9284">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
-      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://syrianobserver.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The Syrian Observer ↗</a><span style="font-size:13px;color:#9a9284">Levant coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d7565">EN</span></div>
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 6px 0">Sources</h2>
+    <p style="color:#A8B6C4;font-size:14px;margin:0 0 20px 0">Reporting is drawn from regional outlets in their original language, plus aggregated news indices. Coverage is reviewed as feeds change.</p>
+    <div class="mti-source-scroll" style="border:1px solid #314252">
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:11px 18px;border-bottom:1px solid #314252;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Outlet</span><span>Coverage</span><span>Language</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://news.google.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Google News RSS ↗</a><span style="font-size:13px;color:#A8B6C4">24 tracked countries</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA">MULTI</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.middleeasteye.net" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">Middle East Eye ↗</a><span style="font-size:13px;color:#A8B6C4">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA">EN</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://www.newarab.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The New Arab ↗</a><span style="font-size:13px;color:#A8B6C4">Regional MENA coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA">EN</span></div>
+      <div class="mti-source-grid" style="display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid #1c1a14;align-items:center"><a href="https://syrianobserver.com" target="_blank" rel="noopener" class="bnti-link" style="font-family:'Spectral',serif;font-size:15px;color:#d8d0c0">The Syrian Observer ↗</a><span style="font-size:13px;color:#A8B6C4">Levant coverage</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8498AA">EN</span></div>
     </div>
 
-    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#ece6d8;margin:44px 0 6px 0">Methodology basis</h2>
-    <p style="color:#9a9284;font-size:14px;margin:0 0 8px 0;line-height:1.65">MTI follows established practice for news-based risk indices (Caldara &amp; Iacoviello, <em>Measuring Geopolitical Risk</em>, AER 2022; Baker, Bloom &amp; Davis, <em>Measuring Economic Policy Uncertainty</em>, QJE 2016) and for composite indicators (OECD/EC-JRC <em>Handbook on Constructing Composite Indicators</em>, 2008). Event-severity weighting draws on conflict event-data scales (Goldstein 1992; CAMEO); the forecast uses exponential-smoothing methods (Gardner &amp; McKenzie 1985); market reactions use the event-study market model (MacKinlay 1997) with false-discovery control (Benjamini &amp; Hochberg 1995). Full references are in the project&rsquo;s METHODOLOGY_REVIEW.md.</p>
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:24px;color:#F4F6F8;margin:44px 0 6px 0">Methodology basis</h2>
+    <p style="color:#A8B6C4;font-size:14px;margin:0 0 8px 0;line-height:1.65">MTI follows established practice for news-based risk indices (Caldara &amp; Iacoviello, <em>Measuring Geopolitical Risk</em>, AER 2022; Baker, Bloom &amp; Davis, <em>Measuring Economic Policy Uncertainty</em>, QJE 2016) and for composite indicators (OECD/EC-JRC <em>Handbook on Constructing Composite Indicators</em>, 2008). Event-severity weighting draws on conflict event-data scales (Goldstein 1992; CAMEO); the forecast uses exponential-smoothing methods (Gardner &amp; McKenzie 1985); market reactions use the event-study market model (MacKinlay 1997) with false-discovery control (Benjamini &amp; Hochberg 1995). Full references are in the project&rsquo;s METHODOLOGY_REVIEW.md.</p>
 
-    <div style="margin-top:40px;padding:22px;border:1px solid #2c2820;background:#191711">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Limitations</div>
+    <div style="margin-top:40px;padding:22px;border:1px solid #314252;background:#122232">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#8498AA;text-transform:uppercase;margin-bottom:10px">Limitations</div>
       <p style="color:#a8a090;font-size:14px;line-height:1.65;margin:0;text-wrap:pretty">The index reflects the volume and severity of published reporting, not ground truth. Source coverage is uneven across languages, machine categorisation introduces noise, and runs that fail validation are withheld rather than published. Categorisation of non-English headlines depends on the optional language model; without it, local-language coverage contributes little to scores. Market correlations are short-sample, unstable, and indicate association, not causation. MTI is a monitoring aid, not an intelligence assessment.</p>
     </div>
   </main>
@@ -553,32 +555,32 @@
   <!-- ============ ABOUT ============ -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="About" style="max-width:820px;margin:0 auto;padding:0 28px 70px 28px">
-    <div style="padding:40px 0 28px 0;border-bottom:1px solid #2c2820">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:12px">About</div>
-      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#ece6d8;margin:0;max-width:600px">A standing read on MENA risk</h1>
+    <div style="padding:40px 0 28px 0;border-bottom:1px solid #314252">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:12px">About</div>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.15;color:#F4F6F8;margin:0;max-width:600px">A standing read on MENA risk</h1>
     </div>
-    <div style="padding:32px 0;border-bottom:1px solid #221f18">
+    <div style="padding:32px 0;border-bottom:1px solid #243746">
       <p style="font-family:'Spectral',serif;font-size:21px;line-height:1.55;color:#d8d0c0;margin:0;text-wrap:pretty">MTI watches public reporting across 24 MENA countries, categorises it by country and threat type, and turns each update into a risk signal you can follow over time — open to anyone, with no wall.</p>
     </div>
-    <div class="mti-about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #221f18">
-      <div style="padding:30px 30px 30px 0;border-right:1px solid #221f18">
-        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#ece6d8;margin:0 0 10px 0">What we measure</h3>
+    <div class="mti-about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #243746">
+      <div style="padding:30px 30px 30px 0;border-right:1px solid #243746">
+        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#F4F6F8;margin:0 0 10px 0">What we measure</h3>
         <p style="color:#a8a090;font-size:14.5px;line-height:1.65;margin:0">Diplomatic friction, political instability, humanitarian strain, border-security and conflict signals — scored consistently so a quiet week and a tense one are comparable.</p>
       </div>
       <div style="padding:30px 0 30px 30px">
-        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#ece6d8;margin:0 0 10px 0">Who it's for</h3>
+        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#F4F6F8;margin:0 0 10px 0">Who it's for</h3>
         <p style="color:#a8a090;font-size:14.5px;line-height:1.65;margin:0">Anyone following the region — readers tracking world events, and analysts and journalists who want a transparent, repeatable baseline rather than a black box.</p>
       </div>
     </div>
     <div style="padding:34px 0;display:flex;gap:20px;align-items:flex-start">
-      <div style="width:44px;height:44px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:13px;height:13px;background:#c9a24b;transform:rotate(45deg)"></div></div>
+      <div style="width:44px;height:44px;border:1px solid #4D6376;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:13px;height:13px;background:#c9a24b;transform:rotate(45deg)"></div></div>
       <div>
-        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#ece6d8;margin:0 0 8px 0">Monarch Castle Technologies</h3>
+        <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#F4F6F8;margin:0 0 8px 0">Monarch Castle Technologies</h3>
         <p style="color:#a8a090;font-size:14.5px;line-height:1.65;margin:0;max-width:560px">MTI is built and maintained by Monarch Castle Technologies as an open geopolitical monitoring project. The methodology, source list and update workflow are public; the live index refreshes on a two-hour cycle.</p>
       </div>
     </div>
-    <div style="margin-top:14px;padding:22px;border:1px solid #2c2820;background:#191711">
-      <p style="color:#7d7565;font-size:13px;line-height:1.6;margin:0;text-wrap:pretty">Disclaimer · MTI aggregates publicly available reporting for situational awareness. It does not represent the position of any government and should not be used as a sole basis for operational decisions.</p>
+    <div style="margin-top:14px;padding:22px;border:1px solid #314252;background:#122232">
+      <p style="color:#8498AA;font-size:13px;line-height:1.6;margin:0;text-wrap:pretty">Disclaimer · MTI aggregates publicly available reporting for situational awareness. It does not represent the position of any government and should not be used as a sole basis for operational decisions.</p>
     </div>
   </main>
   </sc-if>
@@ -586,11 +588,11 @@
   <!-- ============ LOCAL WORKSPACE ============ -->
   <sc-if value="{{ isWorkspace }}" hint-placeholder-val="{{ false }}">
   <main class="mti-main" data-screen-label="Local workspace" style="max-width:1180px;margin:0 auto;padding:0 28px 60px 28px">
-    <div style="padding:40px 0 24px 0;border-bottom:1px solid #2c2820;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+    <div style="padding:40px 0 24px 0;border-bottom:1px solid #314252;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#7d7565;text-transform:uppercase;margin-bottom:10px">Browser-local preferences</div>
-        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:32px;color:#ece6d8;margin:0">My workspace</h1>
-        <p style="color:#9a9284;font-size:14px;line-height:1.6;margin:12px 0 0 0;max-width:720px">No account is required. Favourites and visual thresholds stay only in this browser; MTI does not collect credentials, email addresses, or send notifications.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8498AA;text-transform:uppercase;margin-bottom:10px">Browser-local preferences</div>
+        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:32px;color:#F4F6F8;margin:0">My workspace</h1>
+        <p style="color:#A8B6C4;font-size:14px;line-height:1.6;margin:12px 0 0 0;max-width:720px">No account is required. Favourites and visual thresholds stay only in this browser; MTI does not collect credentials, email addresses, or send notifications.</p>
       </div>
     </div>
     <sc-if value="{{ hasBreach }}" hint-placeholder-val="{{ false }}">
@@ -599,21 +601,21 @@
         <span style="font-size:14px;color:#e8c4ba">{{ breachCount }} watched country/countries are at or above your saved visual threshold.</span>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-left:auto">
           <sc-for list="{{ breachList }}" as="b" hint-placeholder-count="1">
-            <button type="button" onClick="{{ b.onOpen }}" class="bnti-link mti-button" aria-label="Open {{ b.name }}, index {{ b.index }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ b.color }};padding:4px 9px">{{ b.code }} · {{ b.index }}</button>
+            <button type="button" onClick="{{ b.onOpen }}" class="bnti-link mti-button" aria-label="Open {{ b.name }}, index {{ b.index }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1726;background:{{ b.color }};padding:4px 9px">{{ b.code }} · {{ b.index }}</button>
           </sc-for>
         </div>
       </div>
     </sc-if>
     <sc-if value="{{ hasFavs }}" hint-placeholder-val="{{ false }}">
-      <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #2c2820;border-top:1px solid #2c2820;margin-top:26px">
+      <div class="mti-card-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid #314252;border-top:1px solid #314252;margin-top:26px">
         <sc-for list="{{ favList }}" as="c" hint-placeholder-count="2">
-          <div class="bnti-card" style="position:relative;border-right:1px solid #2c2820;border-bottom:1px solid #2c2820;padding:24px;background:#15130f;transition:border-color .15s">
+          <div class="bnti-card" style="position:relative;border-right:1px solid #314252;border-bottom:1px solid #314252;padding:24px;background:#0B1726;transition:border-color .15s">
             <button type="button" class="mti-button" onClick="{{ c.onOpen }}" aria-label="Open {{ c.name }} country detail, index {{ c.index }}" style="display:block;width:100%;cursor:pointer">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-right:34px">
-              <div style="display:flex;align-items:center;gap:11px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ c.color }};padding:3px 7px">{{ c.code }}</span><h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#ece6d8;margin:0">{{ c.name }}</h3></div>
+              <div style="display:flex;align-items:center;gap:11px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1726;background:{{ c.color }};padding:3px 7px">{{ c.code }}</span><h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;color:#F4F6F8;margin:0">{{ c.name }}</h3></div>
             </div>
             <div style="display:flex;align-items:flex-end;gap:12px;margin-top:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:40px;line-height:.85;color:{{ c.color }}">{{ c.index }}</div><div style="padding-bottom:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:{{ c.color }}">{{ c.status }}</div></div>
-            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#9a9284;text-wrap:pretty">{{ c.latest }}</div>
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1c1a14;font-family:'Spectral',serif;font-size:14.5px;line-height:1.4;color:#A8B6C4;text-wrap:pretty">{{ c.latest }}</div>
             </button>
             <button type="button" class="mti-button" onClick="{{ c.onFav }}" aria-label="{{ c.favLabel }}" aria-pressed="true" style="position:absolute;top:24px;right:24px;font-size:17px;color:#c9a24b;cursor:pointer">★</button>
           </div>
@@ -621,28 +623,28 @@
       </div>
     </sc-if>
     <sc-if value="{{ noFavs }}" hint-placeholder-val="{{ true }}">
-      <div style="border:1px solid #2c2820;padding:54px;text-align:center;margin-top:26px">
+      <div style="border:1px solid #314252;padding:54px;text-align:center;margin-top:26px">
         <div style="font-family:'Spectral',serif;font-size:20px;color:#d8d0c0;margin-bottom:8px">No favourites yet</div>
-        <p style="color:#7d7565;font-size:14px;margin:0 0 20px 0">Star a country to pin it here and follow its index over time.</p>
-        <button type="button" onClick="{{ goCountries }}" class="mti-button" style="display:inline-block;cursor:pointer;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:10px 18px;border-radius:1px">Browse countries</button>
+        <p style="color:#8498AA;font-size:14px;margin:0 0 20px 0">Star a country to pin it here and follow its index over time.</p>
+        <button type="button" onClick="{{ goCountries }}" class="mti-button" style="display:inline-block;cursor:pointer;background:#F4F6F8;color:#0B1726;font-weight:600;font-size:13px;padding:10px 18px;border-radius:1px">Browse countries</button>
       </div>
     </sc-if>
     <sc-if value="{{ hasFavs }}" hint-placeholder-val="{{ false }}">
       <div style="margin-top:40px">
         <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:14px">
           <div>
-            <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#ece6d8;margin:0">Visual thresholds</h2>
-            <p style="color:#9a9284;font-size:14px;margin:8px 0 0 0">Choose a level to highlight here when a watched country reaches it. This page does not send notifications.</p>
+            <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#F4F6F8;margin:0">Visual thresholds</h2>
+            <p style="color:#A8B6C4;font-size:14px;margin:8px 0 0 0">Choose a level to highlight here when a watched country reaches it. This page does not send notifications.</p>
           </div>
         </div>
-        <div class="mti-alert-scroll" style="border:1px solid #2c2820">
-          <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #2c2820;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Country</span><span>Index</span><span>Highlight at</span></div>
+        <div class="mti-alert-scroll" style="border:1px solid #314252">
+          <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid #314252;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#5a5448;text-transform:uppercase"><span>Code</span><span>Country</span><span>Index</span><span>Highlight at</span></div>
           <sc-for list="{{ thresholdList }}" as="a" hint-placeholder-count="2">
             <div class="mti-alert-grid" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid #1c1a14">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#15130f;background:{{ a.color }};padding:3px 7px">{{ a.code }}</span>
-              <span style="font-family:'Spectral',serif;font-size:16px;color:#ece6d8">{{ a.name }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1726;background:{{ a.color }};padding:3px 7px">{{ a.code }}</span>
+              <span style="font-family:'Spectral',serif;font-size:16px;color:#F4F6F8">{{ a.name }}</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:{{ a.color }}">{{ a.index }}</span>
-              <select aria-label="{{ a.name }} visual threshold" value="{{ a.thresholdVal }}" onChange="{{ a.onThreshold }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #2c2820;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7d7565 50%),linear-gradient(135deg,#7d7565 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
+              <select aria-label="{{ a.name }} visual threshold" value="{{ a.thresholdVal }}" onChange="{{ a.onThreshold }}" style="appearance:none;-webkit-appearance:none;background:#1c1a14;border:1px solid #314252;color:#c4bcac;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 26px 7px 11px;border-radius:1px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#8498AA 50%),linear-gradient(135deg,#8498AA 50%,transparent 50%);background-position:calc(100% - 14px) 13px,calc(100% - 9px) 13px;background-size:5px 5px,5px 5px;background-repeat:no-repeat">
                 <option value="off">Off</option>
                 <option value="elevated">Elevated · 4.0</option>
                 <option value="critical">Critical · 7.0</option>
@@ -650,63 +652,63 @@
             </div>
           </sc-for>
         </div>
-        <p style="color:#9a9284;font-size:12px;margin:12px 0 0 0;line-height:1.5">Preferences remain on this device in browser storage and do not leave MTI.</p>
+        <p style="color:#A8B6C4;font-size:12px;margin:12px 0 0 0;line-height:1.5">Preferences remain on this device in browser storage and do not leave MTI.</p>
       </div>
     </sc-if>
   </main>
   </sc-if>
 
   <!-- footer -->
-  <footer class="mti-footer" style="border-top:1px solid #2c2820;background:#120f0b;margin-top:20px">
+  <footer class="mti-footer" style="border-top:1px solid #314252;background:#120f0b;margin-top:20px">
     <div class="mti-footer-inner" style="max-width:1180px;margin:0 auto;padding:34px 28px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap">
       <div style="max-width:340px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:22px;height:22px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#c9a24b;transform:rotate(45deg)"></div></div>
-          <span style="font-family:'Spectral',serif;font-size:15px;color:#ece6d8">MENA Threat Index</span>
+          <div style="width:22px;height:22px;border:1px solid #4D6376;display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#c9a24b;transform:rotate(45deg)"></div></div>
+          <span style="font-family:'Spectral',serif;font-size:15px;color:#F4F6F8">MENA Threat Index</span>
         </div>
-        <p style="color:#6b6457;font-size:12.5px;line-height:1.6;margin:0">Open geopolitical monitoring across the Middle East & North Africa.</p>
+        <p style="color:#8498AA;font-size:12.5px;line-height:1.6;margin:0">Open geopolitical monitoring across the Middle East & North Africa.</p>
       </div>
       <div style="display:flex;gap:48px;flex-wrap:wrap">
         <div style="display:flex;flex-direction:column;gap:9px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#5a5448;text-transform:uppercase;margin-bottom:3px">Product</div>
-          <button type="button" class="bnti-link mti-button" onClick="{{ goOverview }}" style="cursor:pointer;font-size:13px;color:#9a9284">Live overview</button>
-          <button type="button" class="bnti-link mti-button" onClick="{{ goCountries }}" style="cursor:pointer;font-size:13px;color:#9a9284">Countries</button>
-          <button type="button" class="bnti-link mti-button" onClick="{{ goMarkets }}" style="cursor:pointer;font-size:13px;color:#9a9284">Markets</button>
-          <button type="button" class="bnti-link mti-button" onClick="{{ goMethodology }}" style="cursor:pointer;font-size:13px;color:#9a9284">Methodology</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goOverview }}" style="cursor:pointer;font-size:13px;color:#A8B6C4">Live overview</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goCountries }}" style="cursor:pointer;font-size:13px;color:#A8B6C4">Countries</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goMarkets }}" style="cursor:pointer;font-size:13px;color:#A8B6C4">Markets</button>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goMethodology }}" style="cursor:pointer;font-size:13px;color:#A8B6C4">Methodology</button>
         </div>
         <div style="display:flex;flex-direction:column;gap:9px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#5a5448;text-transform:uppercase;margin-bottom:3px">Company</div>
-          <button type="button" class="bnti-link mti-button" onClick="{{ goAbout }}" style="cursor:pointer;font-size:13px;color:#9a9284">About</button>
-          <span style="font-size:13px;color:#9a9284">Monarch Castle Technologies</span>
-          <span style="font-size:13px;color:#9a9284">Apache-2.0 · 2026</span>
+          <button type="button" class="bnti-link mti-button" onClick="{{ goAbout }}" style="cursor:pointer;font-size:13px;color:#A8B6C4">About</button>
+          <span style="font-size:13px;color:#A8B6C4">Monarch Castle Technologies</span>
+          <span style="font-size:13px;color:#A8B6C4">Apache-2.0 · 2026</span>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid #221f18"><div class="mti-footer-meta" style="max-width:1180px;margin:0 auto;padding:14px 28px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#4f4940;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><span>© 2026 Monarch Castle Technologies</span><span>Situational-awareness aid · not an intelligence assessment</span></div></div>
+    <div style="border-top:1px solid #243746"><div class="mti-footer-meta" style="max-width:1180px;margin:0 auto;padding:14px 28px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#4f4940;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><span>© 2026 Monarch Castle Technologies</span><span>Situational-awareness aid · not an intelligence assessment</span></div></div>
   </footer>
 
   <!-- share modal -->
   <sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeShare }}" onKeyDown="{{ shareKeyDown }}" style="position:fixed;inset:0;z-index:80;background:rgba(8,7,5,0.78);display:flex;align-items:center;justify-content:center;padding:24px">
-    <div ref="{{ setShareDialogEl }}" role="dialog" aria-modal="true" aria-labelledby="mti-share-title" onClick="{{ stopProp }}" style="width:100%;max-width:460px;background:#1a1711;border:1px solid #463f31;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
-      <div style="padding:14px 20px;border-bottom:1px solid #2c2820;display:flex;justify-content:space-between;align-items:center">
-        <span id="mti-share-title" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#7d7565;text-transform:uppercase">Share briefing</span>
-        <button type="button" ref="{{ setShareCloseEl }}" class="mti-button" onClick="{{ closeShare }}" aria-label="Close share briefing" style="cursor:pointer;color:#9a9284;font-size:16px;line-height:1;padding:6px">✕</button>
+    <div ref="{{ setShareDialogEl }}" role="dialog" aria-modal="true" aria-labelledby="mti-share-title" onClick="{{ stopProp }}" style="width:100%;max-width:460px;background:#1a1711;border:1px solid #4D6376;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+      <div style="padding:14px 20px;border-bottom:1px solid #314252;display:flex;justify-content:space-between;align-items:center">
+        <span id="mti-share-title" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#8498AA;text-transform:uppercase">Share briefing</span>
+        <button type="button" ref="{{ setShareCloseEl }}" class="mti-button" onClick="{{ closeShare }}" aria-label="Close share briefing" style="cursor:pointer;color:#A8B6C4;font-size:16px;line-height:1;padding:6px">✕</button>
       </div>
-      <div style="padding:26px 24px;background:#15130f;border-bottom:1px solid #2c2820">
+      <div style="padding:26px 24px;background:#0B1726;border-bottom:1px solid #314252">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-          <div style="width:22px;height:22px;border:1px solid #463f31;display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#c9a24b;transform:rotate(45deg)"></div></div>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#7d7565;text-transform:uppercase">MTI · Regional briefing</span>
+          <div style="width:22px;height:22px;border:1px solid #4D6376;display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#c9a24b;transform:rotate(45deg)"></div></div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8498AA;text-transform:uppercase">MTI · Regional briefing</span>
         </div>
         <div style="display:flex;align-items:flex-end;gap:12px;margin-bottom:16px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:44px;line-height:.82;color:{{ statusColor }}">{{ mainIndex }}</span>
           <span style="padding-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:{{ statusColor }}">/ 10 · {{ statusLabel }}</span>
         </div>
-        <div style="font-family:'Spectral',serif;font-size:19px;line-height:1.35;color:#ece6d8;text-wrap:pretty">{{ briefHeadline }}</div>
+        <div style="font-family:'Spectral',serif;font-size:19px;line-height:1.35;color:#F4F6F8;text-wrap:pretty">{{ briefHeadline }}</div>
         <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#5a5448">Updated {{ updatedLabel }} · monarch castle technologies</div>
       </div>
       <div style="padding:16px 20px;display:flex;gap:10px;align-items:center">
-        <button type="button" onClick="{{ copyBrief }}" class="mti-button" style="cursor:pointer;flex:1;text-align:center;background:#ece6d8;color:#15130f;font-weight:600;font-size:13px;padding:11px;border-radius:1px">Copy to clipboard</button>
+        <button type="button" onClick="{{ copyBrief }}" class="mti-button" style="cursor:pointer;flex:1;text-align:center;background:#F4F6F8;color:#0B1726;font-weight:600;font-size:13px;padding:11px;border-radius:1px">Copy to clipboard</button>
         <span role="status" aria-live="polite" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:{{ copyStatusColor }};letter-spacing:.06em">{{ copyStatus }}</span>
       </div>
     </div>
@@ -826,7 +828,7 @@ class Component extends DCLogic {
   // ---- helpers ----
   color(i){ return i>=7 ? '#cf5b4e' : i>=4 ? '#d8a13f' : '#6fae7e'; }
   label(i){ return i>=7 ? 'CRITICAL' : i>=4 ? 'ELEVATED' : 'STABLE'; }
-  catColor(w){ return w>=5 ? '#cf5b4e' : w>=3 ? '#d8a13f' : w>0 ? '#8fae8a' : '#7d7565'; }
+  catColor(w){ return w>=5 ? '#cf5b4e' : w>=3 ? '#d8a13f' : w>0 ? '#8fae8a' : '#8498AA'; }
   fmt(s){ const d=new Date(s); if(isNaN(d)) return s; const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const p=n=>String(n).padStart(2,'0'); return p(d.getDate())+' '+M[d.getMonth()]+' '+p(d.getHours())+':'+p(d.getMinutes()); }
   go(route, extra){ this.setState(Object.assign({ route }, extra||{})); try{ window.scrollTo(0,0); }catch(e){} this._mapKey=null; this._trendKey=null; this._chKey=null; this._marketsKey=null; }
@@ -857,7 +859,7 @@ class Component extends DCLogic {
     const y=d3.scaleLinear().domain([1,10]).range([h-m.b,m.t]);
     const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','img').attr('aria-label',cn+' threat index history').style('display','block');
     [[1,4,'#6fae7e'],[4,7,'#d8a13f'],[7,10,'#cf5b4e']].forEach(b=> svg.append('rect').attr('x',m.l).attr('width',w-m.l-m.r).attr('y',y(b[1])).attr('height',y(b[0])-y(b[1])).attr('fill',b[2]).attr('opacity',0.05));
-    [1,4,7,10].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b'); svg.append('text').attr('x',6).attr('y',y(v)+3).attr('fill','#6b6457').attr('font-size',9).attr('font-family',"'IBM Plex Mono',monospace").text(v); });
+    [1,4,7,10].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b'); svg.append('text').attr('x',6).attr('y',y(v)+3).attr('fill','#8498AA').attr('font-size',9).attr('font-family',"'IBM Plex Mono',monospace").text(v); });
     const line=d3.line().x(d=>x(d.t)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
     const area=d3.area().x(d=>x(d.t)).y0(h-m.b).y1(d=>y(d.v)).curve(d3.curveMonotoneX);
     const col=this.color(co.index);
@@ -886,17 +888,17 @@ class Component extends DCLogic {
     const path=d3.geoPath(proj);
     const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','group').attr('aria-label','Interactive regional threat map').style('display','block');
     svg.append('g').selectAll('path').data(world.features).enter().append('path')
-      .attr('d',path).attr('fill','#201d16').attr('stroke','#2c2820').attr('stroke-width',0.6).attr('pointer-events','none');
+      .attr('d',path).attr('fill','#201d16').attr('stroke','#314252').attr('stroke-width',0.6).attr('pointer-events','none');
     const tip=d3.select(el).append('div').style('position','absolute').style('pointer-events','none')
-      .style('background','#0e0c09').style('border','1px solid #463f31').style('padding','7px 11px')
-      .style('font-family',"'IBM Plex Mono',monospace").style('font-size','11px').style('color','#ece6d8')
+      .style('background','#0e0c09').style('border','1px solid #4D6376').style('padding','7px 11px')
+      .style('font-family',"'IBM Plex Mono',monospace").style('font-size','11px').style('color','#F4F6F8')
       .style('opacity',0).style('white-space','nowrap').style('z-index','5').style('transform','translate(-50%,-130%)');
     const self=this;
     svg.append('g').selectAll('path').data(core).enter().append('path')
       .attr('d',path)
       .attr('fill',d=> self.color(tracked[d.properties.name].index))
       .attr('fill-opacity',0.85)
-      .attr('stroke','#15130f')
+      .attr('stroke','#0B1726')
       .attr('stroke-width',0.8)
       .attr('tabindex',0)
       .attr('role','button')
@@ -907,13 +909,13 @@ class Component extends DCLogic {
         d3.select(this).attr('fill-opacity',1); })
       .on('mouseleave',function(ev,d){ tip.style('opacity',0); d3.select(this).attr('fill-opacity',0.85); })
       .on('focus',function(ev,d){ d3.select(this).attr('fill-opacity',1).attr('stroke',self.accent()).attr('stroke-width',2); })
-      .on('blur',function(ev,d){ d3.select(this).attr('fill-opacity',0.85).attr('stroke','#15130f').attr('stroke-width',0.8); })
+      .on('blur',function(ev,d){ d3.select(this).attr('fill-opacity',0.85).attr('stroke','#0B1726').attr('stroke-width',0.8); })
       .on('click',function(ev,d){ self.go('country',{activeCountry:d.properties.name}); })
       .on('keydown',function(ev,d){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); self.go('country',{activeCountry:d.properties.name}); } });
     svg.append('g').selectAll('text').data(core).enter().append('text')
       .attr('transform',d=>'translate('+path.centroid(d)+')').attr('text-anchor','middle')
       .attr('font-family',"'IBM Plex Mono',monospace").attr('font-size',9).attr('letter-spacing','0.08em')
-      .attr('fill','#15130f')
+      .attr('fill','#0B1726')
       .attr('pointer-events','none')
       .text(d=> tracked[d.properties.name].code);
   }
@@ -935,17 +937,17 @@ class Component extends DCLogic {
     [[1,4,'#6fae7e'],[4,7,'#d8a13f'],[7,10,'#cf5b4e']].forEach(b=>{
       svg.append('rect').attr('x',m.l).attr('width',w-m.l-m.r).attr('y',y(b[1])).attr('height',y(b[0])-y(b[1])).attr('fill',b[2]).attr('opacity',0.05); });
     [1,4,7,10].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b');
-      svg.append('text').attr('x',6).attr('y',y(v)+3).attr('fill','#6b6457').attr('font-size',10).attr('font-family',"'IBM Plex Mono',monospace").text(v); });
+      svg.append('text').attr('x',6).attr('y',y(v)+3).attr('fill','#8498AA').attr('font-size',10).attr('font-family',"'IBM Plex Mono',monospace").text(v); });
     if(showF){ svg.append('line').attr('x1',x(last.t)).attr('x2',x(last.t)).attr('y1',m.t).attr('y2',h-m.b).attr('stroke','#3a352a').attr('stroke-dasharray','2 3'); }
     const area=d3.area().x(d=>x(d.t)).y0(h-m.b).y1(d=>y(d.v)).curve(d3.curveMonotoneX);
     const line=d3.line().x(d=>x(d.t)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
-    svg.append('path').datum(hist).attr('d',area).attr('fill','#ece6d8').attr('opacity',0.04);
-    svg.append('path').datum(hist).attr('d',line).attr('fill','none').attr('stroke','#ece6d8').attr('stroke-width',1.7);
+    svg.append('path').datum(hist).attr('d',area).attr('fill','#F4F6F8').attr('opacity',0.04);
+    svg.append('path').datum(hist).attr('d',line).attr('fill','none').attr('stroke','#F4F6F8').attr('stroke-width',1.7);
     if(showF){ const band=[{t:last.t,lo:last.v,hi:last.v}].concat(fc.filter(d=>d.lo!=null&&d.hi!=null));
       if(band.length>1){ const bandArea=d3.area().x(d=>x(d.t)).y0(d=>y(d.lo)).y1(d=>y(d.hi)).curve(d3.curveMonotoneX); svg.append('path').datum(band).attr('d',bandArea).attr('fill',this.accent()).attr('opacity',0.12); }
       svg.append('path').datum(fcLine).attr('d',line).attr('fill','none').attr('stroke',this.accent()).attr('stroke-width',1.5).attr('stroke-dasharray','4 3');
       const lf=fc[fc.length-1]; svg.append('circle').attr('cx',x(lf.t)).attr('cy',y(lf.v)).attr('r',3).attr('fill',this.accent()); }
-    svg.append('circle').attr('cx',x(last.t)).attr('cy',y(last.v)).attr('r',3.6).attr('fill','#ece6d8');
+    svg.append('circle').attr('cx',x(last.t)).attr('cy',y(last.v)).attr('r',3.6).attr('fill','#F4F6F8');
   }
 
   drawMarkets(){
@@ -964,9 +966,9 @@ class Component extends DCLogic {
     const svg=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('role','img').attr('aria-label','MTI and '+top.name+' normalized market trend').style('display','block');
     [0,.5,1].forEach(v=>{ svg.append('line').attr('x1',m.l).attr('x2',w-m.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','#26221b'); });
     const line=d3.line().x(d=>x(d.t)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
-    svg.append('path').datum(index).attr('d',line).attr('fill','none').attr('stroke','#ece6d8').attr('stroke-width',1.7);
+    svg.append('path').datum(index).attr('d',line).attr('fill','none').attr('stroke','#F4F6F8').attr('stroke-width',1.7);
     svg.append('path').datum(market).attr('d',line).attr('fill','none').attr('stroke',this.accent()).attr('stroke-width',1.7);
-    svg.append('text').attr('x',m.l).attr('y',14).attr('fill','#ece6d8').attr('font-size',10).attr('font-family',"'IBM Plex Mono',monospace").text('MTI');
+    svg.append('text').attr('x',m.l).attr('y',14).attr('fill','#F4F6F8').attr('font-size',10).attr('font-family',"'IBM Plex Mono',monospace").text('MTI');
     svg.append('text').attr('x',m.l+44).attr('y',14).attr('fill',this.accent()).attr('font-size',10).attr('font-family',"'IBM Plex Mono',monospace").text(top.name);
   }
 
@@ -976,7 +978,7 @@ class Component extends DCLogic {
     const navDef=[['Overview','overview'],['Countries','countries'],['Markets','markets'],['Methodology','methodology'],['About','about']];
     const activeRoutes={ overview:'overview', countries:'countries', country:'countries', markets:'markets', methodology:'methodology', about:'about' };
     const nav=navDef.map(([label,key])=>({ label, onClick:()=>this.go(key), current:activeRoutes[route]===key?'page':'false',
-      color: activeRoutes[route]===key ? '#ece6d8' : '#9a9284',
+      color: activeRoutes[route]===key ? '#F4F6F8' : '#A8B6C4',
       border: activeRoutes[route]===key ? accent : 'transparent' }));
 
     // counts
@@ -1049,7 +1051,7 @@ class Component extends DCLogic {
     const weights=D.weights.map(w=>({ label:w[1], weight:(w[2]>0?'+':'')+w[2].toFixed(1), color:this.catColor(w[2]>0?w[2]:0.0001*0||w[2]) , }));
     // fix weight colors (trade negative -> brass, neutral -> muted)
     const weightsV=D.weights.map(w=>({ label:w[1], weight:(w[2]>0?'+':'')+w[2].toFixed(1),
-      color: w[2]>=5?'#cf5b4e': w[2]>=3?'#d8a13f': w[2]>0?'#8fae8a': w[2]<0?'#7fa0b8':'#7d7565' }));
+      color: w[2]>=5?'#cf5b4e': w[2]>=3?'#d8a13f': w[2]>0?'#8fae8a': w[2]<0?'#7fa0b8':'#8498AA' }));
 
     const favList=countriesList.filter(c=>c.isFav);
     const thresholdList=sorted.filter(o=>S.favs.includes(o.name)).map(o=>{
@@ -1082,10 +1084,10 @@ class Component extends DCLogic {
       // overview
       updatedLabel:this.fmt(D.meta.updated)+' UTC', nextLabel:this.fmt(D.meta.next)+' UTC',
       liveOn: !!this._live, liveLabel: this._live ? 'Live data' : (S.liveErr ? 'Cached snapshot' : 'Connecting…'),
-      liveColor: this._live ? '#6fae7e' : (S.liveErr ? '#7d7565' : '#d8a13f'),
+      liveColor: this._live ? '#6fae7e' : (S.liveErr ? '#8498AA' : '#d8a13f'),
       mainIndex:mainIndex.toFixed(2), mainPct:((mainIndex-1)/9*100).toFixed(1),
       statusColor:this.color(mainIndex), statusLabel:this.label(mainIndex),
-      deltaLabel:(delta>=0?'+':'')+delta.toFixed(2), deltaColor: delta>0?'#cf5b4e': delta<0?'#6fae7e':'#9a9284',
+      deltaLabel:(delta>=0?'+':'')+delta.toFixed(2), deltaColor: delta>0?'#cf5b4e': delta<0?'#6fae7e':'#A8B6C4',
       totalSignals:total,
       confidence:(D.meta&&D.meta.confidence!=null)?Math.round(D.meta.confidence*100)+'%':'—',
       briefWindow:D.brief.window, briefSources:D.brief.sources, briefRefresh:D.brief.refresh,
@@ -1122,7 +1124,7 @@ class Component extends DCLogic {
       setCHistEl:(el)=>{ this.cHistEl=el; },
       whyOpen:S.whyOpen, toggleWhy:()=>this.setState({whyOpen:!S.whyOpen}),
       d_wAvg:co.raw.toFixed(2), d_wComputed:(1+9*(1-Math.exp(-co.raw/5*1.2))).toFixed(2),
-      d_thresholdColor:S.thresholds[cn]?accent:'#9a9284',
+      d_thresholdColor:S.thresholds[cn]?accent:'#A8B6C4',
       d_thresholdLabel:S.thresholds[cn]?('Local threshold · ≥ '+(S.thresholds[cn]==='critical'?'7.0':'4.0')):('Set visual threshold for '+cn),
       toggleCountryThreshold:()=>{ const cur=S.thresholds[cn]; const next=!cur?'elevated':cur==='elevated'?'critical':'off'; this.setThreshold(cn,next); },
       // methodology
