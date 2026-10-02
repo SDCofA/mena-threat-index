@@ -94,10 +94,10 @@ def test_muted_text_palette_meets_normal_text_contrast():
     html = _frontend_html()
 
     compact = re.sub(r"\s+", "", html.lower())
-    assert '[style*="color:#6b6457"],[style*="color:#7d7565"]{color:#9a9284!important}' in compact
-    assert 'svgtext[fill="#6b6457"],svgtext[fill="#7d7565"]{fill:#9a9284!important}' in compact
-    assert "input::placeholder{color:#9a9284}" in compact
-    assert _contrast_ratio("#9a9284", "#1c1a14") >= 4.5
+    assert '[style*="color:#8498aa"]{color:#a8b6c4!important}' in compact
+    assert 'svgtext[fill="#8498aa"]{fill:#a8b6c4!important}' in compact
+    assert "input::placeholder{color:#a8b6c4}" in compact
+    assert _contrast_ratio("#a8b6c4", "#122232") >= 4.5
 
 
 def test_transform_live_accepts_pipeline_briefing_bullets():
