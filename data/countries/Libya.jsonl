@@ -758,3 +758,4 @@
 {"run_id": "2026-10-10T16Z", "ts": "2026-10-10T16:00:00Z", "name": "Libya", "index": 1.08, "raw": 0.036, "confidence": 0.803, "n_events": 109}
 {"run_id": "2026-10-10T20Z", "ts": "2026-10-10T20:00:00Z", "name": "Libya", "index": 1.28, "raw": 0.133, "confidence": 0.802, "n_events": 113}
 {"run_id": "2026-10-11T00Z", "ts": "2026-10-11T00:00:00Z", "name": "Libya", "index": 1.27, "raw": 0.125, "confidence": 0.801, "n_events": 114}
+{"run_id": "2026-10-11T08Z", "ts": "2026-10-11T08:00:00Z", "name": "Libya", "index": 1.22, "raw": 0.105, "confidence": 0.801, "n_events": 103}
