@@ -803,3 +803,4 @@
 {"run_id": "2026-10-20T06Z", "ts": "2026-10-20T06:00:00Z", "name": "Yemen", "index": 2.21, "raw": 0.599, "confidence": 0.803, "n_events": 169}
 {"run_id": "2026-10-20T12Z", "ts": "2026-10-20T12:00:00Z", "name": "Yemen", "index": 2.71, "raw": 0.878, "confidence": 0.806, "n_events": 159}
 {"run_id": "2026-10-20T18Z", "ts": "2026-10-20T18:00:00Z", "name": "Yemen", "index": 2.65, "raw": 0.845, "confidence": 0.811, "n_events": 167}
+{"run_id": "2026-10-20T22Z", "ts": "2026-10-20T22:00:00Z", "name": "Yemen", "index": 2.6, "raw": 0.818, "confidence": 0.813, "n_events": 163}
