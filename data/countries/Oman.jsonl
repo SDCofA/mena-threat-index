@@ -866,3 +866,4 @@
 {"run_id": "2026-11-03T18Z", "ts": "2026-11-03T18:00:00Z", "name": "Oman", "index": 2.71, "raw": 0.876, "confidence": 0.799, "n_events": 140}
 {"run_id": "2026-11-04T00Z", "ts": "2026-11-04T00:00:00Z", "name": "Oman", "index": 2.62, "raw": 0.828, "confidence": 0.799, "n_events": 149}
 {"run_id": "2026-11-04T08Z", "ts": "2026-11-04T08:00:00Z", "name": "Oman", "index": 2.15, "raw": 0.567, "confidence": 0.794, "n_events": 139}
+{"run_id": "2026-11-04T16Z", "ts": "2026-11-04T16:00:00Z", "name": "Oman", "index": 1.56, "raw": 0.267, "confidence": 0.794, "n_events": 132}
