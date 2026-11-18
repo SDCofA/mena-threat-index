@@ -911,3 +911,4 @@
 {"run_id": "2026-11-16T22Z", "ts": "2026-11-16T22:00:00Z", "name": "Tunisia", "index": 1.12, "raw": 0.058, "confidence": 0.796, "n_events": 142}
 {"run_id": "2026-11-17T06Z", "ts": "2026-11-17T06:00:00Z", "name": "Tunisia", "index": 1.2, "raw": 0.093, "confidence": 0.795, "n_events": 150}
 {"run_id": "2026-11-17T16Z", "ts": "2026-11-17T16:00:00Z", "name": "Tunisia", "index": 1.05, "raw": 0.022, "confidence": 0.796, "n_events": 187}
+{"run_id": "2026-11-18T00Z", "ts": "2026-11-18T00:00:00Z", "name": "Tunisia", "index": 1.07, "raw": 0.034, "confidence": 0.796, "n_events": 193}
