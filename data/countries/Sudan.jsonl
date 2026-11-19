@@ -914,3 +914,4 @@
 {"run_id": "2026-11-18T00Z", "ts": "2026-11-18T00:00:00Z", "name": "Sudan", "index": 2.2, "raw": 0.595, "confidence": 0.801, "n_events": 175}
 {"run_id": "2026-11-18T08Z", "ts": "2026-11-18T08:00:00Z", "name": "Sudan", "index": 2.06, "raw": 0.52, "confidence": 0.804, "n_events": 174}
 {"run_id": "2026-11-18T18Z", "ts": "2026-11-18T18:00:00Z", "name": "Sudan", "index": 2.81, "raw": 0.938, "confidence": 0.8, "n_events": 121}
+{"run_id": "2026-11-19T00Z", "ts": "2026-11-19T00:00:00Z", "name": "Sudan", "index": 2.86, "raw": 0.963, "confidence": 0.798, "n_events": 121}
